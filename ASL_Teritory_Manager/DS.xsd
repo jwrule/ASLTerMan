@@ -401,7 +401,16 @@ SELECT TerNo, [Date Out], [Date In], Publisher FROM [Deaf Territories] WHERE (Te
               <Mapping SourceColumn="Date In" DataSetColumn="Date In" />
               <Mapping SourceColumn="Publisher" DataSetColumn="Publisher" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ASL_DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM [dbo].[Deaf Territories] </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VP TerritoriesTableAdapter" GeneratorDataComponentClassName="VP_TerritoriesTableAdapter" Name="VP Territories" UserDataComponentName="VP TerritoriesTableAdapter">
             <MainSource>
@@ -559,7 +568,16 @@ SELECT TerNo, Area, [Date Out], [Date In], Publisher, Lat, Long FROM Maps WHERE 
               <Mapping SourceColumn="Lat" DataSetColumn="Lat" />
               <Mapping SourceColumn="Long" DataSetColumn="Long" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ASL_DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM [dbo].[Maps] </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Name Search TerritoriesTableAdapter" GeneratorDataComponentClassName="Name_Search_TerritoriesTableAdapter" Name="Name Search Territories" UserDataComponentName="Name Search TerritoriesTableAdapter">
             <MainSource>
@@ -623,7 +641,16 @@ SELECT TerNo, [Date Out], [Date In], Publisher FROM [Name Search Territories] WH
               <Mapping SourceColumn="Date In" DataSetColumn="Date In" />
               <Mapping SourceColumn="Publisher" DataSetColumn="Publisher" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ASL_DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM [dbo].[Name Search Territories] </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VP Search TerritoriesTableAdapter" GeneratorDataComponentClassName="VP_Search_TerritoriesTableAdapter" Name="VP Search Territories" UserDataComponentName="VP Search TerritoriesTableAdapter">
             <MainSource>
@@ -692,7 +719,16 @@ SELECT [Area Code and Prefix], [Territory Group], [Date Out], Publisher, Printed
               <Mapping SourceColumn="Publisher" DataSetColumn="Publisher" />
               <Mapping SourceColumn="Printed" DataSetColumn="Printed" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ASL_DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM [dbo].[VP Search Territories] </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />

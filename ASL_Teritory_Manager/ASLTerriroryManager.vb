@@ -502,6 +502,14 @@ Public Class ASLTerriroryManager
 #End Region
 #Region "Delete Database"
     Private Sub btnDeleteAllRecords_Click(sender As Object, e As EventArgs) Handles btnDeleteAllRecords.Click
+        Dim _ta As DSTableAdapters.ContactsTableAdapter = New DSTableAdapters.ContactsTableAdapter
+        Dim _tadt As DSTableAdapters.Deaf_TerritoriesTableAdapter = New DSTableAdapters.Deaf_TerritoriesTableAdapter
+        Dim _tavpt As DSTableAdapters.VP_TerritoriesTableAdapter = New DSTableAdapters.VP_TerritoriesTableAdapter
+        Dim _tavps As DSTableAdapters.VP_Search_TerritoriesTableAdapter = New DSTableAdapters.VP_Search_TerritoriesTableAdapter
+        Dim _tans As DSTableAdapters.Name_Search_TerritoriesTableAdapter = New DSTableAdapters.Name_Search_TerritoriesTableAdapter
+        Dim _tams
+        _ta.DeleteAll()
+        _tadt()
         _tavpt.DeleteAll()
 
 
