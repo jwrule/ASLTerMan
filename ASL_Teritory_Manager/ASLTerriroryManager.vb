@@ -129,7 +129,7 @@ Public Class ASLTerriroryManager
             e.Graphics.DrawString(rtbDeafTerritory.Text, font1, Brushes.Black, e.MarginBounds)
         ElseIf Me.TabControl.SelectedIndex = 2 Then
             e.Graphics.DrawString(rtbVPTerritory.Text, font1, Brushes.Black, e.MarginBounds)
-       
+
 
         ElseIf Me.TabControl.SelectedIndex = 3 Then
             Dim charactersOnPage As Integer = 0
@@ -502,17 +502,18 @@ Public Class ASLTerriroryManager
 #End Region
 #Region "Delete Database"
     Private Sub btnDeleteAllRecords_Click(sender As Object, e As EventArgs) Handles btnDeleteAllRecords.Click
-        Dim _ta As DSTableAdapters.ContactsTableAdapter = New DSTableAdapters.ContactsTableAdapter
-        Dim _tadt As DSTableAdapters.Deaf_TerritoriesTableAdapter = New DSTableAdapters.Deaf_TerritoriesTableAdapter
-        Dim _tavpt As DSTableAdapters.VP_TerritoriesTableAdapter = New DSTableAdapters.VP_TerritoriesTableAdapter
-        Dim _tavps As DSTableAdapters.VP_Search_TerritoriesTableAdapter = New DSTableAdapters.VP_Search_TerritoriesTableAdapter
-        Dim _tans As DSTableAdapters.Name_Search_TerritoriesTableAdapter = New DSTableAdapters.Name_Search_TerritoriesTableAdapter
-        Dim _tams
-        _ta.DeleteAll()
-        _tadt()
-        _tavpt.DeleteAll()
-
-
+        Dim result = MsgBox("Are you sure you want to delete the entire database?", MsgBoxStyle.YesNo, "Delete Everything?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            _ta.DeleteAll()
+            _tadt.DeleteAll()
+            _tavps.DeleteAll()
+            _tans.DeleteAll()
+            _tams.DeleteAll()
+            _tavpt.DeleteAll()
+            MsgBox("Your database is deleted")
+        End If
     End Sub
 #End Region
     
