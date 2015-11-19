@@ -16,7 +16,7 @@ Public Class ASLTerriroryManager
 #End Region
     Private Sub ASLTerriroryManager_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        _ta.Fill(DS.Contacts)
+        ' _ta.Fill(DS.Contacts)
         _firstload = False
         Try
             BuildContact(DS.Contacts.Rows.Find(dgvContacts.CurrentRow.DataBoundItem(0)))
@@ -170,6 +170,7 @@ Public Class ASLTerriroryManager
 #Region "Events"
 #Region "Contact Events"
     Private Sub tabManageContacts_Enter(sender As Object, e As EventArgs) Handles tabManageContacts.Enter
+        _ta.Fill(DS.Contacts)
         lblRecordsCount.Text = dgvContacts.Rows.Count
     End Sub
     Private Sub dgvContacts_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvContacts.CellClick
@@ -570,7 +571,20 @@ Public Class ASLTerriroryManager
         End If
     End Sub
 #End Region
-    
+#Region "Backup and Restore"
+    Private Sub btnBackup_Click(sender As Object, e As EventArgs) Handles btnBackup.Click
+        _ta.Backup(DS.Contacts)
+        MsgBox("ASL Territory Manager has been backed up to C:\ASL_Territory_Manager.bak")
+    End Sub
+    Private Sub btnRestore_Click(sender As Object, e As EventArgs) Handles btnRestore.Click
+        
+        _ta.Restore(DS.Contacts)
+        
+        MsgBox("ASL Territory Manager has been restored from C:\ASL_Territory_Manager.bak")
+    End Sub
+#End Region
 #End Region
   
+    
+   
 End Class
