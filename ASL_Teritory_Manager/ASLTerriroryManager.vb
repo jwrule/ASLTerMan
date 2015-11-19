@@ -500,7 +500,7 @@ Public Class ASLTerriroryManager
         Process.Start("csv.txt")
     End Sub
 #End Region
-#Region "Delete Database"
+#Region "Delete Tables"
     Private Sub btnDeleteAllRecords_Click(sender As Object, e As EventArgs) Handles btnDeleteAllRecords.Click
         Dim result = MsgBox("Are you sure you want to delete the entire database?", MsgBoxStyle.YesNo, "Delete Everything?")
         If result = MsgBoxResult.No Then
@@ -515,11 +515,62 @@ Public Class ASLTerriroryManager
             MsgBox("Your database is deleted")
         End If
     End Sub
+    Private Sub btnDeleteAllContacts_Click(sender As Object, e As EventArgs) Handles btnDeleteAllContacts.Click
+        Dim result = MsgBox("Are you sure you want to delete all of your contacts?", MsgBoxStyle.YesNo, "Delete Contacts?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            _ta.DeleteAll()
+            MsgBox("Your contacts are deleted")
+        End If
+    End Sub
+    Private Sub btnDeleteAllDeafTer_Click(sender As Object, e As EventArgs) Handles btnDeleteAllDeafTer.Click
+        Dim result = MsgBox("Are you sure you want to delete all of your deaf territories?", MsgBoxStyle.YesNo, "Delete Deaf Territories?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            _tadt.DeleteAll()
+            MsgBox("Your deaf territories are deleted")
+        End If
+    End Sub
+    Private Sub btnDeleteVpTer_Click(sender As Object, e As EventArgs) Handles btnDeleteVpTer.Click
+        Dim result = MsgBox("Are you sure you want to delete all of your VP territories?", MsgBoxStyle.YesNo, "Delete VP Territories?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            _tavpt.DeleteAll()
+            MsgBox("Your VP territories are deleted")
+        End If
+    End Sub
+    Private Sub btnDeleteVpSerTer_Click(sender As Object, e As EventArgs) Handles btnDeleteVpSerTer.Click
+        Dim result = MsgBox("Are you sure you want to delete all of your VP search territories?", MsgBoxStyle.YesNo, "Delete VP Search Territories?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            _tavps.DeleteAll()
+            MsgBox("Your VP search territories are deleted")
+        End If
+    End Sub
+    Private Sub btnDelMapSer_Click(sender As Object, e As EventArgs) Handles btnDelMapSer.Click
+        Dim result = MsgBox("Are you sure you want to delete all of your map search territories?", MsgBoxStyle.YesNo, "Delete Map Search Territories?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            _tams.DeleteAll()
+            MsgBox("Your map search territories are deleted")
+        End If
+    End Sub
+    Private Sub btnDelNameSer_Click(sender As Object, e As EventArgs) Handles btnDelNameSer.Click
+        Dim result = MsgBox("Are you sure you want to delete all of your name search territories?", MsgBoxStyle.YesNo, "Delete Name Search Territories?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            _tans.DeleteAll()
+            MsgBox("Your name search territories are deleted")
+        End If
+    End Sub
 #End Region
     
 #End Region
-
-
-    
-    
+  
 End Class

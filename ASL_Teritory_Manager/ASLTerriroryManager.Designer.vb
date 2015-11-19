@@ -84,9 +84,32 @@ Partial Class ASLTerriroryManager
         Me.lblLastName = New System.Windows.Forms.Label()
         Me.lblFirstName = New System.Windows.Forms.Label()
         Me.dgvContacts = New System.Windows.Forms.DataGridView()
+        Me.UIDDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AgentDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FirstNameDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastNameDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddressDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CityDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StateDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ZipDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VP1DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VP2DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VP3DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NotesDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameFromDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DoNotCallDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DeafTerNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VPTerNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameTerNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateSearchedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateFoundDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LatDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LongDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS = New ASL_Teritory_Manager.DS()
         Me.tbLastName = New System.Windows.Forms.TextBox()
         Me.tbFirstName = New System.Windows.Forms.TextBox()
         Me.tabDeafTeritorries = New System.Windows.Forms.TabPage()
@@ -98,6 +121,11 @@ Partial Class ASLTerriroryManager
         Me.btnDelDeafTer = New System.Windows.Forms.Button()
         Me.btnNewDeafTer = New System.Windows.Forms.Button()
         Me.dgvDeafTerritories = New System.Windows.Forms.DataGridView()
+        Me.TerNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateOutDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateInDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PublisherDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DeafTerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.tabVPterritories = New System.Windows.Forms.TabPage()
         Me.lblVpTerCount = New System.Windows.Forms.Label()
         Me.lblVpTer = New System.Windows.Forms.Label()
@@ -107,6 +135,11 @@ Partial Class ASLTerriroryManager
         Me.btnDelVPTer = New System.Windows.Forms.Button()
         Me.btnNewVPTer = New System.Windows.Forms.Button()
         Me.dgvVPTerritory = New System.Windows.Forms.DataGridView()
+        Me.TerNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateOutDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateInDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PublisherDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VPTerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.tabVPsearch = New System.Windows.Forms.TabPage()
         Me.lblVpSearchTerCount = New System.Windows.Forms.Label()
         Me.lblVpSearchTer = New System.Windows.Forms.Label()
@@ -116,6 +149,12 @@ Partial Class ASLTerriroryManager
         Me.btnDelVPsearchTer = New System.Windows.Forms.Button()
         Me.btnNewVPserchTer = New System.Windows.Forms.Button()
         Me.dgvVPsearchTer = New System.Windows.Forms.DataGridView()
+        Me.AreaCodeAndPrefixDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TerritoryGroupDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateOutDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PublisherDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrintedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VPsearchTerBindingSourrce = New System.Windows.Forms.BindingSource(Me.components)
         Me.tabMapSearchTer = New System.Windows.Forms.TabPage()
         Me.lblMapTerCount = New System.Windows.Forms.Label()
         Me.lblMapTer = New System.Windows.Forms.Label()
@@ -125,6 +164,14 @@ Partial Class ASLTerriroryManager
         Me.btnNewMap = New System.Windows.Forms.Button()
         Me.WebBrowser = New System.Windows.Forms.WebBrowser()
         Me.dgvMapsSearchTer = New System.Windows.Forms.DataGridView()
+        Me.TerNoDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AreaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateOutDataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateInDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PublisherDataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LatDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LongDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MapsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.gbxTerMap = New System.Windows.Forms.GroupBox()
         Me.tabNameTerritories = New System.Windows.Forms.TabPage()
         Me.lblNameSearchTerCount = New System.Windows.Forms.Label()
@@ -135,7 +182,28 @@ Partial Class ASLTerriroryManager
         Me.btnNameSearchDel = New System.Windows.Forms.Button()
         Me.btnNameSearchAdd = New System.Windows.Forms.Button()
         Me.dgvNameSearchTer = New System.Windows.Forms.DataGridView()
+        Me.TerNoDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateOutDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateInDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PublisherDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameSearchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.tabDatabase = New System.Windows.Forms.TabPage()
+        Me.lblRestore = New System.Windows.Forms.Label()
+        Me.btnRestore = New System.Windows.Forms.Button()
+        Me.lblBackup = New System.Windows.Forms.Label()
+        Me.btnBackup = New System.Windows.Forms.Button()
+        Me.lblDelMapSer = New System.Windows.Forms.Label()
+        Me.lblDelNameSer = New System.Windows.Forms.Label()
+        Me.lblDelVpSer = New System.Windows.Forms.Label()
+        Me.lblDeleteVpTer = New System.Windows.Forms.Label()
+        Me.lblDeleteDeafTer = New System.Windows.Forms.Label()
+        Me.lblDeleteAllContacts = New System.Windows.Forms.Label()
+        Me.btnDelMapSer = New System.Windows.Forms.Button()
+        Me.btnDelNameSer = New System.Windows.Forms.Button()
+        Me.btnDeleteVpSerTer = New System.Windows.Forms.Button()
+        Me.btnDeleteVpTer = New System.Windows.Forms.Button()
+        Me.btnDeleteAllDeafTer = New System.Windows.Forms.Button()
+        Me.btnDeleteAllContacts = New System.Windows.Forms.Button()
         Me.lblDeleteAllButton = New System.Windows.Forms.Label()
         Me.lblExportButton = New System.Windows.Forms.Label()
         Me.btnDeleteAllRecords = New System.Windows.Forms.Button()
@@ -185,104 +253,36 @@ Partial Class ASLTerriroryManager
         Me.VP3DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NotesDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameFromDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UIDDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AgentDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FirstNameDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastNameDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AddressDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CityDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StateDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ZipDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VP1DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VP2DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VP3DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NotesDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameFromDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DoNotCallDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DeafTerNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VPTerNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameTerNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateSearchedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateFoundDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LatDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LongDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS = New ASL_Teritory_Manager.DS()
-        Me.TerNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateOutDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateInDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PublisherDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DeafTerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TerNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateOutDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateInDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PublisherDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VPTerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AreaCodeAndPrefixDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TerritoryGroupDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateOutDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PublisherDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrintedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.VPsearchTerBindingSourrce = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TerNoDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AreaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateOutDataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateInDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PublisherDataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LatDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LongDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MapsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TerNoDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateOutDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateInDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PublisherDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameSearchBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Deaf_TerritoriesTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.Deaf_TerritoriesTableAdapter()
         Me.VP_TerritoriesTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.VP_TerritoriesTableAdapter()
         Me.VP_Search_TerritoriesTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.VP_Search_TerritoriesTableAdapter()
         Me.Name_Search_TerritoriesTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.Name_Search_TerritoriesTableAdapter()
         Me.ContactsTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.ContactsTableAdapter()
         Me.MapsTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.MapsTableAdapter()
-        Me.btnDeleteAllContacts = New System.Windows.Forms.Button()
-        Me.btnDeleteAllDeafTer = New System.Windows.Forms.Button()
-        Me.btnDeleteVpTer = New System.Windows.Forms.Button()
-        Me.btnDeleteVpSerTer = New System.Windows.Forms.Button()
-        Me.btnDelNameSer = New System.Windows.Forms.Button()
-        Me.btnDelMapSer = New System.Windows.Forms.Button()
-        Me.lblDeleteAllContacts = New System.Windows.Forms.Label()
-        Me.lblDeleteDeafTer = New System.Windows.Forms.Label()
-        Me.lblDeleteVpTer = New System.Windows.Forms.Label()
-        Me.lblDelVpSer = New System.Windows.Forms.Label()
-        Me.lblDelNameSer = New System.Windows.Forms.Label()
-        Me.lblDelMapSer = New System.Windows.Forms.Label()
-        Me.lblBackup = New System.Windows.Forms.Label()
-        Me.btnBackup = New System.Windows.Forms.Button()
-        Me.lblRestore = New System.Windows.Forms.Label()
-        Me.btnRestore = New System.Windows.Forms.Button()
         Me.TabControl.SuspendLayout()
         Me.tabManageContacts.SuspendLayout()
         Me.gbQuickSearch.SuspendLayout()
         Me.gbContactManage.SuspendLayout()
         CType(Me.dgvContacts, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
-        Me.tabDeafTeritorries.SuspendLayout()
-        CType(Me.dgvDeafTerritories, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabVPterritories.SuspendLayout()
-        CType(Me.dgvVPTerritory, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabVPsearch.SuspendLayout()
-        CType(Me.dgvVPsearchTer, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabMapSearchTer.SuspendLayout()
-        CType(Me.dgvMapsSearchTer, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabNameTerritories.SuspendLayout()
-        CType(Me.dgvNameSearchTer, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabDatabase.SuspendLayout()
         CType(Me.ContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabDeafTeritorries.SuspendLayout()
+        CType(Me.dgvDeafTerritories, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeafTerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabVPterritories.SuspendLayout()
+        CType(Me.dgvVPTerritory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VPTerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabVPsearch.SuspendLayout()
+        CType(Me.dgvVPsearchTer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VPsearchTerBindingSourrce, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabMapSearchTer.SuspendLayout()
+        CType(Me.dgvMapsSearchTer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MapsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabNameTerritories.SuspendLayout()
+        CType(Me.dgvNameSearchTer, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NameSearchBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabDatabase.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl
@@ -863,6 +863,169 @@ Partial Class ASLTerriroryManager
         Me.dgvContacts.Size = New System.Drawing.Size(1175, 450)
         Me.dgvContacts.TabIndex = 5
         '
+        'UIDDataGridViewTextBoxColumn1
+        '
+        Me.UIDDataGridViewTextBoxColumn1.DataPropertyName = "UID"
+        Me.UIDDataGridViewTextBoxColumn1.HeaderText = "UID"
+        Me.UIDDataGridViewTextBoxColumn1.Name = "UIDDataGridViewTextBoxColumn1"
+        Me.UIDDataGridViewTextBoxColumn1.Visible = False
+        '
+        'AgentDataGridViewTextBoxColumn2
+        '
+        Me.AgentDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.AgentDataGridViewTextBoxColumn2.DataPropertyName = "Agent"
+        Me.AgentDataGridViewTextBoxColumn2.HeaderText = "Agent"
+        Me.AgentDataGridViewTextBoxColumn2.Name = "AgentDataGridViewTextBoxColumn2"
+        Me.AgentDataGridViewTextBoxColumn2.Width = 60
+        '
+        'FirstNameDataGridViewTextBoxColumn3
+        '
+        Me.FirstNameDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.FirstNameDataGridViewTextBoxColumn3.DataPropertyName = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn3.HeaderText = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn3.Name = "FirstNameDataGridViewTextBoxColumn3"
+        Me.FirstNameDataGridViewTextBoxColumn3.Width = 76
+        '
+        'LastNameDataGridViewTextBoxColumn3
+        '
+        Me.LastNameDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.LastNameDataGridViewTextBoxColumn3.DataPropertyName = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn3.HeaderText = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn3.Name = "LastNameDataGridViewTextBoxColumn3"
+        Me.LastNameDataGridViewTextBoxColumn3.Width = 77
+        '
+        'AddressDataGridViewTextBoxColumn2
+        '
+        Me.AddressDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.AddressDataGridViewTextBoxColumn2.DataPropertyName = "Address"
+        Me.AddressDataGridViewTextBoxColumn2.HeaderText = "Address"
+        Me.AddressDataGridViewTextBoxColumn2.Name = "AddressDataGridViewTextBoxColumn2"
+        Me.AddressDataGridViewTextBoxColumn2.Width = 70
+        '
+        'CityDataGridViewTextBoxColumn2
+        '
+        Me.CityDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.CityDataGridViewTextBoxColumn2.DataPropertyName = "City"
+        Me.CityDataGridViewTextBoxColumn2.HeaderText = "City"
+        Me.CityDataGridViewTextBoxColumn2.Name = "CityDataGridViewTextBoxColumn2"
+        Me.CityDataGridViewTextBoxColumn2.Width = 49
+        '
+        'StateDataGridViewTextBoxColumn2
+        '
+        Me.StateDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.StateDataGridViewTextBoxColumn2.DataPropertyName = "State"
+        Me.StateDataGridViewTextBoxColumn2.HeaderText = "State"
+        Me.StateDataGridViewTextBoxColumn2.Name = "StateDataGridViewTextBoxColumn2"
+        Me.StateDataGridViewTextBoxColumn2.Width = 57
+        '
+        'ZipDataGridViewTextBoxColumn2
+        '
+        Me.ZipDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.ZipDataGridViewTextBoxColumn2.DataPropertyName = "Zip"
+        Me.ZipDataGridViewTextBoxColumn2.HeaderText = "Zip"
+        Me.ZipDataGridViewTextBoxColumn2.Name = "ZipDataGridViewTextBoxColumn2"
+        Me.ZipDataGridViewTextBoxColumn2.Width = 47
+        '
+        'VP1DataGridViewTextBoxColumn2
+        '
+        Me.VP1DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.VP1DataGridViewTextBoxColumn2.DataPropertyName = "VP1"
+        Me.VP1DataGridViewTextBoxColumn2.HeaderText = "VP1"
+        Me.VP1DataGridViewTextBoxColumn2.Name = "VP1DataGridViewTextBoxColumn2"
+        Me.VP1DataGridViewTextBoxColumn2.Width = 52
+        '
+        'VP2DataGridViewTextBoxColumn2
+        '
+        Me.VP2DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.VP2DataGridViewTextBoxColumn2.DataPropertyName = "VP2"
+        Me.VP2DataGridViewTextBoxColumn2.HeaderText = "VP2"
+        Me.VP2DataGridViewTextBoxColumn2.Name = "VP2DataGridViewTextBoxColumn2"
+        Me.VP2DataGridViewTextBoxColumn2.Width = 52
+        '
+        'VP3DataGridViewTextBoxColumn2
+        '
+        Me.VP3DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.VP3DataGridViewTextBoxColumn2.DataPropertyName = "VP3"
+        Me.VP3DataGridViewTextBoxColumn2.HeaderText = "VP3"
+        Me.VP3DataGridViewTextBoxColumn2.Name = "VP3DataGridViewTextBoxColumn2"
+        Me.VP3DataGridViewTextBoxColumn2.Width = 52
+        '
+        'NotesDataGridViewTextBoxColumn2
+        '
+        Me.NotesDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.NotesDataGridViewTextBoxColumn2.DataPropertyName = "Notes"
+        Me.NotesDataGridViewTextBoxColumn2.HeaderText = "Notes"
+        Me.NotesDataGridViewTextBoxColumn2.Name = "NotesDataGridViewTextBoxColumn2"
+        Me.NotesDataGridViewTextBoxColumn2.Width = 60
+        '
+        'NameFromDataGridViewTextBoxColumn2
+        '
+        Me.NameFromDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.NameFromDataGridViewTextBoxColumn2.DataPropertyName = "Name From"
+        Me.NameFromDataGridViewTextBoxColumn2.HeaderText = "Name From"
+        Me.NameFromDataGridViewTextBoxColumn2.Name = "NameFromDataGridViewTextBoxColumn2"
+        Me.NameFromDataGridViewTextBoxColumn2.Width = 79
+        '
+        'DoNotCallDataGridViewTextBoxColumn1
+        '
+        Me.DoNotCallDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DoNotCallDataGridViewTextBoxColumn1.DataPropertyName = "Do Not Call"
+        Me.DoNotCallDataGridViewTextBoxColumn1.HeaderText = "Do Not Call"
+        Me.DoNotCallDataGridViewTextBoxColumn1.Name = "DoNotCallDataGridViewTextBoxColumn1"
+        Me.DoNotCallDataGridViewTextBoxColumn1.Width = 79
+        '
+        'DeafTerNoDataGridViewTextBoxColumn1
+        '
+        Me.DeafTerNoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DeafTerNoDataGridViewTextBoxColumn1.DataPropertyName = "Deaf Ter No"
+        Me.DeafTerNoDataGridViewTextBoxColumn1.HeaderText = "Deaf Ter No"
+        Me.DeafTerNoDataGridViewTextBoxColumn1.Name = "DeafTerNoDataGridViewTextBoxColumn1"
+        Me.DeafTerNoDataGridViewTextBoxColumn1.Width = 71
+        '
+        'VPTerNoDataGridViewTextBoxColumn1
+        '
+        Me.VPTerNoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.VPTerNoDataGridViewTextBoxColumn1.DataPropertyName = "VP Ter No"
+        Me.VPTerNoDataGridViewTextBoxColumn1.HeaderText = "VP Ter No"
+        Me.VPTerNoDataGridViewTextBoxColumn1.Name = "VPTerNoDataGridViewTextBoxColumn1"
+        Me.VPTerNoDataGridViewTextBoxColumn1.Width = 76
+        '
+        'NameTerNoDataGridViewTextBoxColumn
+        '
+        Me.NameTerNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.NameTerNoDataGridViewTextBoxColumn.DataPropertyName = "Name Ter No"
+        Me.NameTerNoDataGridViewTextBoxColumn.HeaderText = "Name Ter No"
+        Me.NameTerNoDataGridViewTextBoxColumn.Name = "NameTerNoDataGridViewTextBoxColumn"
+        Me.NameTerNoDataGridViewTextBoxColumn.Width = 76
+        '
+        'DateSearchedDataGridViewTextBoxColumn
+        '
+        Me.DateSearchedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DateSearchedDataGridViewTextBoxColumn.DataPropertyName = "Date Searched"
+        Me.DateSearchedDataGridViewTextBoxColumn.HeaderText = "Date Searched"
+        Me.DateSearchedDataGridViewTextBoxColumn.Name = "DateSearchedDataGridViewTextBoxColumn"
+        Me.DateSearchedDataGridViewTextBoxColumn.Width = 96
+        '
+        'DateFoundDataGridViewTextBoxColumn
+        '
+        Me.DateFoundDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DateFoundDataGridViewTextBoxColumn.DataPropertyName = "Date Found"
+        Me.DateFoundDataGridViewTextBoxColumn.HeaderText = "Date Found"
+        Me.DateFoundDataGridViewTextBoxColumn.Name = "DateFoundDataGridViewTextBoxColumn"
+        Me.DateFoundDataGridViewTextBoxColumn.Width = 81
+        '
+        'LatDataGridViewTextBoxColumn
+        '
+        Me.LatDataGridViewTextBoxColumn.DataPropertyName = "Lat"
+        Me.LatDataGridViewTextBoxColumn.HeaderText = "Lat"
+        Me.LatDataGridViewTextBoxColumn.Name = "LatDataGridViewTextBoxColumn"
+        '
+        'LongDataGridViewTextBoxColumn
+        '
+        Me.LongDataGridViewTextBoxColumn.DataPropertyName = "Long"
+        Me.LongDataGridViewTextBoxColumn.HeaderText = "Long"
+        Me.LongDataGridViewTextBoxColumn.Name = "LongDataGridViewTextBoxColumn"
+        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.RemoveToolStripMenuItem})
@@ -880,6 +1043,16 @@ Partial Class ASLTerriroryManager
         Me.RemoveToolStripMenuItem.Name = "RemoveToolStripMenuItem"
         Me.RemoveToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.RemoveToolStripMenuItem.Text = "Remove"
+        '
+        'ContactsBindingSource
+        '
+        Me.ContactsBindingSource.DataMember = "Contacts"
+        Me.ContactsBindingSource.DataSource = Me.DS
+        '
+        'DS
+        '
+        Me.DS.DataSetName = "DS"
+        Me.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'tbLastName
         '
@@ -985,6 +1158,35 @@ Partial Class ASLTerriroryManager
         Me.dgvDeafTerritories.Size = New System.Drawing.Size(442, 675)
         Me.dgvDeafTerritories.TabIndex = 0
         '
+        'TerNoDataGridViewTextBoxColumn
+        '
+        Me.TerNoDataGridViewTextBoxColumn.DataPropertyName = "TerNo"
+        Me.TerNoDataGridViewTextBoxColumn.HeaderText = "TerNo"
+        Me.TerNoDataGridViewTextBoxColumn.Name = "TerNoDataGridViewTextBoxColumn"
+        '
+        'DateOutDataGridViewTextBoxColumn
+        '
+        Me.DateOutDataGridViewTextBoxColumn.DataPropertyName = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn.HeaderText = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn.Name = "DateOutDataGridViewTextBoxColumn"
+        '
+        'DateInDataGridViewTextBoxColumn
+        '
+        Me.DateInDataGridViewTextBoxColumn.DataPropertyName = "Date In"
+        Me.DateInDataGridViewTextBoxColumn.HeaderText = "Date In"
+        Me.DateInDataGridViewTextBoxColumn.Name = "DateInDataGridViewTextBoxColumn"
+        '
+        'PublisherDataGridViewTextBoxColumn
+        '
+        Me.PublisherDataGridViewTextBoxColumn.DataPropertyName = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn.HeaderText = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn.Name = "PublisherDataGridViewTextBoxColumn"
+        '
+        'DeafTerBindingSource
+        '
+        Me.DeafTerBindingSource.DataMember = "Deaf Territories"
+        Me.DeafTerBindingSource.DataSource = Me.DS
+        '
         'tabVPterritories
         '
         Me.tabVPterritories.Controls.Add(Me.lblVpTerCount)
@@ -1074,6 +1276,35 @@ Partial Class ASLTerriroryManager
         Me.dgvVPTerritory.Name = "dgvVPTerritory"
         Me.dgvVPTerritory.Size = New System.Drawing.Size(442, 675)
         Me.dgvVPTerritory.TabIndex = 0
+        '
+        'TerNoDataGridViewTextBoxColumn1
+        '
+        Me.TerNoDataGridViewTextBoxColumn1.DataPropertyName = "TerNo"
+        Me.TerNoDataGridViewTextBoxColumn1.HeaderText = "TerNo"
+        Me.TerNoDataGridViewTextBoxColumn1.Name = "TerNoDataGridViewTextBoxColumn1"
+        '
+        'DateOutDataGridViewTextBoxColumn1
+        '
+        Me.DateOutDataGridViewTextBoxColumn1.DataPropertyName = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn1.HeaderText = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn1.Name = "DateOutDataGridViewTextBoxColumn1"
+        '
+        'DateInDataGridViewTextBoxColumn1
+        '
+        Me.DateInDataGridViewTextBoxColumn1.DataPropertyName = "Date In"
+        Me.DateInDataGridViewTextBoxColumn1.HeaderText = "Date In"
+        Me.DateInDataGridViewTextBoxColumn1.Name = "DateInDataGridViewTextBoxColumn1"
+        '
+        'PublisherDataGridViewTextBoxColumn1
+        '
+        Me.PublisherDataGridViewTextBoxColumn1.DataPropertyName = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn1.HeaderText = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn1.Name = "PublisherDataGridViewTextBoxColumn1"
+        '
+        'VPTerBindingSource
+        '
+        Me.VPTerBindingSource.DataMember = "VP Territories"
+        Me.VPTerBindingSource.DataSource = Me.DS
         '
         'tabVPsearch
         '
@@ -1165,6 +1396,41 @@ Partial Class ASLTerriroryManager
         Me.dgvVPsearchTer.Size = New System.Drawing.Size(525, 675)
         Me.dgvVPsearchTer.TabIndex = 0
         '
+        'AreaCodeAndPrefixDataGridViewTextBoxColumn
+        '
+        Me.AreaCodeAndPrefixDataGridViewTextBoxColumn.DataPropertyName = "Area Code and Prefix"
+        Me.AreaCodeAndPrefixDataGridViewTextBoxColumn.HeaderText = "Area Code and Prefix"
+        Me.AreaCodeAndPrefixDataGridViewTextBoxColumn.Name = "AreaCodeAndPrefixDataGridViewTextBoxColumn"
+        '
+        'TerritoryGroupDataGridViewTextBoxColumn
+        '
+        Me.TerritoryGroupDataGridViewTextBoxColumn.DataPropertyName = "Territory Group"
+        Me.TerritoryGroupDataGridViewTextBoxColumn.HeaderText = "Territory Group"
+        Me.TerritoryGroupDataGridViewTextBoxColumn.Name = "TerritoryGroupDataGridViewTextBoxColumn"
+        '
+        'DateOutDataGridViewTextBoxColumn2
+        '
+        Me.DateOutDataGridViewTextBoxColumn2.DataPropertyName = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn2.HeaderText = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn2.Name = "DateOutDataGridViewTextBoxColumn2"
+        '
+        'PublisherDataGridViewTextBoxColumn2
+        '
+        Me.PublisherDataGridViewTextBoxColumn2.DataPropertyName = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn2.HeaderText = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn2.Name = "PublisherDataGridViewTextBoxColumn2"
+        '
+        'PrintedDataGridViewTextBoxColumn
+        '
+        Me.PrintedDataGridViewTextBoxColumn.DataPropertyName = "Printed"
+        Me.PrintedDataGridViewTextBoxColumn.HeaderText = "Printed"
+        Me.PrintedDataGridViewTextBoxColumn.Name = "PrintedDataGridViewTextBoxColumn"
+        '
+        'VPsearchTerBindingSourrce
+        '
+        Me.VPsearchTerBindingSourrce.DataMember = "VP Search Territories"
+        Me.VPsearchTerBindingSourrce.DataSource = Me.DS
+        '
         'tabMapSearchTer
         '
         Me.tabMapSearchTer.Controls.Add(Me.lblMapTerCount)
@@ -1255,6 +1521,53 @@ Partial Class ASLTerriroryManager
         Me.dgvMapsSearchTer.Name = "dgvMapsSearchTer"
         Me.dgvMapsSearchTer.Size = New System.Drawing.Size(435, 675)
         Me.dgvMapsSearchTer.TabIndex = 0
+        '
+        'TerNoDataGridViewTextBoxColumn3
+        '
+        Me.TerNoDataGridViewTextBoxColumn3.DataPropertyName = "TerNo"
+        Me.TerNoDataGridViewTextBoxColumn3.HeaderText = "TerNo"
+        Me.TerNoDataGridViewTextBoxColumn3.Name = "TerNoDataGridViewTextBoxColumn3"
+        '
+        'AreaDataGridViewTextBoxColumn
+        '
+        Me.AreaDataGridViewTextBoxColumn.DataPropertyName = "Area"
+        Me.AreaDataGridViewTextBoxColumn.HeaderText = "Area"
+        Me.AreaDataGridViewTextBoxColumn.Name = "AreaDataGridViewTextBoxColumn"
+        '
+        'DateOutDataGridViewTextBoxColumn4
+        '
+        Me.DateOutDataGridViewTextBoxColumn4.DataPropertyName = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn4.HeaderText = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn4.Name = "DateOutDataGridViewTextBoxColumn4"
+        '
+        'DateInDataGridViewTextBoxColumn3
+        '
+        Me.DateInDataGridViewTextBoxColumn3.DataPropertyName = "Date In"
+        Me.DateInDataGridViewTextBoxColumn3.HeaderText = "Date In"
+        Me.DateInDataGridViewTextBoxColumn3.Name = "DateInDataGridViewTextBoxColumn3"
+        '
+        'PublisherDataGridViewTextBoxColumn4
+        '
+        Me.PublisherDataGridViewTextBoxColumn4.DataPropertyName = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn4.HeaderText = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn4.Name = "PublisherDataGridViewTextBoxColumn4"
+        '
+        'LatDataGridViewTextBoxColumn1
+        '
+        Me.LatDataGridViewTextBoxColumn1.DataPropertyName = "Lat"
+        Me.LatDataGridViewTextBoxColumn1.HeaderText = "Lat"
+        Me.LatDataGridViewTextBoxColumn1.Name = "LatDataGridViewTextBoxColumn1"
+        '
+        'LongDataGridViewTextBoxColumn1
+        '
+        Me.LongDataGridViewTextBoxColumn1.DataPropertyName = "Long"
+        Me.LongDataGridViewTextBoxColumn1.HeaderText = "Long"
+        Me.LongDataGridViewTextBoxColumn1.Name = "LongDataGridViewTextBoxColumn1"
+        '
+        'MapsBindingSource
+        '
+        Me.MapsBindingSource.DataMember = "Maps"
+        Me.MapsBindingSource.DataSource = Me.DS
         '
         'gbxTerMap
         '
@@ -1354,6 +1667,35 @@ Partial Class ASLTerriroryManager
         Me.dgvNameSearchTer.Size = New System.Drawing.Size(443, 675)
         Me.dgvNameSearchTer.TabIndex = 0
         '
+        'TerNoDataGridViewTextBoxColumn2
+        '
+        Me.TerNoDataGridViewTextBoxColumn2.DataPropertyName = "TerNo"
+        Me.TerNoDataGridViewTextBoxColumn2.HeaderText = "TerNo"
+        Me.TerNoDataGridViewTextBoxColumn2.Name = "TerNoDataGridViewTextBoxColumn2"
+        '
+        'DateOutDataGridViewTextBoxColumn3
+        '
+        Me.DateOutDataGridViewTextBoxColumn3.DataPropertyName = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn3.HeaderText = "Date Out"
+        Me.DateOutDataGridViewTextBoxColumn3.Name = "DateOutDataGridViewTextBoxColumn3"
+        '
+        'DateInDataGridViewTextBoxColumn2
+        '
+        Me.DateInDataGridViewTextBoxColumn2.DataPropertyName = "Date In"
+        Me.DateInDataGridViewTextBoxColumn2.HeaderText = "Date In"
+        Me.DateInDataGridViewTextBoxColumn2.Name = "DateInDataGridViewTextBoxColumn2"
+        '
+        'PublisherDataGridViewTextBoxColumn3
+        '
+        Me.PublisherDataGridViewTextBoxColumn3.DataPropertyName = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn3.HeaderText = "Publisher"
+        Me.PublisherDataGridViewTextBoxColumn3.Name = "PublisherDataGridViewTextBoxColumn3"
+        '
+        'NameSearchBindingSource
+        '
+        Me.NameSearchBindingSource.DataMember = "Name Search Territories"
+        Me.NameSearchBindingSource.DataSource = Me.DS
+        '
         'tabDatabase
         '
         Me.tabDatabase.Controls.Add(Me.lblRestore)
@@ -1382,6 +1724,150 @@ Partial Class ASLTerriroryManager
         Me.tabDatabase.TabIndex = 6
         Me.tabDatabase.Text = "Manage Database"
         Me.tabDatabase.UseVisualStyleBackColor = True
+        '
+        'lblRestore
+        '
+        Me.lblRestore.AutoSize = True
+        Me.lblRestore.Location = New System.Drawing.Point(127, 129)
+        Me.lblRestore.Name = "lblRestore"
+        Me.lblRestore.Size = New System.Drawing.Size(171, 13)
+        Me.lblRestore.TabIndex = 19
+        Me.lblRestore.Text = "Restore the database from backup"
+        '
+        'btnRestore
+        '
+        Me.btnRestore.Location = New System.Drawing.Point(24, 124)
+        Me.btnRestore.Name = "btnRestore"
+        Me.btnRestore.Size = New System.Drawing.Size(75, 23)
+        Me.btnRestore.TabIndex = 18
+        Me.btnRestore.Text = "Restore"
+        Me.btnRestore.UseVisualStyleBackColor = True
+        '
+        'lblBackup
+        '
+        Me.lblBackup.AutoSize = True
+        Me.lblBackup.Location = New System.Drawing.Point(127, 88)
+        Me.lblBackup.Name = "lblBackup"
+        Me.lblBackup.Size = New System.Drawing.Size(109, 13)
+        Me.lblBackup.TabIndex = 17
+        Me.lblBackup.Text = "Backup the database"
+        '
+        'btnBackup
+        '
+        Me.btnBackup.Location = New System.Drawing.Point(24, 83)
+        Me.btnBackup.Name = "btnBackup"
+        Me.btnBackup.Size = New System.Drawing.Size(75, 23)
+        Me.btnBackup.TabIndex = 16
+        Me.btnBackup.Text = "Backup"
+        Me.btnBackup.UseVisualStyleBackColor = True
+        '
+        'lblDelMapSer
+        '
+        Me.lblDelMapSer.AutoSize = True
+        Me.lblDelMapSer.Location = New System.Drawing.Point(605, 270)
+        Me.lblDelMapSer.Name = "lblDelMapSer"
+        Me.lblDelMapSer.Size = New System.Drawing.Size(154, 13)
+        Me.lblDelMapSer.TabIndex = 15
+        Me.lblDelMapSer.Text = "Delete all map search territories"
+        '
+        'lblDelNameSer
+        '
+        Me.lblDelNameSer.AutoSize = True
+        Me.lblDelNameSer.Location = New System.Drawing.Point(605, 316)
+        Me.lblDelNameSer.Name = "lblDelNameSer"
+        Me.lblDelNameSer.Size = New System.Drawing.Size(160, 13)
+        Me.lblDelNameSer.TabIndex = 14
+        Me.lblDelNameSer.Text = "Delete all name search territories"
+        '
+        'lblDelVpSer
+        '
+        Me.lblDelVpSer.AutoSize = True
+        Me.lblDelVpSer.Location = New System.Drawing.Point(605, 225)
+        Me.lblDelVpSer.Name = "lblDelVpSer"
+        Me.lblDelVpSer.Size = New System.Drawing.Size(148, 13)
+        Me.lblDelVpSer.TabIndex = 13
+        Me.lblDelVpSer.Text = "Delete all VP search territories"
+        '
+        'lblDeleteVpTer
+        '
+        Me.lblDeleteVpTer.AutoSize = True
+        Me.lblDeleteVpTer.Location = New System.Drawing.Point(605, 181)
+        Me.lblDeleteVpTer.Name = "lblDeleteVpTer"
+        Me.lblDeleteVpTer.Size = New System.Drawing.Size(116, 13)
+        Me.lblDeleteVpTer.TabIndex = 12
+        Me.lblDeleteVpTer.Text = "Delete all VP verritories"
+        '
+        'lblDeleteDeafTer
+        '
+        Me.lblDeleteDeafTer.AutoSize = True
+        Me.lblDeleteDeafTer.Location = New System.Drawing.Point(605, 134)
+        Me.lblDeleteDeafTer.Name = "lblDeleteDeafTer"
+        Me.lblDeleteDeafTer.Size = New System.Drawing.Size(120, 13)
+        Me.lblDeleteDeafTer.TabIndex = 11
+        Me.lblDeleteDeafTer.Text = "Delete all deaf territories"
+        '
+        'lblDeleteAllContacts
+        '
+        Me.lblDeleteAllContacts.AutoSize = True
+        Me.lblDeleteAllContacts.Location = New System.Drawing.Point(605, 88)
+        Me.lblDeleteAllContacts.Name = "lblDeleteAllContacts"
+        Me.lblDeleteAllContacts.Size = New System.Drawing.Size(95, 13)
+        Me.lblDeleteAllContacts.TabIndex = 10
+        Me.lblDeleteAllContacts.Text = "Delete all contacts"
+        '
+        'btnDelMapSer
+        '
+        Me.btnDelMapSer.Location = New System.Drawing.Point(503, 265)
+        Me.btnDelMapSer.Name = "btnDelMapSer"
+        Me.btnDelMapSer.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelMapSer.TabIndex = 9
+        Me.btnDelMapSer.Text = "Delete"
+        Me.btnDelMapSer.UseVisualStyleBackColor = True
+        '
+        'btnDelNameSer
+        '
+        Me.btnDelNameSer.Location = New System.Drawing.Point(502, 311)
+        Me.btnDelNameSer.Name = "btnDelNameSer"
+        Me.btnDelNameSer.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelNameSer.TabIndex = 8
+        Me.btnDelNameSer.Text = "Delete"
+        Me.btnDelNameSer.UseVisualStyleBackColor = True
+        '
+        'btnDeleteVpSerTer
+        '
+        Me.btnDeleteVpSerTer.Location = New System.Drawing.Point(503, 220)
+        Me.btnDeleteVpSerTer.Name = "btnDeleteVpSerTer"
+        Me.btnDeleteVpSerTer.Size = New System.Drawing.Size(75, 23)
+        Me.btnDeleteVpSerTer.TabIndex = 7
+        Me.btnDeleteVpSerTer.Text = "Delete"
+        Me.btnDeleteVpSerTer.UseVisualStyleBackColor = True
+        '
+        'btnDeleteVpTer
+        '
+        Me.btnDeleteVpTer.Location = New System.Drawing.Point(503, 176)
+        Me.btnDeleteVpTer.Name = "btnDeleteVpTer"
+        Me.btnDeleteVpTer.Size = New System.Drawing.Size(75, 23)
+        Me.btnDeleteVpTer.TabIndex = 6
+        Me.btnDeleteVpTer.Text = "Delete"
+        Me.btnDeleteVpTer.UseVisualStyleBackColor = True
+        '
+        'btnDeleteAllDeafTer
+        '
+        Me.btnDeleteAllDeafTer.Location = New System.Drawing.Point(502, 129)
+        Me.btnDeleteAllDeafTer.Name = "btnDeleteAllDeafTer"
+        Me.btnDeleteAllDeafTer.Size = New System.Drawing.Size(75, 23)
+        Me.btnDeleteAllDeafTer.TabIndex = 5
+        Me.btnDeleteAllDeafTer.Text = "Delete"
+        Me.btnDeleteAllDeafTer.UseVisualStyleBackColor = True
+        '
+        'btnDeleteAllContacts
+        '
+        Me.btnDeleteAllContacts.Location = New System.Drawing.Point(502, 83)
+        Me.btnDeleteAllContacts.Name = "btnDeleteAllContacts"
+        Me.btnDeleteAllContacts.Size = New System.Drawing.Size(75, 23)
+        Me.btnDeleteAllContacts.TabIndex = 4
+        Me.btnDeleteAllContacts.Text = "Delete"
+        Me.btnDeleteAllContacts.UseVisualStyleBackColor = True
         '
         'lblDeleteAllButton
         '
@@ -1701,348 +2187,6 @@ Partial Class ASLTerriroryManager
         Me.NameFromDataGridViewTextBoxColumn1.HeaderText = "Name From"
         Me.NameFromDataGridViewTextBoxColumn1.Name = "NameFromDataGridViewTextBoxColumn1"
         '
-        'UIDDataGridViewTextBoxColumn1
-        '
-        Me.UIDDataGridViewTextBoxColumn1.DataPropertyName = "UID"
-        Me.UIDDataGridViewTextBoxColumn1.HeaderText = "UID"
-        Me.UIDDataGridViewTextBoxColumn1.Name = "UIDDataGridViewTextBoxColumn1"
-        Me.UIDDataGridViewTextBoxColumn1.Visible = False
-        '
-        'AgentDataGridViewTextBoxColumn2
-        '
-        Me.AgentDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.AgentDataGridViewTextBoxColumn2.DataPropertyName = "Agent"
-        Me.AgentDataGridViewTextBoxColumn2.HeaderText = "Agent"
-        Me.AgentDataGridViewTextBoxColumn2.Name = "AgentDataGridViewTextBoxColumn2"
-        Me.AgentDataGridViewTextBoxColumn2.Width = 60
-        '
-        'FirstNameDataGridViewTextBoxColumn3
-        '
-        Me.FirstNameDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.FirstNameDataGridViewTextBoxColumn3.DataPropertyName = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn3.HeaderText = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn3.Name = "FirstNameDataGridViewTextBoxColumn3"
-        Me.FirstNameDataGridViewTextBoxColumn3.Width = 76
-        '
-        'LastNameDataGridViewTextBoxColumn3
-        '
-        Me.LastNameDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.LastNameDataGridViewTextBoxColumn3.DataPropertyName = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn3.HeaderText = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn3.Name = "LastNameDataGridViewTextBoxColumn3"
-        Me.LastNameDataGridViewTextBoxColumn3.Width = 77
-        '
-        'AddressDataGridViewTextBoxColumn2
-        '
-        Me.AddressDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.AddressDataGridViewTextBoxColumn2.DataPropertyName = "Address"
-        Me.AddressDataGridViewTextBoxColumn2.HeaderText = "Address"
-        Me.AddressDataGridViewTextBoxColumn2.Name = "AddressDataGridViewTextBoxColumn2"
-        Me.AddressDataGridViewTextBoxColumn2.Width = 70
-        '
-        'CityDataGridViewTextBoxColumn2
-        '
-        Me.CityDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.CityDataGridViewTextBoxColumn2.DataPropertyName = "City"
-        Me.CityDataGridViewTextBoxColumn2.HeaderText = "City"
-        Me.CityDataGridViewTextBoxColumn2.Name = "CityDataGridViewTextBoxColumn2"
-        Me.CityDataGridViewTextBoxColumn2.Width = 49
-        '
-        'StateDataGridViewTextBoxColumn2
-        '
-        Me.StateDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.StateDataGridViewTextBoxColumn2.DataPropertyName = "State"
-        Me.StateDataGridViewTextBoxColumn2.HeaderText = "State"
-        Me.StateDataGridViewTextBoxColumn2.Name = "StateDataGridViewTextBoxColumn2"
-        Me.StateDataGridViewTextBoxColumn2.Width = 57
-        '
-        'ZipDataGridViewTextBoxColumn2
-        '
-        Me.ZipDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.ZipDataGridViewTextBoxColumn2.DataPropertyName = "Zip"
-        Me.ZipDataGridViewTextBoxColumn2.HeaderText = "Zip"
-        Me.ZipDataGridViewTextBoxColumn2.Name = "ZipDataGridViewTextBoxColumn2"
-        Me.ZipDataGridViewTextBoxColumn2.Width = 47
-        '
-        'VP1DataGridViewTextBoxColumn2
-        '
-        Me.VP1DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.VP1DataGridViewTextBoxColumn2.DataPropertyName = "VP1"
-        Me.VP1DataGridViewTextBoxColumn2.HeaderText = "VP1"
-        Me.VP1DataGridViewTextBoxColumn2.Name = "VP1DataGridViewTextBoxColumn2"
-        Me.VP1DataGridViewTextBoxColumn2.Width = 52
-        '
-        'VP2DataGridViewTextBoxColumn2
-        '
-        Me.VP2DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.VP2DataGridViewTextBoxColumn2.DataPropertyName = "VP2"
-        Me.VP2DataGridViewTextBoxColumn2.HeaderText = "VP2"
-        Me.VP2DataGridViewTextBoxColumn2.Name = "VP2DataGridViewTextBoxColumn2"
-        Me.VP2DataGridViewTextBoxColumn2.Width = 52
-        '
-        'VP3DataGridViewTextBoxColumn2
-        '
-        Me.VP3DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.VP3DataGridViewTextBoxColumn2.DataPropertyName = "VP3"
-        Me.VP3DataGridViewTextBoxColumn2.HeaderText = "VP3"
-        Me.VP3DataGridViewTextBoxColumn2.Name = "VP3DataGridViewTextBoxColumn2"
-        Me.VP3DataGridViewTextBoxColumn2.Width = 52
-        '
-        'NotesDataGridViewTextBoxColumn2
-        '
-        Me.NotesDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.NotesDataGridViewTextBoxColumn2.DataPropertyName = "Notes"
-        Me.NotesDataGridViewTextBoxColumn2.HeaderText = "Notes"
-        Me.NotesDataGridViewTextBoxColumn2.Name = "NotesDataGridViewTextBoxColumn2"
-        Me.NotesDataGridViewTextBoxColumn2.Width = 60
-        '
-        'NameFromDataGridViewTextBoxColumn2
-        '
-        Me.NameFromDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.NameFromDataGridViewTextBoxColumn2.DataPropertyName = "Name From"
-        Me.NameFromDataGridViewTextBoxColumn2.HeaderText = "Name From"
-        Me.NameFromDataGridViewTextBoxColumn2.Name = "NameFromDataGridViewTextBoxColumn2"
-        Me.NameFromDataGridViewTextBoxColumn2.Width = 79
-        '
-        'DoNotCallDataGridViewTextBoxColumn1
-        '
-        Me.DoNotCallDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DoNotCallDataGridViewTextBoxColumn1.DataPropertyName = "Do Not Call"
-        Me.DoNotCallDataGridViewTextBoxColumn1.HeaderText = "Do Not Call"
-        Me.DoNotCallDataGridViewTextBoxColumn1.Name = "DoNotCallDataGridViewTextBoxColumn1"
-        Me.DoNotCallDataGridViewTextBoxColumn1.Width = 79
-        '
-        'DeafTerNoDataGridViewTextBoxColumn1
-        '
-        Me.DeafTerNoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DeafTerNoDataGridViewTextBoxColumn1.DataPropertyName = "Deaf Ter No"
-        Me.DeafTerNoDataGridViewTextBoxColumn1.HeaderText = "Deaf Ter No"
-        Me.DeafTerNoDataGridViewTextBoxColumn1.Name = "DeafTerNoDataGridViewTextBoxColumn1"
-        Me.DeafTerNoDataGridViewTextBoxColumn1.Width = 71
-        '
-        'VPTerNoDataGridViewTextBoxColumn1
-        '
-        Me.VPTerNoDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.VPTerNoDataGridViewTextBoxColumn1.DataPropertyName = "VP Ter No"
-        Me.VPTerNoDataGridViewTextBoxColumn1.HeaderText = "VP Ter No"
-        Me.VPTerNoDataGridViewTextBoxColumn1.Name = "VPTerNoDataGridViewTextBoxColumn1"
-        Me.VPTerNoDataGridViewTextBoxColumn1.Width = 76
-        '
-        'NameTerNoDataGridViewTextBoxColumn
-        '
-        Me.NameTerNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.NameTerNoDataGridViewTextBoxColumn.DataPropertyName = "Name Ter No"
-        Me.NameTerNoDataGridViewTextBoxColumn.HeaderText = "Name Ter No"
-        Me.NameTerNoDataGridViewTextBoxColumn.Name = "NameTerNoDataGridViewTextBoxColumn"
-        Me.NameTerNoDataGridViewTextBoxColumn.Width = 76
-        '
-        'DateSearchedDataGridViewTextBoxColumn
-        '
-        Me.DateSearchedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DateSearchedDataGridViewTextBoxColumn.DataPropertyName = "Date Searched"
-        Me.DateSearchedDataGridViewTextBoxColumn.HeaderText = "Date Searched"
-        Me.DateSearchedDataGridViewTextBoxColumn.Name = "DateSearchedDataGridViewTextBoxColumn"
-        Me.DateSearchedDataGridViewTextBoxColumn.Width = 96
-        '
-        'DateFoundDataGridViewTextBoxColumn
-        '
-        Me.DateFoundDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DateFoundDataGridViewTextBoxColumn.DataPropertyName = "Date Found"
-        Me.DateFoundDataGridViewTextBoxColumn.HeaderText = "Date Found"
-        Me.DateFoundDataGridViewTextBoxColumn.Name = "DateFoundDataGridViewTextBoxColumn"
-        Me.DateFoundDataGridViewTextBoxColumn.Width = 81
-        '
-        'LatDataGridViewTextBoxColumn
-        '
-        Me.LatDataGridViewTextBoxColumn.DataPropertyName = "Lat"
-        Me.LatDataGridViewTextBoxColumn.HeaderText = "Lat"
-        Me.LatDataGridViewTextBoxColumn.Name = "LatDataGridViewTextBoxColumn"
-        '
-        'LongDataGridViewTextBoxColumn
-        '
-        Me.LongDataGridViewTextBoxColumn.DataPropertyName = "Long"
-        Me.LongDataGridViewTextBoxColumn.HeaderText = "Long"
-        Me.LongDataGridViewTextBoxColumn.Name = "LongDataGridViewTextBoxColumn"
-        '
-        'ContactsBindingSource
-        '
-        Me.ContactsBindingSource.DataMember = "Contacts"
-        Me.ContactsBindingSource.DataSource = Me.DS
-        '
-        'DS
-        '
-        Me.DS.DataSetName = "DS"
-        Me.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TerNoDataGridViewTextBoxColumn
-        '
-        Me.TerNoDataGridViewTextBoxColumn.DataPropertyName = "TerNo"
-        Me.TerNoDataGridViewTextBoxColumn.HeaderText = "TerNo"
-        Me.TerNoDataGridViewTextBoxColumn.Name = "TerNoDataGridViewTextBoxColumn"
-        '
-        'DateOutDataGridViewTextBoxColumn
-        '
-        Me.DateOutDataGridViewTextBoxColumn.DataPropertyName = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn.HeaderText = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn.Name = "DateOutDataGridViewTextBoxColumn"
-        '
-        'DateInDataGridViewTextBoxColumn
-        '
-        Me.DateInDataGridViewTextBoxColumn.DataPropertyName = "Date In"
-        Me.DateInDataGridViewTextBoxColumn.HeaderText = "Date In"
-        Me.DateInDataGridViewTextBoxColumn.Name = "DateInDataGridViewTextBoxColumn"
-        '
-        'PublisherDataGridViewTextBoxColumn
-        '
-        Me.PublisherDataGridViewTextBoxColumn.DataPropertyName = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn.HeaderText = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn.Name = "PublisherDataGridViewTextBoxColumn"
-        '
-        'DeafTerBindingSource
-        '
-        Me.DeafTerBindingSource.DataMember = "Deaf Territories"
-        Me.DeafTerBindingSource.DataSource = Me.DS
-        '
-        'TerNoDataGridViewTextBoxColumn1
-        '
-        Me.TerNoDataGridViewTextBoxColumn1.DataPropertyName = "TerNo"
-        Me.TerNoDataGridViewTextBoxColumn1.HeaderText = "TerNo"
-        Me.TerNoDataGridViewTextBoxColumn1.Name = "TerNoDataGridViewTextBoxColumn1"
-        '
-        'DateOutDataGridViewTextBoxColumn1
-        '
-        Me.DateOutDataGridViewTextBoxColumn1.DataPropertyName = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn1.HeaderText = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn1.Name = "DateOutDataGridViewTextBoxColumn1"
-        '
-        'DateInDataGridViewTextBoxColumn1
-        '
-        Me.DateInDataGridViewTextBoxColumn1.DataPropertyName = "Date In"
-        Me.DateInDataGridViewTextBoxColumn1.HeaderText = "Date In"
-        Me.DateInDataGridViewTextBoxColumn1.Name = "DateInDataGridViewTextBoxColumn1"
-        '
-        'PublisherDataGridViewTextBoxColumn1
-        '
-        Me.PublisherDataGridViewTextBoxColumn1.DataPropertyName = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn1.HeaderText = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn1.Name = "PublisherDataGridViewTextBoxColumn1"
-        '
-        'VPTerBindingSource
-        '
-        Me.VPTerBindingSource.DataMember = "VP Territories"
-        Me.VPTerBindingSource.DataSource = Me.DS
-        '
-        'AreaCodeAndPrefixDataGridViewTextBoxColumn
-        '
-        Me.AreaCodeAndPrefixDataGridViewTextBoxColumn.DataPropertyName = "Area Code and Prefix"
-        Me.AreaCodeAndPrefixDataGridViewTextBoxColumn.HeaderText = "Area Code and Prefix"
-        Me.AreaCodeAndPrefixDataGridViewTextBoxColumn.Name = "AreaCodeAndPrefixDataGridViewTextBoxColumn"
-        '
-        'TerritoryGroupDataGridViewTextBoxColumn
-        '
-        Me.TerritoryGroupDataGridViewTextBoxColumn.DataPropertyName = "Territory Group"
-        Me.TerritoryGroupDataGridViewTextBoxColumn.HeaderText = "Territory Group"
-        Me.TerritoryGroupDataGridViewTextBoxColumn.Name = "TerritoryGroupDataGridViewTextBoxColumn"
-        '
-        'DateOutDataGridViewTextBoxColumn2
-        '
-        Me.DateOutDataGridViewTextBoxColumn2.DataPropertyName = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn2.HeaderText = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn2.Name = "DateOutDataGridViewTextBoxColumn2"
-        '
-        'PublisherDataGridViewTextBoxColumn2
-        '
-        Me.PublisherDataGridViewTextBoxColumn2.DataPropertyName = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn2.HeaderText = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn2.Name = "PublisherDataGridViewTextBoxColumn2"
-        '
-        'PrintedDataGridViewTextBoxColumn
-        '
-        Me.PrintedDataGridViewTextBoxColumn.DataPropertyName = "Printed"
-        Me.PrintedDataGridViewTextBoxColumn.HeaderText = "Printed"
-        Me.PrintedDataGridViewTextBoxColumn.Name = "PrintedDataGridViewTextBoxColumn"
-        '
-        'VPsearchTerBindingSourrce
-        '
-        Me.VPsearchTerBindingSourrce.DataMember = "VP Search Territories"
-        Me.VPsearchTerBindingSourrce.DataSource = Me.DS
-        '
-        'TerNoDataGridViewTextBoxColumn3
-        '
-        Me.TerNoDataGridViewTextBoxColumn3.DataPropertyName = "TerNo"
-        Me.TerNoDataGridViewTextBoxColumn3.HeaderText = "TerNo"
-        Me.TerNoDataGridViewTextBoxColumn3.Name = "TerNoDataGridViewTextBoxColumn3"
-        '
-        'AreaDataGridViewTextBoxColumn
-        '
-        Me.AreaDataGridViewTextBoxColumn.DataPropertyName = "Area"
-        Me.AreaDataGridViewTextBoxColumn.HeaderText = "Area"
-        Me.AreaDataGridViewTextBoxColumn.Name = "AreaDataGridViewTextBoxColumn"
-        '
-        'DateOutDataGridViewTextBoxColumn4
-        '
-        Me.DateOutDataGridViewTextBoxColumn4.DataPropertyName = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn4.HeaderText = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn4.Name = "DateOutDataGridViewTextBoxColumn4"
-        '
-        'DateInDataGridViewTextBoxColumn3
-        '
-        Me.DateInDataGridViewTextBoxColumn3.DataPropertyName = "Date In"
-        Me.DateInDataGridViewTextBoxColumn3.HeaderText = "Date In"
-        Me.DateInDataGridViewTextBoxColumn3.Name = "DateInDataGridViewTextBoxColumn3"
-        '
-        'PublisherDataGridViewTextBoxColumn4
-        '
-        Me.PublisherDataGridViewTextBoxColumn4.DataPropertyName = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn4.HeaderText = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn4.Name = "PublisherDataGridViewTextBoxColumn4"
-        '
-        'LatDataGridViewTextBoxColumn1
-        '
-        Me.LatDataGridViewTextBoxColumn1.DataPropertyName = "Lat"
-        Me.LatDataGridViewTextBoxColumn1.HeaderText = "Lat"
-        Me.LatDataGridViewTextBoxColumn1.Name = "LatDataGridViewTextBoxColumn1"
-        '
-        'LongDataGridViewTextBoxColumn1
-        '
-        Me.LongDataGridViewTextBoxColumn1.DataPropertyName = "Long"
-        Me.LongDataGridViewTextBoxColumn1.HeaderText = "Long"
-        Me.LongDataGridViewTextBoxColumn1.Name = "LongDataGridViewTextBoxColumn1"
-        '
-        'MapsBindingSource
-        '
-        Me.MapsBindingSource.DataMember = "Maps"
-        Me.MapsBindingSource.DataSource = Me.DS
-        '
-        'TerNoDataGridViewTextBoxColumn2
-        '
-        Me.TerNoDataGridViewTextBoxColumn2.DataPropertyName = "TerNo"
-        Me.TerNoDataGridViewTextBoxColumn2.HeaderText = "TerNo"
-        Me.TerNoDataGridViewTextBoxColumn2.Name = "TerNoDataGridViewTextBoxColumn2"
-        '
-        'DateOutDataGridViewTextBoxColumn3
-        '
-        Me.DateOutDataGridViewTextBoxColumn3.DataPropertyName = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn3.HeaderText = "Date Out"
-        Me.DateOutDataGridViewTextBoxColumn3.Name = "DateOutDataGridViewTextBoxColumn3"
-        '
-        'DateInDataGridViewTextBoxColumn2
-        '
-        Me.DateInDataGridViewTextBoxColumn2.DataPropertyName = "Date In"
-        Me.DateInDataGridViewTextBoxColumn2.HeaderText = "Date In"
-        Me.DateInDataGridViewTextBoxColumn2.Name = "DateInDataGridViewTextBoxColumn2"
-        '
-        'PublisherDataGridViewTextBoxColumn3
-        '
-        Me.PublisherDataGridViewTextBoxColumn3.DataPropertyName = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn3.HeaderText = "Publisher"
-        Me.PublisherDataGridViewTextBoxColumn3.Name = "PublisherDataGridViewTextBoxColumn3"
-        '
-        'NameSearchBindingSource
-        '
-        Me.NameSearchBindingSource.DataMember = "Name Search Territories"
-        Me.NameSearchBindingSource.DataSource = Me.DS
-        '
         'Deaf_TerritoriesTableAdapter
         '
         Me.Deaf_TerritoriesTableAdapter.ClearBeforeFill = True
@@ -2067,150 +2211,6 @@ Partial Class ASLTerriroryManager
         '
         Me.MapsTableAdapter.ClearBeforeFill = True
         '
-        'btnDeleteAllContacts
-        '
-        Me.btnDeleteAllContacts.Location = New System.Drawing.Point(502, 83)
-        Me.btnDeleteAllContacts.Name = "btnDeleteAllContacts"
-        Me.btnDeleteAllContacts.Size = New System.Drawing.Size(75, 23)
-        Me.btnDeleteAllContacts.TabIndex = 4
-        Me.btnDeleteAllContacts.Text = "Delete"
-        Me.btnDeleteAllContacts.UseVisualStyleBackColor = True
-        '
-        'btnDeleteAllDeafTer
-        '
-        Me.btnDeleteAllDeafTer.Location = New System.Drawing.Point(502, 129)
-        Me.btnDeleteAllDeafTer.Name = "btnDeleteAllDeafTer"
-        Me.btnDeleteAllDeafTer.Size = New System.Drawing.Size(75, 23)
-        Me.btnDeleteAllDeafTer.TabIndex = 5
-        Me.btnDeleteAllDeafTer.Text = "Delete"
-        Me.btnDeleteAllDeafTer.UseVisualStyleBackColor = True
-        '
-        'btnDeleteVpTer
-        '
-        Me.btnDeleteVpTer.Location = New System.Drawing.Point(503, 176)
-        Me.btnDeleteVpTer.Name = "btnDeleteVpTer"
-        Me.btnDeleteVpTer.Size = New System.Drawing.Size(75, 23)
-        Me.btnDeleteVpTer.TabIndex = 6
-        Me.btnDeleteVpTer.Text = "Delete"
-        Me.btnDeleteVpTer.UseVisualStyleBackColor = True
-        '
-        'btnDeleteVpSerTer
-        '
-        Me.btnDeleteVpSerTer.Location = New System.Drawing.Point(503, 220)
-        Me.btnDeleteVpSerTer.Name = "btnDeleteVpSerTer"
-        Me.btnDeleteVpSerTer.Size = New System.Drawing.Size(75, 23)
-        Me.btnDeleteVpSerTer.TabIndex = 7
-        Me.btnDeleteVpSerTer.Text = "Delete"
-        Me.btnDeleteVpSerTer.UseVisualStyleBackColor = True
-        '
-        'btnDelNameSer
-        '
-        Me.btnDelNameSer.Location = New System.Drawing.Point(502, 311)
-        Me.btnDelNameSer.Name = "btnDelNameSer"
-        Me.btnDelNameSer.Size = New System.Drawing.Size(75, 23)
-        Me.btnDelNameSer.TabIndex = 8
-        Me.btnDelNameSer.Text = "Delete"
-        Me.btnDelNameSer.UseVisualStyleBackColor = True
-        '
-        'btnDelMapSer
-        '
-        Me.btnDelMapSer.Location = New System.Drawing.Point(503, 265)
-        Me.btnDelMapSer.Name = "btnDelMapSer"
-        Me.btnDelMapSer.Size = New System.Drawing.Size(75, 23)
-        Me.btnDelMapSer.TabIndex = 9
-        Me.btnDelMapSer.Text = "Delete"
-        Me.btnDelMapSer.UseVisualStyleBackColor = True
-        '
-        'lblDeleteAllContacts
-        '
-        Me.lblDeleteAllContacts.AutoSize = True
-        Me.lblDeleteAllContacts.Location = New System.Drawing.Point(605, 88)
-        Me.lblDeleteAllContacts.Name = "lblDeleteAllContacts"
-        Me.lblDeleteAllContacts.Size = New System.Drawing.Size(95, 13)
-        Me.lblDeleteAllContacts.TabIndex = 10
-        Me.lblDeleteAllContacts.Text = "Delete all contacts"
-        '
-        'lblDeleteDeafTer
-        '
-        Me.lblDeleteDeafTer.AutoSize = True
-        Me.lblDeleteDeafTer.Location = New System.Drawing.Point(605, 134)
-        Me.lblDeleteDeafTer.Name = "lblDeleteDeafTer"
-        Me.lblDeleteDeafTer.Size = New System.Drawing.Size(120, 13)
-        Me.lblDeleteDeafTer.TabIndex = 11
-        Me.lblDeleteDeafTer.Text = "Delete all deaf territories"
-        '
-        'lblDeleteVpTer
-        '
-        Me.lblDeleteVpTer.AutoSize = True
-        Me.lblDeleteVpTer.Location = New System.Drawing.Point(605, 181)
-        Me.lblDeleteVpTer.Name = "lblDeleteVpTer"
-        Me.lblDeleteVpTer.Size = New System.Drawing.Size(116, 13)
-        Me.lblDeleteVpTer.TabIndex = 12
-        Me.lblDeleteVpTer.Text = "Delete all VP verritories"
-        '
-        'lblDelVpSer
-        '
-        Me.lblDelVpSer.AutoSize = True
-        Me.lblDelVpSer.Location = New System.Drawing.Point(605, 225)
-        Me.lblDelVpSer.Name = "lblDelVpSer"
-        Me.lblDelVpSer.Size = New System.Drawing.Size(148, 13)
-        Me.lblDelVpSer.TabIndex = 13
-        Me.lblDelVpSer.Text = "Delete all VP search territories"
-        '
-        'lblDelNameSer
-        '
-        Me.lblDelNameSer.AutoSize = True
-        Me.lblDelNameSer.Location = New System.Drawing.Point(605, 316)
-        Me.lblDelNameSer.Name = "lblDelNameSer"
-        Me.lblDelNameSer.Size = New System.Drawing.Size(160, 13)
-        Me.lblDelNameSer.TabIndex = 14
-        Me.lblDelNameSer.Text = "Delete all name search territories"
-        '
-        'lblDelMapSer
-        '
-        Me.lblDelMapSer.AutoSize = True
-        Me.lblDelMapSer.Location = New System.Drawing.Point(605, 270)
-        Me.lblDelMapSer.Name = "lblDelMapSer"
-        Me.lblDelMapSer.Size = New System.Drawing.Size(154, 13)
-        Me.lblDelMapSer.TabIndex = 15
-        Me.lblDelMapSer.Text = "Delete all map search territories"
-        '
-        'lblBackup
-        '
-        Me.lblBackup.AutoSize = True
-        Me.lblBackup.Location = New System.Drawing.Point(127, 88)
-        Me.lblBackup.Name = "lblBackup"
-        Me.lblBackup.Size = New System.Drawing.Size(109, 13)
-        Me.lblBackup.TabIndex = 17
-        Me.lblBackup.Text = "Backup the database"
-        '
-        'btnBackup
-        '
-        Me.btnBackup.Location = New System.Drawing.Point(24, 83)
-        Me.btnBackup.Name = "btnBackup"
-        Me.btnBackup.Size = New System.Drawing.Size(75, 23)
-        Me.btnBackup.TabIndex = 16
-        Me.btnBackup.Text = "Backup"
-        Me.btnBackup.UseVisualStyleBackColor = True
-        '
-        'lblRestore
-        '
-        Me.lblRestore.AutoSize = True
-        Me.lblRestore.Location = New System.Drawing.Point(127, 129)
-        Me.lblRestore.Name = "lblRestore"
-        Me.lblRestore.Size = New System.Drawing.Size(171, 13)
-        Me.lblRestore.TabIndex = 19
-        Me.lblRestore.Text = "Restore the database from backup"
-        '
-        'btnRestore
-        '
-        Me.btnRestore.Location = New System.Drawing.Point(24, 124)
-        Me.btnRestore.Name = "btnRestore"
-        Me.btnRestore.Size = New System.Drawing.Size(75, 23)
-        Me.btnRestore.TabIndex = 18
-        Me.btnRestore.Text = "Restore"
-        Me.btnRestore.UseVisualStyleBackColor = True
-        '
         'ASLTerriroryManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2230,30 +2230,30 @@ Partial Class ASLTerriroryManager
         Me.gbContactManage.ResumeLayout(False)
         CType(Me.dgvContacts, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.ContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDeafTeritorries.ResumeLayout(False)
         Me.tabDeafTeritorries.PerformLayout()
         CType(Me.dgvDeafTerritories, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DeafTerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabVPterritories.ResumeLayout(False)
         Me.tabVPterritories.PerformLayout()
         CType(Me.dgvVPTerritory, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VPTerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabVPsearch.ResumeLayout(False)
         Me.tabVPsearch.PerformLayout()
         CType(Me.dgvVPsearchTer, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VPsearchTerBindingSourrce, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabMapSearchTer.ResumeLayout(False)
         Me.tabMapSearchTer.PerformLayout()
         CType(Me.dgvMapsSearchTer, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MapsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabNameTerritories.ResumeLayout(False)
         Me.tabNameTerritories.PerformLayout()
         CType(Me.dgvNameSearchTer, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NameSearchBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDatabase.ResumeLayout(False)
         Me.tabDatabase.PerformLayout()
-        CType(Me.ContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DS, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DeafTerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VPTerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VPsearchTerBindingSourrce, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MapsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NameSearchBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
