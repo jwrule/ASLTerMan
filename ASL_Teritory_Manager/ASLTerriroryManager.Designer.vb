@@ -1451,9 +1451,9 @@ Partial Class ASLTerriroryManager
         Me.lblDeleteVpTer.AutoSize = True
         Me.lblDeleteVpTer.Location = New System.Drawing.Point(605, 181)
         Me.lblDeleteVpTer.Name = "lblDeleteVpTer"
-        Me.lblDeleteVpTer.Size = New System.Drawing.Size(116, 13)
+        Me.lblDeleteVpTer.Size = New System.Drawing.Size(113, 13)
         Me.lblDeleteVpTer.TabIndex = 12
-        Me.lblDeleteVpTer.Text = "Delete all VP verritories"
+        Me.lblDeleteVpTer.Text = "Delete all VP territories"
         '
         'lblDeleteDeafTer
         '
@@ -2218,6 +2218,7 @@ Partial Class ASLTerriroryManager
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(1184, 711)
         Me.Controls.Add(Me.TabControl)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ASLTerriroryManager"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.Text = "ASL Territory Manager"

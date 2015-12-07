@@ -27,9 +27,9 @@ Partial Public Class DS
     
     Private tableContacts As ContactsDataTable
     
-    Private tableDeaf_Territories As Deaf_TerritoriesDataTable
-    
     Private tableVP_Territories As VP_TerritoriesDataTable
+    
+    Private tableDeaf_Territories As Deaf_TerritoriesDataTable
     
     Private tableMaps As MapsDataTable
     
@@ -69,11 +69,11 @@ Partial Public Class DS
             If (Not (ds.Tables("Contacts")) Is Nothing) Then
                 MyBase.Tables.Add(New ContactsDataTable(ds.Tables("Contacts")))
             End If
-            If (Not (ds.Tables("Deaf Territories")) Is Nothing) Then
-                MyBase.Tables.Add(New Deaf_TerritoriesDataTable(ds.Tables("Deaf Territories")))
-            End If
             If (Not (ds.Tables("VP Territories")) Is Nothing) Then
                 MyBase.Tables.Add(New VP_TerritoriesDataTable(ds.Tables("VP Territories")))
+            End If
+            If (Not (ds.Tables("Deaf Territories")) Is Nothing) Then
+                MyBase.Tables.Add(New Deaf_TerritoriesDataTable(ds.Tables("Deaf Territories")))
             End If
             If (Not (ds.Tables("Maps")) Is Nothing) Then
                 MyBase.Tables.Add(New MapsDataTable(ds.Tables("Maps")))
@@ -115,9 +115,9 @@ Partial Public Class DS
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Deaf_Territories() As Deaf_TerritoriesDataTable
+    Public ReadOnly Property VP_Territories() As VP_TerritoriesDataTable
         Get
-            Return Me.tableDeaf_Territories
+            Return Me.tableVP_Territories
         End Get
     End Property
     
@@ -125,9 +125,9 @@ Partial Public Class DS
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property VP_Territories() As VP_TerritoriesDataTable
+    Public ReadOnly Property Deaf_Territories() As Deaf_TerritoriesDataTable
         Get
-            Return Me.tableVP_Territories
+            Return Me.tableDeaf_Territories
         End Get
     End Property
     
@@ -231,11 +231,11 @@ Partial Public Class DS
             If (Not (ds.Tables("Contacts")) Is Nothing) Then
                 MyBase.Tables.Add(New ContactsDataTable(ds.Tables("Contacts")))
             End If
-            If (Not (ds.Tables("Deaf Territories")) Is Nothing) Then
-                MyBase.Tables.Add(New Deaf_TerritoriesDataTable(ds.Tables("Deaf Territories")))
-            End If
             If (Not (ds.Tables("VP Territories")) Is Nothing) Then
                 MyBase.Tables.Add(New VP_TerritoriesDataTable(ds.Tables("VP Territories")))
+            End If
+            If (Not (ds.Tables("Deaf Territories")) Is Nothing) Then
+                MyBase.Tables.Add(New Deaf_TerritoriesDataTable(ds.Tables("Deaf Territories")))
             End If
             If (Not (ds.Tables("Maps")) Is Nothing) Then
                 MyBase.Tables.Add(New MapsDataTable(ds.Tables("Maps")))
@@ -284,16 +284,16 @@ Partial Public Class DS
                 Me.tableContacts.InitVars
             End If
         End If
-        Me.tableDeaf_Territories = CType(MyBase.Tables("Deaf Territories"),Deaf_TerritoriesDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableDeaf_Territories) Is Nothing) Then
-                Me.tableDeaf_Territories.InitVars
-            End If
-        End If
         Me.tableVP_Territories = CType(MyBase.Tables("VP Territories"),VP_TerritoriesDataTable)
         If (initTable = true) Then
             If (Not (Me.tableVP_Territories) Is Nothing) Then
                 Me.tableVP_Territories.InitVars
+            End If
+        End If
+        Me.tableDeaf_Territories = CType(MyBase.Tables("Deaf Territories"),Deaf_TerritoriesDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableDeaf_Territories) Is Nothing) Then
+                Me.tableDeaf_Territories.InitVars
             End If
         End If
         Me.tableMaps = CType(MyBase.Tables("Maps"),MapsDataTable)
@@ -326,10 +326,10 @@ Partial Public Class DS
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableContacts = New ContactsDataTable()
         MyBase.Tables.Add(Me.tableContacts)
-        Me.tableDeaf_Territories = New Deaf_TerritoriesDataTable()
-        MyBase.Tables.Add(Me.tableDeaf_Territories)
         Me.tableVP_Territories = New VP_TerritoriesDataTable()
         MyBase.Tables.Add(Me.tableVP_Territories)
+        Me.tableDeaf_Territories = New Deaf_TerritoriesDataTable()
+        MyBase.Tables.Add(Me.tableDeaf_Territories)
         Me.tableMaps = New MapsDataTable()
         MyBase.Tables.Add(Me.tableMaps)
         Me.tableName_Search_Territories = New Name_Search_TerritoriesDataTable()
@@ -346,13 +346,13 @@ Partial Public Class DS
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeDeaf_Territories() As Boolean
+    Private Function ShouldSerializeVP_Territories() As Boolean
         Return false
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeVP_Territories() As Boolean
+    Private Function ShouldSerializeDeaf_Territories() As Boolean
         Return false
     End Function
     
@@ -436,10 +436,10 @@ Partial Public Class DS
     Public Delegate Sub ContactsRowChangeEventHandler(ByVal sender As Object, ByVal e As ContactsRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub Deaf_TerritoriesRowChangeEventHandler(ByVal sender As Object, ByVal e As Deaf_TerritoriesRowChangeEvent)
+    Public Delegate Sub VP_TerritoriesRowChangeEventHandler(ByVal sender As Object, ByVal e As VP_TerritoriesRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub VP_TerritoriesRowChangeEventHandler(ByVal sender As Object, ByVal e As VP_TerritoriesRowChangeEvent)
+    Public Delegate Sub Deaf_TerritoriesRowChangeEventHandler(ByVal sender As Object, ByVal e As Deaf_TerritoriesRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub MapsRowChangeEventHandler(ByVal sender As Object, ByVal e As MapsRowChangeEvent)
@@ -1021,310 +1021,6 @@ Partial Public Class DS
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class Deaf_TerritoriesDataTable
-        Inherits Global.System.Data.TypedTableBase(Of Deaf_TerritoriesRow)
-        
-        Private columnTerNo As Global.System.Data.DataColumn
-        
-        Private columnDate_Out As Global.System.Data.DataColumn
-        
-        Private columnDate_In As Global.System.Data.DataColumn
-        
-        Private columnPublisher As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "Deaf Territories"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property TerNoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTerNo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Date_OutColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDate_Out
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Date_InColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDate_In
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property PublisherColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPublisher
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As Deaf_TerritoriesRow
-            Get
-                Return CType(Me.Rows(index),Deaf_TerritoriesRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event Deaf_TerritoriesRowChanging As Deaf_TerritoriesRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event Deaf_TerritoriesRowChanged As Deaf_TerritoriesRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event Deaf_TerritoriesRowDeleting As Deaf_TerritoriesRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event Deaf_TerritoriesRowDeleted As Deaf_TerritoriesRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddDeaf_TerritoriesRow(ByVal row As Deaf_TerritoriesRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddDeaf_TerritoriesRow(ByVal TerNo As String, ByVal Date_Out As String, ByVal Date_In As String, ByVal Publisher As String) As Deaf_TerritoriesRow
-            Dim rowDeaf_TerritoriesRow As Deaf_TerritoriesRow = CType(Me.NewRow,Deaf_TerritoriesRow)
-            Dim columnValuesArray() As Object = New Object() {TerNo, Date_Out, Date_In, Publisher}
-            rowDeaf_TerritoriesRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowDeaf_TerritoriesRow)
-            Return rowDeaf_TerritoriesRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByTerNo(ByVal TerNo As String) As Deaf_TerritoriesRow
-            Return CType(Me.Rows.Find(New Object() {TerNo}),Deaf_TerritoriesRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As Deaf_TerritoriesDataTable = CType(MyBase.Clone,Deaf_TerritoriesDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New Deaf_TerritoriesDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnTerNo = MyBase.Columns("TerNo")
-            Me.columnDate_Out = MyBase.Columns("Date Out")
-            Me.columnDate_In = MyBase.Columns("Date In")
-            Me.columnPublisher = MyBase.Columns("Publisher")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnTerNo = New Global.System.Data.DataColumn("TerNo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTerNo)
-            Me.columnDate_Out = New Global.System.Data.DataColumn("Date Out", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDate_Out)
-            Me.columnDate_In = New Global.System.Data.DataColumn("Date In", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDate_In)
-            Me.columnPublisher = New Global.System.Data.DataColumn("Publisher", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPublisher)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnTerNo}, true))
-            Me.columnTerNo.AllowDBNull = false
-            Me.columnTerNo.Unique = true
-            Me.columnTerNo.MaxLength = 20
-            Me.columnDate_Out.MaxLength = 10
-            Me.columnDate_In.MaxLength = 10
-            Me.columnPublisher.MaxLength = 10
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewDeaf_TerritoriesRow() As Deaf_TerritoriesRow
-            Return CType(Me.NewRow,Deaf_TerritoriesRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New Deaf_TerritoriesRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(Deaf_TerritoriesRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.Deaf_TerritoriesRowChangedEvent) Is Nothing) Then
-                RaiseEvent Deaf_TerritoriesRowChanged(Me, New Deaf_TerritoriesRowChangeEvent(CType(e.Row,Deaf_TerritoriesRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.Deaf_TerritoriesRowChangingEvent) Is Nothing) Then
-                RaiseEvent Deaf_TerritoriesRowChanging(Me, New Deaf_TerritoriesRowChangeEvent(CType(e.Row,Deaf_TerritoriesRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.Deaf_TerritoriesRowDeletedEvent) Is Nothing) Then
-                RaiseEvent Deaf_TerritoriesRowDeleted(Me, New Deaf_TerritoriesRowChangeEvent(CType(e.Row,Deaf_TerritoriesRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.Deaf_TerritoriesRowDeletingEvent) Is Nothing) Then
-                RaiseEvent Deaf_TerritoriesRowDeleting(Me, New Deaf_TerritoriesRowChangeEvent(CType(e.Row,Deaf_TerritoriesRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveDeaf_TerritoriesRow(ByVal row As Deaf_TerritoriesRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As DS = New DS()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "Deaf_TerritoriesDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class VP_TerritoriesDataTable
         Inherits Global.System.Data.TypedTableBase(Of VP_TerritoriesRow)
         
@@ -1581,6 +1277,310 @@ Partial Public Class DS
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "VP_TerritoriesDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class Deaf_TerritoriesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of Deaf_TerritoriesRow)
+        
+        Private columnTerNo As Global.System.Data.DataColumn
+        
+        Private columnDate_Out As Global.System.Data.DataColumn
+        
+        Private columnDate_In As Global.System.Data.DataColumn
+        
+        Private columnPublisher As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "Deaf Territories"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property TerNoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTerNo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Date_OutColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDate_Out
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Date_InColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDate_In
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property PublisherColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPublisher
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As Deaf_TerritoriesRow
+            Get
+                Return CType(Me.Rows(index),Deaf_TerritoriesRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event Deaf_TerritoriesRowChanging As Deaf_TerritoriesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event Deaf_TerritoriesRowChanged As Deaf_TerritoriesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event Deaf_TerritoriesRowDeleting As Deaf_TerritoriesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event Deaf_TerritoriesRowDeleted As Deaf_TerritoriesRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddDeaf_TerritoriesRow(ByVal row As Deaf_TerritoriesRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddDeaf_TerritoriesRow(ByVal TerNo As String, ByVal Date_Out As String, ByVal Date_In As String, ByVal Publisher As String) As Deaf_TerritoriesRow
+            Dim rowDeaf_TerritoriesRow As Deaf_TerritoriesRow = CType(Me.NewRow,Deaf_TerritoriesRow)
+            Dim columnValuesArray() As Object = New Object() {TerNo, Date_Out, Date_In, Publisher}
+            rowDeaf_TerritoriesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDeaf_TerritoriesRow)
+            Return rowDeaf_TerritoriesRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByTerNo(ByVal TerNo As String) As Deaf_TerritoriesRow
+            Return CType(Me.Rows.Find(New Object() {TerNo}),Deaf_TerritoriesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As Deaf_TerritoriesDataTable = CType(MyBase.Clone,Deaf_TerritoriesDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New Deaf_TerritoriesDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnTerNo = MyBase.Columns("TerNo")
+            Me.columnDate_Out = MyBase.Columns("Date Out")
+            Me.columnDate_In = MyBase.Columns("Date In")
+            Me.columnPublisher = MyBase.Columns("Publisher")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnTerNo = New Global.System.Data.DataColumn("TerNo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTerNo)
+            Me.columnDate_Out = New Global.System.Data.DataColumn("Date Out", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDate_Out)
+            Me.columnDate_In = New Global.System.Data.DataColumn("Date In", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDate_In)
+            Me.columnPublisher = New Global.System.Data.DataColumn("Publisher", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPublisher)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnTerNo}, true))
+            Me.columnTerNo.AllowDBNull = false
+            Me.columnTerNo.Unique = true
+            Me.columnTerNo.MaxLength = 20
+            Me.columnDate_Out.MaxLength = 10
+            Me.columnDate_In.MaxLength = 10
+            Me.columnPublisher.MaxLength = 10
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewDeaf_TerritoriesRow() As Deaf_TerritoriesRow
+            Return CType(Me.NewRow,Deaf_TerritoriesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New Deaf_TerritoriesRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(Deaf_TerritoriesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.Deaf_TerritoriesRowChangedEvent) Is Nothing) Then
+                RaiseEvent Deaf_TerritoriesRowChanged(Me, New Deaf_TerritoriesRowChangeEvent(CType(e.Row,Deaf_TerritoriesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.Deaf_TerritoriesRowChangingEvent) Is Nothing) Then
+                RaiseEvent Deaf_TerritoriesRowChanging(Me, New Deaf_TerritoriesRowChangeEvent(CType(e.Row,Deaf_TerritoriesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.Deaf_TerritoriesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent Deaf_TerritoriesRowDeleted(Me, New Deaf_TerritoriesRowChangeEvent(CType(e.Row,Deaf_TerritoriesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.Deaf_TerritoriesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent Deaf_TerritoriesRowDeleting(Me, New Deaf_TerritoriesRowChangeEvent(CType(e.Row,Deaf_TerritoriesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveDeaf_TerritoriesRow(ByVal row As Deaf_TerritoriesRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As DS = New DS()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "Deaf_TerritoriesDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -3165,114 +3165,6 @@ Partial Public Class DS
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class Deaf_TerritoriesRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableDeaf_Territories As Deaf_TerritoriesDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableDeaf_Territories = CType(Me.Table,Deaf_TerritoriesDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property TerNo() As String
-            Get
-                Return CType(Me(Me.tableDeaf_Territories.TerNoColumn),String)
-            End Get
-            Set
-                Me(Me.tableDeaf_Territories.TerNoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Date_Out() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDeaf_Territories.Date_OutColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Date Out' in table 'Deaf Territories' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDeaf_Territories.Date_OutColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Date_In() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDeaf_Territories.Date_InColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Date In' in table 'Deaf Territories' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDeaf_Territories.Date_InColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Publisher() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDeaf_Territories.PublisherColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Publisher' in table 'Deaf Territories' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDeaf_Territories.PublisherColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsDate_OutNull() As Boolean
-            Return Me.IsNull(Me.tableDeaf_Territories.Date_OutColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetDate_OutNull()
-            Me(Me.tableDeaf_Territories.Date_OutColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsDate_InNull() As Boolean
-            Return Me.IsNull(Me.tableDeaf_Territories.Date_InColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetDate_InNull()
-            Me(Me.tableDeaf_Territories.Date_InColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsPublisherNull() As Boolean
-            Return Me.IsNull(Me.tableDeaf_Territories.PublisherColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetPublisherNull()
-            Me(Me.tableDeaf_Territories.PublisherColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
     Partial Public Class VP_TerritoriesRow
         Inherits Global.System.Data.DataRow
         
@@ -3375,6 +3267,114 @@ Partial Public Class DS
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetPublisherNull()
             Me(Me.tableVP_Territories.PublisherColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class Deaf_TerritoriesRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableDeaf_Territories As Deaf_TerritoriesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableDeaf_Territories = CType(Me.Table,Deaf_TerritoriesDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property TerNo() As String
+            Get
+                Return CType(Me(Me.tableDeaf_Territories.TerNoColumn),String)
+            End Get
+            Set
+                Me(Me.tableDeaf_Territories.TerNoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Date_Out() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDeaf_Territories.Date_OutColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Date Out' in table 'Deaf Territories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDeaf_Territories.Date_OutColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Date_In() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDeaf_Territories.Date_InColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Date In' in table 'Deaf Territories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDeaf_Territories.Date_InColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Publisher() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDeaf_Territories.PublisherColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Publisher' in table 'Deaf Territories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDeaf_Territories.PublisherColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDate_OutNull() As Boolean
+            Return Me.IsNull(Me.tableDeaf_Territories.Date_OutColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDate_OutNull()
+            Me(Me.tableDeaf_Territories.Date_OutColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDate_InNull() As Boolean
+            Return Me.IsNull(Me.tableDeaf_Territories.Date_InColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDate_InNull()
+            Me(Me.tableDeaf_Territories.Date_InColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsPublisherNull() As Boolean
+            Return Me.IsNull(Me.tableDeaf_Territories.PublisherColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetPublisherNull()
+            Me(Me.tableDeaf_Territories.PublisherColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3834,42 +3834,6 @@ Partial Public Class DS
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class Deaf_TerritoriesRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As Deaf_TerritoriesRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As Deaf_TerritoriesRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As Deaf_TerritoriesRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Class VP_TerritoriesRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -3888,6 +3852,42 @@ Partial Public Class DS
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As VP_TerritoriesRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class Deaf_TerritoriesRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As Deaf_TerritoriesRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As Deaf_TerritoriesRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As Deaf_TerritoriesRow
             Get
                 Return Me.eventRow
             End Get
@@ -4363,13 +4363,13 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString
+            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(10) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(12) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT UID, Agent, [First Name], [Last Name], Address, City, State, Zip, VP1, VP2"& _ 
@@ -4378,1281 +4378,1318 @@ Namespace DSTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "DELETE FROM [dbo].[Contacts] "
+            Me._commandCollection(1).CommandText = "BACKUP DATABASE [C:\Dropbox\ASL Territory Manager\Program\ASL_DB.mdf] TO DISK = '" & _
+                "C:\Dropbox\ASL Territory Manager\ASL_Territory_Manager.bak'"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V"& _ 
-                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No], [Na"& _ 
-                "me Ter No],[Date Searched],[Date Found],Lat, Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        (Address IS NOT NULL) AND ([Do Not Call] IS NULL)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(2).CommandText = "DELETE FROM [dbo].[Contacts] "
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V"& _ 
-                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam"& _ 
-                "e Ter No],[Date Searched],[Date Found], Lat, Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        (Address IS NOT NULL)"
+            Me._commandCollection(3).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V" & _
+                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No], [Na" & _
+                "me Ter No],[Date Searched],[Date Found],Lat, Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE        (Address IS NOT NULL) AND ([Do Not Call] IS NULL)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V"& _ 
-                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam"& _ 
-                "e Ter No],[Date Searched],[Date Found], Lat, Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        (VP1 IS NOT NULL) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (VP2 IS NOT NULL) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                        (VP3 IS NOT NULL)"
+            Me._commandCollection(4).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V" & _
+                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam" & _
+                "e Ter No],[Date Searched],[Date Found], Lat, Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE        (Address IS NOT NULL)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V"& _ 
-                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam"& _ 
-                "e Ter No],[Date Searched],[Date Found], Lat, Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        ([Do Not Call] IS NOT NULL)"
+            Me._commandCollection(5).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V" & _
+                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam" & _
+                "e Ter No],[Date Searched],[Date Found], Lat, Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE        (VP1 IS NOT NULL) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         (VP2 IS NOT NULL) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
+                "                        (VP3 IS NOT NULL)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V"& _ 
-                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam"& _ 
-                "e Ter No],[Date Searched],[Date Found], Lat, Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        ([First Name] IS NOT NULL) AND (Address IS NULL) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "        ([Last Name] IS NOT NULL) AND (Address IS NULL)"
+            Me._commandCollection(6).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V" & _
+                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam" & _
+                "e Ter No],[Date Searched],[Date Found], Lat, Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE        ([Do Not Call] IS NOT NULL)"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(7).Connection = Me.Connection
-            Me._commandCollection(7).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V"& _ 
-                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam"& _ 
-                "e Ter No],[Date Searched],[Date Found], Lat, Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        (Agent IS NULL) AND ([First Name] IS NOT NULL) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "      (Agent IS NULL) AND ([Last Name] IS NOT NULL)"
+            Me._commandCollection(7).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V" & _
+                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam" & _
+                "e Ter No],[Date Searched],[Date Found], Lat, Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE        ([First Name] IS NOT NULL) AND (Address IS NULL) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " & _
+                "        ([Last Name] IS NOT NULL) AND (Address IS NULL)"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(8).Connection = Me.Connection
-            Me._commandCollection(8).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V"& _ 
-                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam"& _ 
-                "e Ter No],[Date Searched],[Date Found], Lat, Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        ([First Name] IS NULL) AND ([Last Name] IS NULL) AND (VP1 IS NOT NULL)"& _ 
-                " OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([First Name] IS NULL) AND ([Last Name] IS NULL) A"& _ 
-                "ND (VP2 IS NOT NULL) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([First Name] IS NULL) AND ([L"& _ 
-                "ast Name] IS NULL) AND (VP3 IS NOT NULL)"
+            Me._commandCollection(8).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V" & _
+                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam" & _
+                "e Ter No],[Date Searched],[Date Found], Lat, Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE        (Agent IS NULL) AND ([First Name] IS NOT NULL) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   " & _
+                "      (Agent IS NULL) AND ([Last Name] IS NOT NULL)"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(9) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V"& _ 
-                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam"& _ 
-                "e Ter No],[Date Searched],[Date Found], Lat, Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        (Agent = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([First Name] = @find) OR"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Last Name] = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (A"& _ 
-                "ddress = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (City = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         (State = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Zip = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 (VP1 = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (VP2 = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
-                "                       (VP3 = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Notes = @find"& _ 
-                ") OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Name From] = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  ([Do Not Call] = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Deaf Ter No] = @find) O"& _ 
-                "R"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([VP Ter No] = @find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&" ([Date Searched]=@find"& _ 
-                ") OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&" ([Date Found]=@find) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&" ([Name Ter No]=@find)"
+            Me._commandCollection(9).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V" & _
+                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam" & _
+                "e Ter No],[Date Searched],[Date Found], Lat, Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE        ([First Name] IS NULL) AND ([Last Name] IS NULL) AND (VP1 IS NOT NULL)" & _
+                " OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ([First Name] IS NULL) AND ([Last Name] IS NULL) A" & _
+                "ND (VP2 IS NOT NULL) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ([First Name] IS NULL) AND ([L" & _
+                "ast Name] IS NULL) AND (VP3 IS NOT NULL)"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(9).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@find", Global.System.Data.SqlDbType.NChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Agent", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(10) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(10).Connection = Me.Connection
-            Me._commandCollection(10).CommandText = "UPDATE       Contacts"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Agent = @Agent, [First Name] = @First_N"& _ 
-                "ame, [Last Name] = @Last_Name, Address = @Address, City = @City, State = @State,"& _ 
-                " Zip = @Zip, VP1 = @VP1, VP2 = @VP2, VP3 = @VP3, Notes = @Notes, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
-                "            [Name From] = @Name_From, [Do Not Call] = @Do_Not_Call, [Deaf Ter No"& _ 
-                "] = @Deaf_Ter_No, [VP Ter No] = @VP_Ter_No, [Name Ter No]=@Name_Ter_No,[Date Sea"& _ 
-                "rched]=@Date_Searched,[Date Found]=@Date_Found, Lat = @Lat, Long = @Long"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "& _ 
-                "       (UID = @Original_UID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(10).CommandText = "SELECT        UID, Agent, [First Name], [Last Name], Address, City, State, Zip, V" & _
+                "P1, VP2, VP3, Notes, [Name From], [Do Not Call], [Deaf Ter No], [VP Ter No],[Nam" & _
+                "e Ter No],[Date Searched],[Date Found], Lat, Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHE" & _
+                "RE        (Agent = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ([First Name] = @find) OR" & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ([Last Name] = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         (A" & _
+                "ddress = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         (City = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
+                "         (State = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         (Zip = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
+                "                 (VP1 = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         (VP2 = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
+                "                       (VP3 = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         (Notes = @find" & _
+                ") OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ([Name From] = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       " & _
+                "  ([Do Not Call] = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ([Deaf Ter No] = @find) O" & _
+                "R" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ([VP Ter No] = @find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & " ([Date Searched]=@find" & _
+                ") OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & " ([Date Found]=@find) OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & " ([Name Ter No]=@find)"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Agent", Global.System.Data.SqlDbType.NChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Agent", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@First_Name", Global.System.Data.SqlDbType.NChar, 25, Global.System.Data.ParameterDirection.Input, 0, 0, "First Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Last_Name", Global.System.Data.SqlDbType.NChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Last Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.NChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@State", Global.System.Data.SqlDbType.NChar, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Zip", Global.System.Data.SqlDbType.NChar, 5, Global.System.Data.ParameterDirection.Input, 0, 0, "Zip", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VP1", Global.System.Data.SqlDbType.NChar, 12, Global.System.Data.ParameterDirection.Input, 0, 0, "VP1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VP2", Global.System.Data.SqlDbType.NChar, 12, Global.System.Data.ParameterDirection.Input, 0, 0, "VP2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VP3", Global.System.Data.SqlDbType.NChar, 12, Global.System.Data.ParameterDirection.Input, 0, 0, "VP3", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NChar, 500, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Name_From", Global.System.Data.SqlDbType.NChar, 200, Global.System.Data.ParameterDirection.Input, 0, 0, "Name From", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Do_Not_Call", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Do Not Call", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Deaf_Ter_No", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Deaf Ter No", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VP_Ter_No", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "VP Ter No", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Name_Ter_No", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Name Ter No", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Searched", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Searched", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Found", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Found", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Lat", Global.System.Data.SqlDbType.NChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "Lat", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Long", Global.System.Data.SqlDbType.NChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "Long", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UID", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "UID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(10).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@find", Global.System.Data.SqlDbType.NChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Agent", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(11) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(11).Connection = Me.Connection
+            Me._commandCollection(11).CommandText = "USE master; " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ALTER DATABASE ASL_DB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;     " & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "RESTORE DATABASE ASL_DB FROM DISK = 'C:\Dropbox\ASL Territory Manager\ASL_Terr" & _
+                "itory_Manager.bak' " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ALTER DATABASE ASL_DB SET MULTI_USER"
+            Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(12) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(12).Connection = Me.Connection
+            Me._commandCollection(12).CommandText = "UPDATE       Contacts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SET                Agent = @Agent, [First Name] = @First_N" & _
+                "ame, [Last Name] = @Last_Name, Address = @Address, City = @City, State = @State," & _
+                " Zip = @Zip, VP1 = @VP1, VP2 = @VP2, VP3 = @VP3, Notes = @Notes, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
+                "            [Name From] = @Name_From, [Do Not Call] = @Do_Not_Call, [Deaf Ter No" & _
+                "] = @Deaf_Ter_No, [VP Ter No] = @VP_Ter_No, [Name Ter No]=@Name_Ter_No,[Date Sea" & _
+                "rched]=@Date_Searched,[Date Found]=@Date_Found, Lat = @Lat, Long = @Long" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE " & _
+                "       (UID = @Original_UID); "
+            Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Agent", Global.System.Data.SqlDbType.NChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Agent", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@First_Name", Global.System.Data.SqlDbType.NChar, 25, Global.System.Data.ParameterDirection.Input, 0, 0, "First Name", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Last_Name", Global.System.Data.SqlDbType.NChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Last Name", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.NChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.NChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@State", Global.System.Data.SqlDbType.NChar, 2, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Zip", Global.System.Data.SqlDbType.NChar, 5, Global.System.Data.ParameterDirection.Input, 0, 0, "Zip", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VP1", Global.System.Data.SqlDbType.NChar, 12, Global.System.Data.ParameterDirection.Input, 0, 0, "VP1", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VP2", Global.System.Data.SqlDbType.NChar, 12, Global.System.Data.ParameterDirection.Input, 0, 0, "VP2", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VP3", Global.System.Data.SqlDbType.NChar, 12, Global.System.Data.ParameterDirection.Input, 0, 0, "VP3", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NChar, 500, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Name_From", Global.System.Data.SqlDbType.NChar, 200, Global.System.Data.ParameterDirection.Input, 0, 0, "Name From", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Do_Not_Call", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Do Not Call", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Deaf_Ter_No", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Deaf Ter No", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VP_Ter_No", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "VP Ter No", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Name_Ter_No", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Name Ter No", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Searched", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Searched", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Found", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Found", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Lat", Global.System.Data.SqlDbType.NChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "Lat", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Long", Global.System.Data.SqlDbType.NChar, 15, Global.System.Data.ParameterDirection.Input, 0, 0, "Long", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(12).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_UID", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "UID", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS.ContactsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As DS.ContactsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DS.ContactsDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData() As DS.ContactsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillAddressesNoDNCs(ByVal dataTable As DS.ContactsDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function Backup(ByVal dataTable As DS.ContactsDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetAddressesNoDNCs() As DS.ContactsDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillAllAddresses(ByVal dataTable As DS.ContactsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillAddressesNoDNCs(ByVal dataTable As DS.ContactsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetAllAddresses() As DS.ContactsDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetAddressesNoDNCs() As DS.ContactsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillContactsWithVP(ByVal dataTable As DS.ContactsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillAllAddresses(ByVal dataTable As DS.ContactsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetContactsWithVP() As DS.ContactsDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetAllAddresses() As DS.ContactsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
             Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillDoNotCalls(ByVal dataTable As DS.ContactsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillContactsWithVP(ByVal dataTable As DS.ContactsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(5)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDoNotCalls() As DS.ContactsDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetContactsWithVP() As DS.ContactsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(5)
             Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillNamesNoAddresses(ByVal dataTable As DS.ContactsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillDoNotCalls(ByVal dataTable As DS.ContactsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetNamesNoAddresses() As DS.ContactsDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetDoNotCalls() As DS.ContactsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
             Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillNamesNoAgent(ByVal dataTable As DS.ContactsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillNamesNoAddresses(ByVal dataTable As DS.ContactsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetNamesNoAgent() As DS.ContactsDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetNamesNoAddresses() As DS.ContactsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
             Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillVPnoNames(ByVal dataTable As DS.ContactsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillNamesNoAgent(ByVal dataTable As DS.ContactsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(8)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetVPnoNames() As DS.ContactsDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetNamesNoAgent() As DS.ContactsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(8)
             Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FindFillBy(ByVal dataTable As DS.ContactsDataTable, ByVal find As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FillVPnoNames(ByVal dataTable As DS.ContactsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function GetVPnoNames() As DS.ContactsDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function FindFillBy(ByVal dataTable As DS.ContactsDataTable, ByVal find As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
             If (find Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(find,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(find, String)
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function FindGetDataBy(ByVal find As String) As DS.ContactsDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], False)> _
+        Public Overridable Overloads Function FindGetDataBy(ByVal find As String) As DS.ContactsDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
             If (find Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(find,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(find, String)
             End If
             Dim dataTable As DS.ContactsDataTable = New DS.ContactsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DS.ContactsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, False)> _
+        Public Overridable Overloads Function Restore(ByVal dataTable As DS.ContactsDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataTable As DS.ContactsDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DS) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataSet As DS) As Integer
             Return Me.Adapter.Update(dataSet, "Contacts")
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+        Public Overridable Overloads Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
             Return Me.Adapter.Update(dataRows)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete( _
-                    ByVal Original_UID As String,  _
-                    ByVal Original_Agent As String,  _
-                    ByVal Original_First_Name As String,  _
-                    ByVal Original_Last_Name As String,  _
-                    ByVal Original_Address As String,  _
-                    ByVal Original_City As String,  _
-                    ByVal Original_State As String,  _
-                    ByVal Original_Zip As String,  _
-                    ByVal Original_VP1 As String,  _
-                    ByVal Original_VP2 As String,  _
-                    ByVal Original_VP3 As String,  _
-                    ByVal Original_Notes As String,  _
-                    ByVal Original_Name_From As String,  _
-                    ByVal Original_Do_Not_Call As String,  _
-                    ByVal Original_Deaf_Ter_No As String,  _
-                    ByVal Original_VP_Ter_No As String,  _
-                    ByVal Original_Name_Ter_No As String,  _
-                    ByVal Original_Date_Searched As String,  _
-                    ByVal Original_Date_Found As String,  _
-                    ByVal Original_Lat As String,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, True)> _
+        Public Overridable Overloads Function Delete( _
+                    ByVal Original_UID As String, _
+                    ByVal Original_Agent As String, _
+                    ByVal Original_First_Name As String, _
+                    ByVal Original_Last_Name As String, _
+                    ByVal Original_Address As String, _
+                    ByVal Original_City As String, _
+                    ByVal Original_State As String, _
+                    ByVal Original_Zip As String, _
+                    ByVal Original_VP1 As String, _
+                    ByVal Original_VP2 As String, _
+                    ByVal Original_VP3 As String, _
+                    ByVal Original_Notes As String, _
+                    ByVal Original_Name_From As String, _
+                    ByVal Original_Do_Not_Call As String, _
+                    ByVal Original_Deaf_Ter_No As String, _
+                    ByVal Original_VP_Ter_No As String, _
+                    ByVal Original_Name_Ter_No As String, _
+                    ByVal Original_Date_Searched As String, _
+                    ByVal Original_Date_Found As String, _
+                    ByVal Original_Lat As String, _
                     ByVal Original_Long As String) As Integer
             If (Original_UID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_UID")
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_UID,String)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_UID, String)
             End If
             If (Original_Agent Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Agent,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Agent, String)
             End If
             If (Original_First_Name Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_First_Name,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_First_Name, String)
             End If
             If (Original_Last_Name Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Last_Name,String)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Last_Name, String)
             End If
             If (Original_Address Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Address,String)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Address, String)
             End If
             If (Original_City Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_City,String)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_City, String)
             End If
             If (Original_State Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_State,String)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_State, String)
             End If
             If (Original_Zip Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Zip,String)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Zip, String)
             End If
             If (Original_VP1 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_VP1,String)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_VP1, String)
             End If
             If (Original_VP2 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_VP2,String)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_VP2, String)
             End If
             If (Original_VP3 Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_VP3,String)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_VP3, String)
             End If
             If (Original_Notes Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Notes,String)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Notes, String)
             End If
             If (Original_Name_From Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Name_From,String)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Name_From, String)
             End If
             If (Original_Do_Not_Call Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_Do_Not_Call,String)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_Do_Not_Call, String)
             End If
             If (Original_Deaf_Ter_No Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_Deaf_Ter_No,String)
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_Deaf_Ter_No, String)
             End If
             If (Original_VP_Ter_No Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_VP_Ter_No,String)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_VP_Ter_No, String)
             End If
             If (Original_Name_Ter_No Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_Name_Ter_No,String)
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(Original_Name_Ter_No, String)
             End If
             If (Original_Date_Searched Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_Date_Searched,String)
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(Original_Date_Searched, String)
             End If
             If (Original_Date_Found Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_Date_Found,String)
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_Date_Found, String)
             End If
             If (Original_Lat Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(38).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_Lat,String)
+                Me.Adapter.DeleteCommand.Parameters(37).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(38).Value = CType(Original_Lat, String)
             End If
             If (Original_Long Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(1, Object)
                 Me.Adapter.DeleteCommand.Parameters(40).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_Long,String)
+                Me.Adapter.DeleteCommand.Parameters(39).Value = CType(0, Object)
+                Me.Adapter.DeleteCommand.Parameters(40).Value = CType(Original_Long, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
+                Me.Adapter.DeleteCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
+                    Me.Adapter.DeleteCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert( _
-                    ByVal UID As String,  _
-                    ByVal Agent As String,  _
-                    ByVal First_Name As String,  _
-                    ByVal Last_Name As String,  _
-                    ByVal Address As String,  _
-                    ByVal City As String,  _
-                    ByVal State As String,  _
-                    ByVal Zip As String,  _
-                    ByVal VP1 As String,  _
-                    ByVal VP2 As String,  _
-                    ByVal VP3 As String,  _
-                    ByVal Notes As String,  _
-                    ByVal Name_From As String,  _
-                    ByVal Do_Not_Call As String,  _
-                    ByVal Deaf_Ter_No As String,  _
-                    ByVal VP_Ter_No As String,  _
-                    ByVal Name_Ter_No As String,  _
-                    ByVal Date_Searched As String,  _
-                    ByVal Date_Found As String,  _
-                    ByVal Lat As String,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, True)> _
+        Public Overridable Overloads Function Insert( _
+                    ByVal UID As String, _
+                    ByVal Agent As String, _
+                    ByVal First_Name As String, _
+                    ByVal Last_Name As String, _
+                    ByVal Address As String, _
+                    ByVal City As String, _
+                    ByVal State As String, _
+                    ByVal Zip As String, _
+                    ByVal VP1 As String, _
+                    ByVal VP2 As String, _
+                    ByVal VP3 As String, _
+                    ByVal Notes As String, _
+                    ByVal Name_From As String, _
+                    ByVal Do_Not_Call As String, _
+                    ByVal Deaf_Ter_No As String, _
+                    ByVal VP_Ter_No As String, _
+                    ByVal Name_Ter_No As String, _
+                    ByVal Date_Searched As String, _
+                    ByVal Date_Found As String, _
+                    ByVal Lat As String, _
                     ByVal _Long As String) As Integer
             If (UID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("UID")
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(UID,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(UID, String)
             End If
             If (Agent Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Agent,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Agent, String)
             End If
             If (First_Name Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(First_Name,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(First_Name, String)
             End If
             If (Last_Name Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Last_Name,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Last_Name, String)
             End If
             If (Address Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Address,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Address, String)
             End If
             If (City Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(City,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(City, String)
             End If
             If (State Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(State,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(State, String)
             End If
             If (Zip Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Zip,String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Zip, String)
             End If
             If (VP1 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(VP1,String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(VP1, String)
             End If
             If (VP2 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(VP2,String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(VP2, String)
             End If
             If (VP3 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(VP3,String)
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(VP3, String)
             End If
             If (Notes Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Notes,String)
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(Notes, String)
             End If
             If (Name_From Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Name_From,String)
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(Name_From, String)
             End If
             If (Do_Not_Call Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(Do_Not_Call,String)
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(Do_Not_Call, String)
             End If
             If (Deaf_Ter_No Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(Deaf_Ter_No,String)
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(Deaf_Ter_No, String)
             End If
             If (VP_Ter_No Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(15).Value = CType(VP_Ter_No,String)
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(VP_Ter_No, String)
             End If
             If (Name_Ter_No Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(Name_Ter_No,String)
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(Name_Ter_No, String)
             End If
             If (Date_Searched Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(Date_Searched,String)
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(Date_Searched, String)
             End If
             If (Date_Found Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(Date_Found,String)
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(Date_Found, String)
             End If
             If (Lat Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(Lat,String)
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(Lat, String)
             End If
             If (_Long Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(_Long,String)
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(_Long, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
+                Me.Adapter.InsertCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
+                    Me.Adapter.InsertCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal UID As String,  _
-                    ByVal Agent As String,  _
-                    ByVal First_Name As String,  _
-                    ByVal Last_Name As String,  _
-                    ByVal Address As String,  _
-                    ByVal City As String,  _
-                    ByVal State As String,  _
-                    ByVal Zip As String,  _
-                    ByVal VP1 As String,  _
-                    ByVal VP2 As String,  _
-                    ByVal VP3 As String,  _
-                    ByVal Notes As String,  _
-                    ByVal Name_From As String,  _
-                    ByVal Do_Not_Call As String,  _
-                    ByVal Deaf_Ter_No As String,  _
-                    ByVal VP_Ter_No As String,  _
-                    ByVal Name_Ter_No As String,  _
-                    ByVal Date_Searched As String,  _
-                    ByVal Date_Found As String,  _
-                    ByVal Lat As String,  _
-                    ByVal _Long As String,  _
-                    ByVal Original_UID As String,  _
-                    ByVal Original_Agent As String,  _
-                    ByVal Original_First_Name As String,  _
-                    ByVal Original_Last_Name As String,  _
-                    ByVal Original_Address As String,  _
-                    ByVal Original_City As String,  _
-                    ByVal Original_State As String,  _
-                    ByVal Original_Zip As String,  _
-                    ByVal Original_VP1 As String,  _
-                    ByVal Original_VP2 As String,  _
-                    ByVal Original_VP3 As String,  _
-                    ByVal Original_Notes As String,  _
-                    ByVal Original_Name_From As String,  _
-                    ByVal Original_Do_Not_Call As String,  _
-                    ByVal Original_Deaf_Ter_No As String,  _
-                    ByVal Original_VP_Ter_No As String,  _
-                    ByVal Original_Name_Ter_No As String,  _
-                    ByVal Original_Date_Searched As String,  _
-                    ByVal Original_Date_Found As String,  _
-                    ByVal Original_Lat As String,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update( _
+                    ByVal UID As String, _
+                    ByVal Agent As String, _
+                    ByVal First_Name As String, _
+                    ByVal Last_Name As String, _
+                    ByVal Address As String, _
+                    ByVal City As String, _
+                    ByVal State As String, _
+                    ByVal Zip As String, _
+                    ByVal VP1 As String, _
+                    ByVal VP2 As String, _
+                    ByVal VP3 As String, _
+                    ByVal Notes As String, _
+                    ByVal Name_From As String, _
+                    ByVal Do_Not_Call As String, _
+                    ByVal Deaf_Ter_No As String, _
+                    ByVal VP_Ter_No As String, _
+                    ByVal Name_Ter_No As String, _
+                    ByVal Date_Searched As String, _
+                    ByVal Date_Found As String, _
+                    ByVal Lat As String, _
+                    ByVal _Long As String, _
+                    ByVal Original_UID As String, _
+                    ByVal Original_Agent As String, _
+                    ByVal Original_First_Name As String, _
+                    ByVal Original_Last_Name As String, _
+                    ByVal Original_Address As String, _
+                    ByVal Original_City As String, _
+                    ByVal Original_State As String, _
+                    ByVal Original_Zip As String, _
+                    ByVal Original_VP1 As String, _
+                    ByVal Original_VP2 As String, _
+                    ByVal Original_VP3 As String, _
+                    ByVal Original_Notes As String, _
+                    ByVal Original_Name_From As String, _
+                    ByVal Original_Do_Not_Call As String, _
+                    ByVal Original_Deaf_Ter_No As String, _
+                    ByVal Original_VP_Ter_No As String, _
+                    ByVal Original_Name_Ter_No As String, _
+                    ByVal Original_Date_Searched As String, _
+                    ByVal Original_Date_Found As String, _
+                    ByVal Original_Lat As String, _
                     ByVal Original_Long As String) As Integer
             If (UID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("UID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(UID,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(UID, String)
             End If
             If (Agent Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Agent,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Agent, String)
             End If
             If (First_Name Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(First_Name,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(First_Name, String)
             End If
             If (Last_Name Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Last_Name,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Last_Name, String)
             End If
             If (Address Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Address,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Address, String)
             End If
             If (City Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(City,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(City, String)
             End If
             If (State Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(State,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(State, String)
             End If
             If (Zip Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Zip,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Zip, String)
             End If
             If (VP1 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(VP1,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(VP1, String)
             End If
             If (VP2 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(VP2,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(VP2, String)
             End If
             If (VP3 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(VP3,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(VP3, String)
             End If
             If (Notes Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Notes,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Notes, String)
             End If
             If (Name_From Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Name_From,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Name_From, String)
             End If
             If (Do_Not_Call Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Do_Not_Call,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Do_Not_Call, String)
             End If
             If (Deaf_Ter_No Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Deaf_Ter_No,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Deaf_Ter_No, String)
             End If
             If (VP_Ter_No Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(VP_Ter_No,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(VP_Ter_No, String)
             End If
             If (Name_Ter_No Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Name_Ter_No,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Name_Ter_No, String)
             End If
             If (Date_Searched Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Date_Searched,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Date_Searched, String)
             End If
             If (Date_Found Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Date_Found,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Date_Found, String)
             End If
             If (Lat Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Lat,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Lat, String)
             End If
             If (_Long Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(_Long,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(_Long, String)
             End If
             If (Original_UID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_UID")
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_UID,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_UID, String)
             End If
             If (Original_Agent Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Agent,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Agent, String)
             End If
             If (Original_First_Name Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_First_Name,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_First_Name, String)
             End If
             If (Original_Last_Name Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Last_Name,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Last_Name, String)
             End If
             If (Original_Address Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Address,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Address, String)
             End If
             If (Original_City Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_City,String)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_City, String)
             End If
             If (Original_State Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_State,String)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_State, String)
             End If
             If (Original_Zip Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_Zip,String)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_Zip, String)
             End If
             If (Original_VP1 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_VP1,String)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_VP1, String)
             End If
             If (Original_VP2 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_VP2,String)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_VP2, String)
             End If
             If (Original_VP3 Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_VP3,String)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_VP3, String)
             End If
             If (Original_Notes Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_Notes,String)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_Notes, String)
             End If
             If (Original_Name_From Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_Name_From,String)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_Name_From, String)
             End If
             If (Original_Do_Not_Call Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_Do_Not_Call,String)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_Do_Not_Call, String)
             End If
             If (Original_Deaf_Ter_No Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_Deaf_Ter_No,String)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_Deaf_Ter_No, String)
             End If
             If (Original_VP_Ter_No Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_VP_Ter_No,String)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_VP_Ter_No, String)
             End If
             If (Original_Name_Ter_No Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_Name_Ter_No,String)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_Name_Ter_No, String)
             End If
             If (Original_Date_Searched Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_Date_Searched,String)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_Date_Searched, String)
             End If
             If (Original_Date_Found Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(57).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_Date_Found,String)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_Date_Found, String)
             End If
             If (Original_Lat Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_Lat,String)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_Lat, String)
             End If
             If (Original_Long Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1, Object)
                 Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_Long,String)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0, Object)
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_Long, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
+                Me.Adapter.UpdateCommand.Connection.Open()
             End If
-            Try 
+            Try
                 Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
                 Return returnValue
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
+                    Me.Adapter.UpdateCommand.Connection.Close()
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Agent As String,  _
-                    ByVal First_Name As String,  _
-                    ByVal Last_Name As String,  _
-                    ByVal Address As String,  _
-                    ByVal City As String,  _
-                    ByVal State As String,  _
-                    ByVal Zip As String,  _
-                    ByVal VP1 As String,  _
-                    ByVal VP2 As String,  _
-                    ByVal VP3 As String,  _
-                    ByVal Notes As String,  _
-                    ByVal Name_From As String,  _
-                    ByVal Do_Not_Call As String,  _
-                    ByVal Deaf_Ter_No As String,  _
-                    ByVal VP_Ter_No As String,  _
-                    ByVal Name_Ter_No As String,  _
-                    ByVal Date_Searched As String,  _
-                    ByVal Date_Found As String,  _
-                    ByVal Lat As String,  _
-                    ByVal _Long As String,  _
-                    ByVal Original_UID As String,  _
-                    ByVal Original_Agent As String,  _
-                    ByVal Original_First_Name As String,  _
-                    ByVal Original_Last_Name As String,  _
-                    ByVal Original_Address As String,  _
-                    ByVal Original_City As String,  _
-                    ByVal Original_State As String,  _
-                    ByVal Original_Zip As String,  _
-                    ByVal Original_VP1 As String,  _
-                    ByVal Original_VP2 As String,  _
-                    ByVal Original_VP3 As String,  _
-                    ByVal Original_Notes As String,  _
-                    ByVal Original_Name_From As String,  _
-                    ByVal Original_Do_Not_Call As String,  _
-                    ByVal Original_Deaf_Ter_No As String,  _
-                    ByVal Original_VP_Ter_No As String,  _
-                    ByVal Original_Name_Ter_No As String,  _
-                    ByVal Original_Date_Searched As String,  _
-                    ByVal Original_Date_Found As String,  _
-                    ByVal Original_Lat As String,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, True)> _
+        Public Overridable Overloads Function Update( _
+                    ByVal Agent As String, _
+                    ByVal First_Name As String, _
+                    ByVal Last_Name As String, _
+                    ByVal Address As String, _
+                    ByVal City As String, _
+                    ByVal State As String, _
+                    ByVal Zip As String, _
+                    ByVal VP1 As String, _
+                    ByVal VP2 As String, _
+                    ByVal VP3 As String, _
+                    ByVal Notes As String, _
+                    ByVal Name_From As String, _
+                    ByVal Do_Not_Call As String, _
+                    ByVal Deaf_Ter_No As String, _
+                    ByVal VP_Ter_No As String, _
+                    ByVal Name_Ter_No As String, _
+                    ByVal Date_Searched As String, _
+                    ByVal Date_Found As String, _
+                    ByVal Lat As String, _
+                    ByVal _Long As String, _
+                    ByVal Original_UID As String, _
+                    ByVal Original_Agent As String, _
+                    ByVal Original_First_Name As String, _
+                    ByVal Original_Last_Name As String, _
+                    ByVal Original_Address As String, _
+                    ByVal Original_City As String, _
+                    ByVal Original_State As String, _
+                    ByVal Original_Zip As String, _
+                    ByVal Original_VP1 As String, _
+                    ByVal Original_VP2 As String, _
+                    ByVal Original_VP3 As String, _
+                    ByVal Original_Notes As String, _
+                    ByVal Original_Name_From As String, _
+                    ByVal Original_Do_Not_Call As String, _
+                    ByVal Original_Deaf_Ter_No As String, _
+                    ByVal Original_VP_Ter_No As String, _
+                    ByVal Original_Name_Ter_No As String, _
+                    ByVal Original_Date_Searched As String, _
+                    ByVal Original_Date_Found As String, _
+                    ByVal Original_Lat As String, _
                     ByVal Original_Long As String) As Integer
             Return Me.Update(Original_UID, Agent, First_Name, Last_Name, Address, City, State, Zip, VP1, VP2, VP3, Notes, Name_From, Do_Not_Call, Deaf_Ter_No, VP_Ter_No, Name_Ter_No, Date_Searched, Date_Found, Lat, _Long, Original_UID, Original_Agent, Original_First_Name, Original_Last_Name, Original_Address, Original_City, Original_State, Original_Zip, Original_VP1, Original_VP2, Original_VP3, Original_Notes, Original_Name_From, Original_Do_Not_Call, Original_Deaf_Ter_No, Original_VP_Ter_No, Original_Name_Ter_No, Original_Date_Searched, Original_Date_Found, Original_Lat, Original_Long)
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
-        Public Overloads Overridable Function DeleteAll() As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, False)> _
+        Public Overridable Overloads Function DeleteAll() As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UpdateContact( _
-                    ByVal Agent As String,  _
-                    ByVal First_Name As String,  _
-                    ByVal Last_Name As String,  _
-                    ByVal Address As String,  _
-                    ByVal City As String,  _
-                    ByVal State As String,  _
-                    ByVal Zip As String,  _
-                    ByVal VP1 As String,  _
-                    ByVal VP2 As String,  _
-                    ByVal VP3 As String,  _
-                    ByVal Notes As String,  _
-                    ByVal Name_From As String,  _
-                    ByVal Do_Not_Call As String,  _
-                    ByVal Deaf_Ter_No As String,  _
-                    ByVal VP_Ter_No As String,  _
-                    ByVal Name_Ter_No As String,  _
-                    ByVal Date_Searched As String,  _
-                    ByVal Date_Found As String,  _
-                    ByVal Lat As String,  _
-                    ByVal _Long As String,  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, False)> _
+        Public Overridable Overloads Function UpdateContact( _
+                    ByVal Agent As String, _
+                    ByVal First_Name As String, _
+                    ByVal Last_Name As String, _
+                    ByVal Address As String, _
+                    ByVal City As String, _
+                    ByVal State As String, _
+                    ByVal Zip As String, _
+                    ByVal VP1 As String, _
+                    ByVal VP2 As String, _
+                    ByVal VP3 As String, _
+                    ByVal Notes As String, _
+                    ByVal Name_From As String, _
+                    ByVal Do_Not_Call As String, _
+                    ByVal Deaf_Ter_No As String, _
+                    ByVal VP_Ter_No As String, _
+                    ByVal Name_Ter_No As String, _
+                    ByVal Date_Searched As String, _
+                    ByVal Date_Found As String, _
+                    ByVal Lat As String, _
+                    ByVal _Long As String, _
                     ByVal Original_UID As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(10)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(12)
             If (Agent Is Nothing) Then
                 command.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(0).Value = CType(Agent,String)
+                command.Parameters(0).Value = CType(Agent, String)
             End If
             If (First_Name Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(First_Name,String)
+                command.Parameters(1).Value = CType(First_Name, String)
             End If
             If (Last_Name Is Nothing) Then
                 command.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(2).Value = CType(Last_Name,String)
+                command.Parameters(2).Value = CType(Last_Name, String)
             End If
             If (Address Is Nothing) Then
                 command.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(3).Value = CType(Address,String)
+                command.Parameters(3).Value = CType(Address, String)
             End If
             If (City Is Nothing) Then
                 command.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(4).Value = CType(City,String)
+                command.Parameters(4).Value = CType(City, String)
             End If
             If (State Is Nothing) Then
                 command.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(5).Value = CType(State,String)
+                command.Parameters(5).Value = CType(State, String)
             End If
             If (Zip Is Nothing) Then
                 command.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(6).Value = CType(Zip,String)
+                command.Parameters(6).Value = CType(Zip, String)
             End If
             If (VP1 Is Nothing) Then
                 command.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(7).Value = CType(VP1,String)
+                command.Parameters(7).Value = CType(VP1, String)
             End If
             If (VP2 Is Nothing) Then
                 command.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(8).Value = CType(VP2,String)
+                command.Parameters(8).Value = CType(VP2, String)
             End If
             If (VP3 Is Nothing) Then
                 command.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(9).Value = CType(VP3,String)
+                command.Parameters(9).Value = CType(VP3, String)
             End If
             If (Notes Is Nothing) Then
                 command.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(10).Value = CType(Notes,String)
+                command.Parameters(10).Value = CType(Notes, String)
             End If
             If (Name_From Is Nothing) Then
                 command.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(11).Value = CType(Name_From,String)
+                command.Parameters(11).Value = CType(Name_From, String)
             End If
             If (Do_Not_Call Is Nothing) Then
                 command.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(12).Value = CType(Do_Not_Call,String)
+                command.Parameters(12).Value = CType(Do_Not_Call, String)
             End If
             If (Deaf_Ter_No Is Nothing) Then
                 command.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(13).Value = CType(Deaf_Ter_No,String)
+                command.Parameters(13).Value = CType(Deaf_Ter_No, String)
             End If
             If (VP_Ter_No Is Nothing) Then
                 command.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(14).Value = CType(VP_Ter_No,String)
+                command.Parameters(14).Value = CType(VP_Ter_No, String)
             End If
             If (Name_Ter_No Is Nothing) Then
                 command.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(15).Value = CType(Name_Ter_No,String)
+                command.Parameters(15).Value = CType(Name_Ter_No, String)
             End If
             If (Date_Searched Is Nothing) Then
                 command.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(16).Value = CType(Date_Searched,String)
+                command.Parameters(16).Value = CType(Date_Searched, String)
             End If
             If (Date_Found Is Nothing) Then
                 command.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(17).Value = CType(Date_Found,String)
+                command.Parameters(17).Value = CType(Date_Found, String)
             End If
             If (Lat Is Nothing) Then
                 command.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(18).Value = CType(Lat,String)
+                command.Parameters(18).Value = CType(Lat, String)
             End If
             If (_Long Is Nothing) Then
                 command.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(19).Value = CType(_Long,String)
+                command.Parameters(19).Value = CType(_Long, String)
             End If
             If (Original_UID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_UID")
             Else
-                command.Parameters(20).Value = CType(Original_UID,String)
+                command.Parameters(20).Value = CType(Original_UID, String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open) _
                         <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+                command.Connection.Open()
             End If
             Dim returnValue As Integer
-            Try 
+            Try
                 returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
+                    command.Connection.Close()
                 End If
             End Try
             Return returnValue
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class Deaf_TerritoriesTableAdapter
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    Partial Public Class VP_TerritoriesTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -5666,70 +5703,70 @@ Namespace DSTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Deaf Territories"
+            tableMapping.DataSetTable = "VP Territories"
             tableMapping.ColumnMappings.Add("TerNo", "TerNo")
             tableMapping.ColumnMappings.Add("Date Out", "Date Out")
             tableMapping.ColumnMappings.Add("Date In", "Date In")
@@ -5737,70 +5774,70 @@ Namespace DSTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Deaf Territories] WHERE (([TerNo] = @Original_TerNo) AND ((@Is"& _ 
-                "Null_Date_Out = 1 AND [Date Out] IS NULL) OR ([Date Out] = @Original_Date_Out)) "& _ 
-                "AND ((@IsNull_Date_In = 1 AND [Date In] IS NULL) OR ([Date In] = @Original_Date_"& _ 
-                "In)) AND ((@IsNull_Publisher = 1 AND [Publisher] IS NULL) OR ([Publisher] = @Ori"& _ 
-                "ginal_Publisher)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[VP Territories] WHERE (([TerNo] = @Original_TerNo) AND ((@IsNu" & _
+                "ll_Date_Out = 1 AND [Date Out] IS NULL) OR ([Date Out] = @Original_Date_Out)) AN" & _
+                "D ((@IsNull_Date_In = 1 AND [Date In] IS NULL) OR ([Date In] = @Original_Date_In" & _
+                ")) AND ((@IsNull_Publisher = 1 AND [Publisher] IS NULL) OR ([Publisher] = @Origi" & _
+                "nal_Publisher)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_Out", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_In", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_In", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Publisher", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_Out", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_In", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_In", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Publisher", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Deaf Territories] ([TerNo], [Date Out], [Date In], [Publisher]"& _ 
-                ") VALUES (@TerNo, @Date_Out, @Date_In, @Publisher);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TerNo, [Date Out], ["& _ 
-                "Date In], Publisher FROM [Deaf Territories] WHERE (TerNo = @TerNo)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[VP Territories] ([TerNo], [Date Out], [Date In], [Publisher]) " & _
+                "VALUES (@TerNo, @Date_Out, @Date_In, @Publisher);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT TerNo, [Date Out], [Da" & _
+                "te In], Publisher FROM [VP Territories] WHERE (TerNo = @TerNo)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_In", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_In", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Deaf Territories] SET [TerNo] = @TerNo, [Date Out] = @Date_Out, [Da"& _ 
-                "te In] = @Date_In, [Publisher] = @Publisher WHERE (([TerNo] = @Original_TerNo) A"& _ 
-                "ND ((@IsNull_Date_Out = 1 AND [Date Out] IS NULL) OR ([Date Out] = @Original_Dat"& _ 
-                "e_Out)) AND ((@IsNull_Date_In = 1 AND [Date In] IS NULL) OR ([Date In] = @Origin"& _ 
-                "al_Date_In)) AND ((@IsNull_Publisher = 1 AND [Publisher] IS NULL) OR ([Publisher"& _ 
-                "] = @Original_Publisher)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT TerNo, [Date Out], [Date In], Publisher FROM"& _ 
-                " [Deaf Territories] WHERE (TerNo = @TerNo)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[VP Territories] SET [TerNo] = @TerNo, [Date Out] = @Date_Out, [Date" & _
+                " In] = @Date_In, [Publisher] = @Publisher WHERE (([TerNo] = @Original_TerNo) AND" & _
+                " ((@IsNull_Date_Out = 1 AND [Date Out] IS NULL) OR ([Date Out] = @Original_Date_" & _
+                "Out)) AND ((@IsNull_Date_In = 1 AND [Date In] IS NULL) OR ([Date In] = @Original" & _
+                "_Date_In)) AND ((@IsNull_Publisher = 1 AND [Publisher] IS NULL) OR ([Publisher] " & _
+                "= @Original_Publisher)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT TerNo, [Date Out], [Date In], Publisher FROM [" & _
+                "VP Territories] WHERE (TerNo = @TerNo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_In", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_Out", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_In", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_In", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Publisher", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_In", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_Out", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_In", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date_In", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date In", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Publisher", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString
+            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString1
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT TerNo, [Date Out], [Date In], Publisher FROM dbo.[Deaf Territories]"
+            Me._commandCollection(0).CommandText = "SELECT TerNo, [Date Out], [Date In], Publisher FROM dbo.[VP Territories]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "DELETE FROM [dbo].[Deaf Territories] "
+            Me._commandCollection(1).CommandText = "DELETE FROM [dbo].[VP Territories] "
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
 
@@ -5808,7 +5845,7 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS.Deaf_TerritoriesDataTable) As Integer
+        Public Overridable Overloads Function Fill(ByVal dataTable As DS.VP_TerritoriesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
                 dataTable.Clear()
@@ -5821,9 +5858,9 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS.Deaf_TerritoriesDataTable
+        Public Overridable Overloads Function GetData() As DS.VP_TerritoriesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DS.Deaf_TerritoriesDataTable = New DS.Deaf_TerritoriesDataTable()
+            Dim dataTable As DS.VP_TerritoriesDataTable = New DS.VP_TerritoriesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -5831,7 +5868,7 @@ Namespace DSTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS.Deaf_TerritoriesDataTable) As Integer
+        Public Overridable Overloads Function Update(ByVal dataTable As DS.VP_TerritoriesDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
 
@@ -5839,7 +5876,7 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
         Public Overridable Overloads Function Update(ByVal dataSet As DS) As Integer
-            Return Me.Adapter.Update(dataSet, "Deaf Territories")
+            Return Me.Adapter.Update(dataSet, "VP Territories")
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -6048,7 +6085,7 @@ Namespace DSTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-    Partial Public Class VP_TerritoriesTableAdapter
+    Partial Public Class Deaf_TerritoriesTableAdapter
         Inherits Global.System.ComponentModel.Component
 
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -6165,7 +6202,7 @@ Namespace DSTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "VP Territories"
+            tableMapping.DataSetTable = "Deaf Territories"
             tableMapping.ColumnMappings.Add("TerNo", "TerNo")
             tableMapping.ColumnMappings.Add("Date Out", "Date Out")
             tableMapping.ColumnMappings.Add("Date In", "Date In")
@@ -6173,11 +6210,11 @@ Namespace DSTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[VP Territories] WHERE (([TerNo] = @Original_TerNo) AND ((@IsNu" & _
-                "ll_Date_Out = 1 AND [Date Out] IS NULL) OR ([Date Out] = @Original_Date_Out)) AN" & _
-                "D ((@IsNull_Date_In = 1 AND [Date In] IS NULL) OR ([Date In] = @Original_Date_In" & _
-                ")) AND ((@IsNull_Publisher = 1 AND [Publisher] IS NULL) OR ([Publisher] = @Origi" & _
-                "nal_Publisher)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Deaf Territories] WHERE (([TerNo] = @Original_TerNo) AND ((@Is" & _
+                "Null_Date_Out = 1 AND [Date Out] IS NULL) OR ([Date Out] = @Original_Date_Out)) " & _
+                "AND ((@IsNull_Date_In = 1 AND [Date In] IS NULL) OR ([Date In] = @Original_Date_" & _
+                "In)) AND ((@IsNull_Publisher = 1 AND [Publisher] IS NULL) OR ([Publisher] = @Ori" & _
+                "ginal_Publisher)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date_Out", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Original, True, Nothing, "", "", ""))
@@ -6188,9 +6225,9 @@ Namespace DSTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Original, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[VP Territories] ([TerNo], [Date Out], [Date In], [Publisher]) " & _
-                "VALUES (@TerNo, @Date_Out, @Date_In, @Publisher);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT TerNo, [Date Out], [Da" & _
-                "te In], Publisher FROM [VP Territories] WHERE (TerNo = @TerNo)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Deaf Territories] ([TerNo], [Date Out], [Date In], [Publisher]" & _
+                ") VALUES (@TerNo, @Date_Out, @Date_In, @Publisher);" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT TerNo, [Date Out], [" & _
+                "Date In], Publisher FROM [Deaf Territories] WHERE (TerNo = @TerNo)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -6198,13 +6235,13 @@ Namespace DSTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Publisher", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Publisher", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[VP Territories] SET [TerNo] = @TerNo, [Date Out] = @Date_Out, [Date" & _
-                " In] = @Date_In, [Publisher] = @Publisher WHERE (([TerNo] = @Original_TerNo) AND" & _
-                " ((@IsNull_Date_Out = 1 AND [Date Out] IS NULL) OR ([Date Out] = @Original_Date_" & _
-                "Out)) AND ((@IsNull_Date_In = 1 AND [Date In] IS NULL) OR ([Date In] = @Original" & _
-                "_Date_In)) AND ((@IsNull_Publisher = 1 AND [Publisher] IS NULL) OR ([Publisher] " & _
-                "= @Original_Publisher)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT TerNo, [Date Out], [Date In], Publisher FROM [" & _
-                "VP Territories] WHERE (TerNo = @TerNo)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Deaf Territories] SET [TerNo] = @TerNo, [Date Out] = @Date_Out, [Da" & _
+                "te In] = @Date_In, [Publisher] = @Publisher WHERE (([TerNo] = @Original_TerNo) A" & _
+                "ND ((@IsNull_Date_Out = 1 AND [Date Out] IS NULL) OR ([Date Out] = @Original_Dat" & _
+                "e_Out)) AND ((@IsNull_Date_In = 1 AND [Date In] IS NULL) OR ([Date In] = @Origin" & _
+                "al_Date_In)) AND ((@IsNull_Publisher = 1 AND [Publisher] IS NULL) OR ([Publisher" & _
+                "] = @Original_Publisher)));" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT TerNo, [Date Out], [Date In], Publisher FROM" & _
+                " [Deaf Territories] WHERE (TerNo = @TerNo)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TerNo", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TerNo", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date_Out", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date Out", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
@@ -6223,7 +6260,7 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString
+            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString1
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -6232,11 +6269,11 @@ Namespace DSTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT TerNo, [Date Out], [Date In], Publisher FROM dbo.[VP Territories]"
+            Me._commandCollection(0).CommandText = "SELECT TerNo, [Date Out], [Date In], Publisher FROM dbo.[Deaf Territories]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "DELETE FROM [dbo].[VP Territories] "
+            Me._commandCollection(1).CommandText = "DELETE FROM [dbo].[Deaf Territories]"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
 
@@ -6244,7 +6281,7 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As DS.VP_TerritoriesDataTable) As Integer
+        Public Overridable Overloads Function Fill(ByVal dataTable As DS.Deaf_TerritoriesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
                 dataTable.Clear()
@@ -6257,9 +6294,9 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As DS.VP_TerritoriesDataTable
+        Public Overridable Overloads Function GetData() As DS.Deaf_TerritoriesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DS.VP_TerritoriesDataTable = New DS.VP_TerritoriesDataTable()
+            Dim dataTable As DS.Deaf_TerritoriesDataTable = New DS.Deaf_TerritoriesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -6267,7 +6304,7 @@ Namespace DSTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-        Public Overridable Overloads Function Update(ByVal dataTable As DS.VP_TerritoriesDataTable) As Integer
+        Public Overridable Overloads Function Update(ByVal dataTable As DS.Deaf_TerritoriesDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
 
@@ -6275,7 +6312,7 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
         Public Overridable Overloads Function Update(ByVal dataSet As DS) As Integer
-            Return Me.Adapter.Update(dataSet, "VP Territories")
+            Return Me.Adapter.Update(dataSet, "Deaf Territories")
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -6686,7 +6723,7 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString
+            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString1
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -7195,7 +7232,7 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString
+            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString1
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -7644,7 +7681,7 @@ Namespace DSTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString
+            Me._connection.ConnectionString = Global.ASL_Teritory_Manager.My.MySettings.Default.ASL_DBConnectionString1
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -7932,9 +7969,9 @@ Namespace DSTableAdapters
         
         Private _contactsTableAdapter As ContactsTableAdapter
         
-        Private _deaf_TerritoriesTableAdapter As Deaf_TerritoriesTableAdapter
-        
         Private _vP_TerritoriesTableAdapter As VP_TerritoriesTableAdapter
+        
+        Private _deaf_TerritoriesTableAdapter As Deaf_TerritoriesTableAdapter
         
         Private _mapsTableAdapter As MapsTableAdapter
         
@@ -7976,12 +8013,12 @@ Namespace DSTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property Deaf_TerritoriesTableAdapter() As Deaf_TerritoriesTableAdapter
+        Public Property VP_TerritoriesTableAdapter() As VP_TerritoriesTableAdapter
             Get
-                Return Me._deaf_TerritoriesTableAdapter
+                Return Me._vP_TerritoriesTableAdapter
             End Get
             Set
-                Me._deaf_TerritoriesTableAdapter = value
+                Me._vP_TerritoriesTableAdapter = value
             End Set
         End Property
         
@@ -7990,12 +8027,12 @@ Namespace DSTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property VP_TerritoriesTableAdapter() As VP_TerritoriesTableAdapter
+        Public Property Deaf_TerritoriesTableAdapter() As Deaf_TerritoriesTableAdapter
             Get
-                Return Me._vP_TerritoriesTableAdapter
+                Return Me._deaf_TerritoriesTableAdapter
             End Get
             Set
-                Me._vP_TerritoriesTableAdapter = value
+                Me._deaf_TerritoriesTableAdapter = value
             End Set
         End Property
         
@@ -8064,13 +8101,13 @@ Namespace DSTableAdapters
                             AndAlso (Not (Me._contactsTableAdapter.Connection) Is Nothing)) Then
                     Return Me._contactsTableAdapter.Connection
                 End If
-                If ((Not (Me._deaf_TerritoriesTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._deaf_TerritoriesTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._deaf_TerritoriesTableAdapter.Connection
-                End If
                 If ((Not (Me._vP_TerritoriesTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._vP_TerritoriesTableAdapter.Connection) Is Nothing)) Then
                     Return Me._vP_TerritoriesTableAdapter.Connection
+                End If
+                If ((Not (Me._deaf_TerritoriesTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._deaf_TerritoriesTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._deaf_TerritoriesTableAdapter.Connection
                 End If
                 If ((Not (Me._mapsTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._mapsTableAdapter.Connection) Is Nothing)) Then
@@ -8100,10 +8137,10 @@ Namespace DSTableAdapters
                 If (Not (Me._contactsTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
+                If (Not (Me._vP_TerritoriesTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._vP_TerritoriesTableAdapter) Is Nothing) Then
+                If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 If (Not (Me._mapsTableAdapter) Is Nothing) Then
@@ -8135,21 +8172,21 @@ Namespace DSTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Deaf_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._deaf_TerritoriesTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._vP_TerritoriesTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.VP_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._vP_TerritoriesTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Deaf_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._deaf_TerritoriesTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -8198,19 +8235,19 @@ Namespace DSTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Deaf_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._deaf_TerritoriesTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._vP_TerritoriesTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.VP_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._vP_TerritoriesTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Deaf_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._deaf_TerritoriesTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -8272,19 +8309,19 @@ Namespace DSTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._vP_TerritoriesTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.VP_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._vP_TerritoriesTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Deaf_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._deaf_TerritoriesTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._vP_TerritoriesTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.VP_Territories.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._vP_TerritoriesTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -8342,13 +8379,13 @@ Namespace DSTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._deaf_TerritoriesTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._deaf_TerritoriesTableAdapter.Connection) = false)) Then
+            If ((Not (Me._vP_TerritoriesTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._vP_TerritoriesTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._vP_TerritoriesTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._vP_TerritoriesTableAdapter.Connection) = false)) Then
+            If ((Not (Me._deaf_TerritoriesTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._deaf_TerritoriesTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -8408,15 +8445,6 @@ Namespace DSTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._contactsTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._deaf_TerritoriesTableAdapter, Me._deaf_TerritoriesTableAdapter.Connection)
-                    Me._deaf_TerritoriesTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._deaf_TerritoriesTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._deaf_TerritoriesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._deaf_TerritoriesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._deaf_TerritoriesTableAdapter.Adapter)
-                    End If
-                End If
                 If (Not (Me._vP_TerritoriesTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._vP_TerritoriesTableAdapter, Me._vP_TerritoriesTableAdapter.Connection)
                     Me._vP_TerritoriesTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
@@ -8424,6 +8452,15 @@ Namespace DSTableAdapters
                     If Me._vP_TerritoriesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._vP_TerritoriesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._vP_TerritoriesTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._deaf_TerritoriesTableAdapter, Me._deaf_TerritoriesTableAdapter.Connection)
+                    Me._deaf_TerritoriesTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._deaf_TerritoriesTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._deaf_TerritoriesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._deaf_TerritoriesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._deaf_TerritoriesTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._mapsTableAdapter) Is Nothing) Then
@@ -8517,13 +8554,13 @@ Namespace DSTableAdapters
                     Me._contactsTableAdapter.Connection = CType(revertConnections(Me._contactsTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._contactsTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
-                    Me._deaf_TerritoriesTableAdapter.Connection = CType(revertConnections(Me._deaf_TerritoriesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._deaf_TerritoriesTableAdapter.Transaction = Nothing
-                End If
                 If (Not (Me._vP_TerritoriesTableAdapter) Is Nothing) Then
                     Me._vP_TerritoriesTableAdapter.Connection = CType(revertConnections(Me._vP_TerritoriesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._vP_TerritoriesTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._deaf_TerritoriesTableAdapter) Is Nothing) Then
+                    Me._deaf_TerritoriesTableAdapter.Connection = CType(revertConnections(Me._deaf_TerritoriesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._deaf_TerritoriesTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._mapsTableAdapter) Is Nothing) Then
                     Me._mapsTableAdapter.Connection = CType(revertConnections(Me._mapsTableAdapter),Global.System.Data.SqlClient.SqlConnection)

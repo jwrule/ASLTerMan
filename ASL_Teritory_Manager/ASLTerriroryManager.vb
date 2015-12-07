@@ -1,4 +1,4 @@
-﻿Imports DGVPrinterHelper
+﻿
 
 
 Public Class ASLTerriroryManager
@@ -168,13 +168,20 @@ Public Class ASLTerriroryManager
 #End Region
 
 #Region "Events"
+    Private Sub btnGetCoord_Click(sender As Object, e As EventArgs) Handles btnGetCoord.Click
+        Process.Start("iexplore.exe", "http://gmaps-samples.googlecode.com/svn/trunk/geocoder/singlegeocode.html")
+    End Sub
 #Region "Contact Events"
     Private Sub tabManageContacts_Enter(sender As Object, e As EventArgs) Handles tabManageContacts.Enter
         _ta.Fill(DS.Contacts)
         lblRecordsCount.Text = dgvContacts.Rows.Count
     End Sub
     Private Sub dgvContacts_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvContacts.CellClick
-        BuildContact(DS.Contacts.Rows.Find(dgvContacts.CurrentRow.DataBoundItem(0)))
+        Try
+            BuildContact(DS.Contacts.Rows.Find(dgvContacts.CurrentRow.DataBoundItem(0)))
+        Catch ex As Exception
+        End Try
+
     End Sub
     Private Sub ContactsBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles ContactsBindingSource.CurrentItemChanged
         'If _firstload = True Then Exit Sub
@@ -188,10 +195,15 @@ Public Class ASLTerriroryManager
         lblRecordsCount.Text = dgvContacts.Rows.Count
     End Sub
     Private Sub btnRemoveContact_Click(sender As Object, e As EventArgs) Handles btnRemoveContact.Click
-        Dim row As Integer = dgvContacts.CurrentRow.Index
-        DS.Contacts.RemoveContactsRow(DS.Contacts.Rows(row))
-        _ta.Update(DS.Contacts)
-        lblRecordsCount.Text = dgvContacts.Rows.Count
+        Dim result = MsgBox("Are you sure you want to delete this contact?", MsgBoxStyle.YesNo, "Remove Contact?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            Dim row As Integer = dgvContacts.CurrentRow.Index
+            DS.Contacts.RemoveContactsRow(DS.Contacts.Rows(row))
+            _ta.Update(DS.Contacts)
+            lblRecordsCount.Text = dgvContacts.Rows.Count
+        End If
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim uid As String = dgvContacts.CurrentRow.DataBoundItem(0)
@@ -280,7 +292,10 @@ Public Class ASLTerriroryManager
     End Sub
 
     Private Sub dgvDeafTerritories_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDeafTerritories.CellEnter
-        Dim terno As String = dgvDeafTerritories.CurrentRow.DataBoundItem(0)
+
+        Try
+            Dim terno As String = dgvDeafTerritories.CurrentRow.DataBoundItem(0)
+
         rtbDeafTerritory.Clear()
 
         rtbDeafTerritory.AppendText("Territory No: " & terno & Environment.NewLine)
@@ -300,7 +315,9 @@ Public Class ASLTerriroryManager
                 rtbDeafTerritory.AppendText("_____________________________________________________________________________" & Environment.NewLine)
                 rtbDeafTerritory.AppendText(Environment.NewLine)
             End If
-        Next
+            Next
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub btnNewDeafTer_Click(sender As Object, e As EventArgs) Handles btnNewDeafTer.Click
@@ -309,9 +326,14 @@ Public Class ASLTerriroryManager
         lblDeafTerCount.Text = dgvDeafTerritories.Rows.Count
     End Sub
     Private Sub btnDelDeafTer_Click(sender As Object, e As EventArgs) Handles btnDelDeafTer.Click
-        Dim row As Integer = dgvDeafTerritories.CurrentRow.Index
-        DS.Deaf_Territories.RemoveDeaf_TerritoriesRow(DS.Deaf_Territories.Rows(row))
-        lblDeafTerCount.Text = dgvDeafTerritories.Rows.Count
+        Dim result = MsgBox("Are you sure you want to delete this territory?", MsgBoxStyle.YesNo, "Delete Territory?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            Dim row As Integer = dgvDeafTerritories.CurrentRow.Index
+            DS.Deaf_Territories.RemoveDeaf_TerritoriesRow(DS.Deaf_Territories.Rows(row))
+            lblDeafTerCount.Text = dgvDeafTerritories.Rows.Count
+        End If
     End Sub
 #End Region
 #Region "VP Territory Events"
@@ -325,22 +347,25 @@ Public Class ASLTerriroryManager
     End Sub
 
     Private Sub dgvVPTerritoryCellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvVPTerritory.CellEnter
-        Dim terno As String = dgvVPTerritory.CurrentRow.DataBoundItem(0)
-        rtbVPTerritory.Clear()
+        Try
+            Dim terno As String = dgvVPTerritory.CurrentRow.DataBoundItem(0)
+            rtbVPTerritory.Clear()
 
-        rtbVPTerritory.AppendText("Territory No: " & terno & Environment.NewLine)
-        rtbVPTerritory.AppendText("Please check with the Agent before contacting the deaf person." & Environment.NewLine)
-        rtbVPTerritory.AppendText(Environment.NewLine)
+            rtbVPTerritory.AppendText("Territory No: " & terno & Environment.NewLine)
+            rtbVPTerritory.AppendText("Please check with the Agent before contacting the deaf person." & Environment.NewLine)
+            rtbVPTerritory.AppendText(Environment.NewLine)
 
-        For Each Contact As DataRow In DS.Contacts.Rows
-            BuildContact(Contact)
-            If _contact.VpTerNo IsNot Nothing And _contact.VpTerNo = terno.Trim Then
-                rtbVPTerritory.AppendText("VP1: " & _contact.VP1 & " VP2: " & _contact.VP2 & " VP3: " & _contact.VP3 & Environment.NewLine)
-                rtbVPTerritory.AppendText(Environment.NewLine)
-                rtbVPTerritory.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
-                rtbVPTerritory.AppendText(Environment.NewLine)
-            End If
-        Next
+            For Each Contact As DataRow In DS.Contacts.Rows
+                BuildContact(Contact)
+                If _contact.VpTerNo IsNot Nothing And _contact.VpTerNo = terno.Trim Then
+                    rtbVPTerritory.AppendText("VP1: " & _contact.VP1 & " VP2: " & _contact.VP2 & " VP3: " & _contact.VP3 & Environment.NewLine)
+                    rtbVPTerritory.AppendText(Environment.NewLine)
+                    rtbVPTerritory.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
+                    rtbVPTerritory.AppendText(Environment.NewLine)
+                End If
+            Next
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub btnNewVPTer_Click(sender As Object, e As EventArgs) Handles btnNewVPTer.Click
@@ -349,9 +374,14 @@ Public Class ASLTerriroryManager
         lblVpTerCount.Text = dgvVPTerritory.Rows.Count
     End Sub
     Private Sub btnDelVPTer_Click(sender As Object, e As EventArgs) Handles btnDelVPTer.Click
-        Dim row As Integer = dgvVPTerritory.CurrentRow.Index
-        DS.VP_Territories.RemoveVP_TerritoriesRow(DS.VP_Territories.Rows(row))
-        lblVpTerCount.Text = dgvVPTerritory.Rows.Count
+        Dim result = MsgBox("Are you sure you want to delete this territory?", MsgBoxStyle.YesNo, "Delete Territory?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            Dim row As Integer = dgvVPTerritory.CurrentRow.Index
+            DS.VP_Territories.RemoveVP_TerritoriesRow(DS.VP_Territories.Rows(row))
+            lblVpTerCount.Text = dgvVPTerritory.Rows.Count
+        End If
     End Sub
 #End Region
 #Region "VP Search Territory Events"
@@ -361,11 +391,30 @@ Public Class ASLTerriroryManager
         lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
     End Sub
 
-    Private Sub VPsearchTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPsearchTerBindingSourrce.CurrentItemChanged
-        _tavps.Update(DS.VP_Search_Territories)
-    End Sub
+    'Private Sub VPsearchTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPsearchTerBindingSourrce.CurrentItemChanged
+    '    Try
+    '        If dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "1-10" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "11-20" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "21-30" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "31-40" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "41-50" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "51-60" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "61-70" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "71-80" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "81-90" Or
+    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "91-100" Then
+    '            MsgBox("Please enter only one of the following values: 1-10, 11-20 , 21-30 , 31-40, 41-50, 51-60, 61-70, 71-80, 81-90, 91-100")
+    '            dgvVPsearchTer.CurrentRow.DataBoundItem(1) = ""
+    '            Exit Sub
+    '        End If
+    '    Catch ex As Exception
+
+    '    End Try
+    '    _tavps.Update(DS.VP_Search_Territories)
+    'End Sub
     Private Sub dgvVPsearchTerCellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvVPsearchTer.CellEnter
-        rtbVPsearchTer.Clear()
+        Try
+            rtbVPsearchTer.Clear()
         Dim terGroup As String = dgvVPsearchTer.CurrentRow.DataBoundItem(1)
         Dim prefix As String = dgvVPsearchTer.CurrentRow.DataBoundItem(0)
         Dim number As String = 0
@@ -379,39 +428,46 @@ Public Class ASLTerriroryManager
             If startCount = -1 Then startCount = 1
             Dim endCount As Integer = terGroup.Substring(3)
             If endCount = 0 Then endCount = 10
-            number = startCount * 100
+                If startCount > 10 Then number = startCount * 100
 
             rtbVPsearchTer.AppendText("Territory: " & prefix.Trim & "  Territory Group: " & terGroup & Environment.NewLine)
             rtbVPsearchTer.AppendText(Environment.NewLine)
             For buildIt = startCount To endCount
 
-                For incNum = 1 To 100
-                    If number < 10 Then
-                        number = number.Insert(0, "000")
-                    End If
+                    For incNum = 1 To 100
+                        If number < 10 Then
+                            number = number.Insert(0, "000")
+                        End If
 
-                    If number > 10 And number < 100 Then number = number.Insert(0, "00")
-                    If number.ToString.Length = 3 Then number = number.Insert(3, "0")
-                    x = (Conversion.Int(number) / 2)
-                    If x = Int(x) Then
-                        rtbVPsearchTer.AppendText(prefix.Trim & "-" & number)
-                    Else : rtbVPsearchTer.AppendText("                                         " & prefix.Trim & "-" & number & Environment.NewLine)
-                    End If
-                    number += 1
+                        If number > 9 AndAlso number < 100 Then number = number.Insert(0, "00")
+                        If number.ToString.Length = 3 Then number = number.Insert(0, "0")
+                        x = (Conversion.Int(number) / 2)
+                        If x = Int(x) Then
+                            rtbVPsearchTer.AppendText(prefix.Trim & "-" & number)
+                        Else : rtbVPsearchTer.AppendText("                                                                   " & prefix.Trim & "-" & number & Environment.NewLine)
+                        End If
+                        number += 1
+                    Next
                 Next
-            Next
-        End If
+            End If
+        Catch ex As Exception
 
+        End Try
     End Sub
     Private Sub btnNewVPsearchTer_Click(sender As Object, e As EventArgs) Handles btnNewVPserchTer.Click
-        DS.VP_Search_Territories.AddVP_Search_TerritoriesRow(GenerateUID, "", "", "", "")
+        DS.VP_Search_Territories.AddVP_Search_TerritoriesRow("New", "", "", "", "")
         _tavps.Update(DS.VP_Search_Territories)
         lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
     End Sub
     Private Sub btnDelVPsearchTer_Click(sender As Object, e As EventArgs) Handles btnDelVPsearchTer.Click
-        Dim row As Integer = dgvVPsearchTer.CurrentRow.Index
-        DS.VP_Search_Territories.RemoveVP_Search_TerritoriesRow(DS.VP_Search_Territories.Rows(row))
-        lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
+        Dim result = MsgBox("Are you sure you want to delete this territory?", MsgBoxStyle.YesNo, "Delete Territory?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            Dim row As Integer = dgvVPsearchTer.CurrentRow.Index
+            DS.VP_Search_Territories.RemoveVP_Search_TerritoriesRow(DS.VP_Search_Territories.Rows(row))
+            lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
+        End If
     End Sub
 #End Region
 #Region "Name Search Territory Events"
@@ -423,21 +479,26 @@ Public Class ASLTerriroryManager
         _tans.Update(DS.Name_Search_Territories)
     End Sub
     Private Sub dgvNameSearchTer_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvNameSearchTer.CellEnter
-        Dim terno As String = dgvNameSearchTer.CurrentRow.DataBoundItem(0)
-        rtbNameSearchTer.Clear()
+        Try
+            Dim terno As String = dgvNameSearchTer.CurrentRow.DataBoundItem(0)
+            rtbNameSearchTer.Clear()
 
-        rtbNameSearchTer.AppendText("Territory No: " & terno & Environment.NewLine)
-        rtbNameSearchTer.AppendText(Environment.NewLine)
+            rtbNameSearchTer.AppendText("Territory No: " & terno & Environment.NewLine)
+            rtbNameSearchTer.AppendText(Environment.NewLine)
 
-        For Each Contact As DataRow In DS.Contacts.Rows
-            BuildContact(Contact)
-            If _contact.NameTerNo IsNot Nothing And _contact.NameTerNo = terno.Trim Then
-                rtbNameSearchTer.AppendText(_contact.FirstName & " " & _contact.LastName & Environment.NewLine)
-                rtbNameSearchTer.AppendText(Environment.NewLine)
-                rtbNameSearchTer.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
-                rtbNameSearchTer.AppendText(Environment.NewLine)
-            End If
-        Next
+            For Each Contact As DataRow In DS.Contacts.Rows
+                BuildContact(Contact)
+                If _contact.NameTerNo IsNot Nothing And _contact.NameTerNo = terno.Trim Then
+                    rtbNameSearchTer.AppendText(_contact.FirstName & " " & _contact.LastName & Environment.NewLine)
+                    rtbNameSearchTer.AppendText(Environment.NewLine)
+                    rtbNameSearchTer.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
+                    rtbNameSearchTer.AppendText(Environment.NewLine)
+                End If
+            Next
+
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub btnNameSearchAdd_Click(sender As Object, e As EventArgs) Handles btnNameSearchAdd.Click
         DS.Name_Search_Territories.AddName_Search_TerritoriesRow("new", "", "", "")
@@ -445,9 +506,14 @@ Public Class ASLTerriroryManager
         lblNameSearchTerCount.Text = dgvNameSearchTer.Rows.Count
     End Sub
     Private Sub btnNameSearchDel_Click(sender As Object, e As EventArgs) Handles btnNameSearchDel.Click
-        Dim row As Integer = dgvNameSearchTer.CurrentRow.Index
-        DS.Name_Search_Territories.RemoveName_Search_TerritoriesRow(DS.Name_Search_Territories.Rows(row))
-        lblNameSearchTerCount.Text = dgvNameSearchTer.Rows.Count
+        Dim result = MsgBox("Are you sure you want to delete this territory?", MsgBoxStyle.YesNo, "Delete Territory?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            Dim row As Integer = dgvNameSearchTer.CurrentRow.Index
+            DS.Name_Search_Territories.RemoveName_Search_TerritoriesRow(DS.Name_Search_Territories.Rows(row))
+            lblNameSearchTerCount.Text = dgvNameSearchTer.Rows.Count
+        End If
     End Sub
 #End Region
 #Region "Map Search Territory Events"
@@ -459,19 +525,21 @@ Public Class ASLTerriroryManager
         _tams.Update(DS.Maps)
     End Sub
     Private Sub dgvMapsSearchTer_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMapsSearchTer.CellEnter
-        _firstload = True
-        For Each cell As DataGridViewCell In dgvMapsSearchTer.CurrentRow.Cells
-            If Not String.IsNullOrEmpty(cell.Value.ToString) Then
-                _firstload = False
+        Try
+            _firstload = True
+            For Each cell As DataGridViewCell In dgvMapsSearchTer.CurrentRow.Cells
+                If Not String.IsNullOrEmpty(cell.Value.ToString) Then
+                    _firstload = False
+                End If
+            Next
+            If _firstload = False Then
+                Dim ter As New Territory("map")
+                CreateMap(ter.Latitude, ter.Longitude, ter.TerNo)
+                rtbNameSearchTer.Clear()
+                rtbNameSearchTer.AppendText(Environment.NewLine)
             End If
-        Next
-        If _firstload = False Then
-            Dim ter As New Territory("map")
-            CreateMap(ter.Latitude, ter.Longitude, ter.TerNo)
-            rtbNameSearchTer.Clear()
-            rtbNameSearchTer.AppendText(Environment.NewLine)
-        End If
-
+        Catch ex As Exception
+        End Try
 
     End Sub
     Private Sub btnNewMap_Click(sender As Object, e As EventArgs) Handles btnNewMap.Click
@@ -480,11 +548,17 @@ Public Class ASLTerriroryManager
         lblMapTerCount.Text = dgvMapsSearchTer.Rows.Count
     End Sub
     Private Sub btnDelMap_Click(sender As Object, e As EventArgs) Handles btnDelMap.Click
-        Dim row As Integer = dgvMapsSearchTer.CurrentRow.Index
-        DS.Maps.RemoveMapsRow(DS.Maps.Rows(row))
-        lblMapTerCount.Text = dgvMapsSearchTer.Rows.Count
+        Dim result = MsgBox("Are you sure you want to delete this territory?", MsgBoxStyle.YesNo, "Delete Territory?")
+        If result = MsgBoxResult.No Then
+            Exit Sub
+        Else
+            Dim row As Integer = dgvMapsSearchTer.CurrentRow.Index
+            DS.Maps.RemoveMapsRow(DS.Maps.Rows(row))
+            lblMapTerCount.Text = dgvMapsSearchTer.Rows.Count
+        End If
     End Sub
 #End Region
+
 #Region "Export to CSV"
     Private Sub Export_To_File(sender As Object, e As EventArgs) Handles btnExport.Click
         Dim headers = (From header As DataGridViewColumn In dgvContacts.Columns.Cast(Of DataGridViewColumn)() _
@@ -574,17 +648,18 @@ Public Class ASLTerriroryManager
 #Region "Backup and Restore"
     Private Sub btnBackup_Click(sender As Object, e As EventArgs) Handles btnBackup.Click
         _ta.Backup(DS.Contacts)
-        MsgBox("ASL Territory Manager has been backed up to C:\ASL_Territory_Manager.bak")
+        MsgBox("ASL Territory Manager has been backed up to C:\Dropbox\ASl Territory Manager\ASL_Territory_Manager.bak")
     End Sub
     Private Sub btnRestore_Click(sender As Object, e As EventArgs) Handles btnRestore.Click
-        
+
         _ta.Restore(DS.Contacts)
-        
-        MsgBox("ASL Territory Manager has been restored from C:\ASL_Territory_Manager.bak")
+
+        MsgBox("ASL Territory Manager has been restored from C:\Dropbox\ASl Territory Manager\ASL_Territory_Manager.bak")
     End Sub
 #End Region
 #End Region
   
     
    
+    
 End Class
