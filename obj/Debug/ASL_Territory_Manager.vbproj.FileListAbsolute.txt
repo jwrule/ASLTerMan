@@ -1,0 +1,12 @@
+C:\Users\Jason\Source\Repos\ASLTerMan\bin\Debug\ASL_Teritory_Manager.exe.config
+C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.ASLTerriroryManager.resources
+C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.Resources.resources
+C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Territory_Manager.vbproj.GenerateResource.Cache
+C:\Users\Jason\Source\Repos\ASLTerMan\bin\Debug\ASL_DB.mdf
+C:\Users\Jason\Source\Repos\ASLTerMan\bin\Debug\ASL_DB_log.ldf
+C:\Users\Jason\Source\Repos\ASLTerMan\bin\Debug\ASL_Teritory_Manager.exe
+C:\Users\Jason\Source\Repos\ASLTerMan\bin\Debug\ASL_Teritory_Manager.pdb
+C:\Users\Jason\Source\Repos\ASLTerMan\bin\Debug\ASL_Teritory_Manager.xml
+C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.exe
+C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.xml
+C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.pdb
