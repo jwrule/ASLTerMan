@@ -203,7 +203,7 @@ Public Class ASLTerriroryManager
 
 #Region "Events"
     Private Sub btnGetCoord_Click(sender As Object, e As EventArgs) Handles btnGetCoord.Click
-        Process.Start("iexplore.exe", "http://gmaps-samples.googlecode.com/svn/trunk/geocoder/singlegeocode.html")
+        Process.Start("iexplore.exe", "http:/http://mygeoposition.com/")
     End Sub
 #Region "Contact Events"
     Private Sub tabManageContacts_Enter(sender As Object, e As EventArgs) Handles tabManageContacts.Enter
@@ -326,25 +326,25 @@ Public Class ASLTerriroryManager
         Try
             Dim terno As String = dgvDeafTerritories.CurrentRow.DataBoundItem(0)
 
-        rtbDeafTerritory.Clear()
+            rtbDeafTerritory.Clear()
 
-        rtbDeafTerritory.AppendText("Territory No: " & terno & Environment.NewLine)
-        rtbDeafTerritory.AppendText("Please check with the Agent before contacting the deaf person." & Environment.NewLine)
-        rtbDeafTerritory.AppendText(Environment.NewLine)
+            rtbDeafTerritory.AppendText("Territory No: " & terno & Environment.NewLine)
+            rtbDeafTerritory.AppendText("Please check with the Agent before contacting the deaf person." & Environment.NewLine)
+            rtbDeafTerritory.AppendText(Environment.NewLine)
 
-        For Each Contact As DataRow In DS.Contacts.Rows
-            BuildContact(Contact)
-            If _contact.DeafTerNo IsNot Nothing And _contact.DeafTerNo = terno.Trim Then
-                rtbDeafTerritory.AppendText(_contact.FirstName & " " & _contact.LastName & Environment.NewLine)
-                rtbDeafTerritory.AppendText("Agent: " & _contact.Agent & Environment.NewLine)
-                rtbDeafTerritory.AppendText("Address: " & _contact.Address & " " & _contact.City & " " & _contact.State & " " & _contact.Zip & Environment.NewLine)
-                rtbDeafTerritory.AppendText("VP1: " & _contact.VP1 & " VP2: " & _contact.VP2 & " VP3: " & _contact.VP3 & Environment.NewLine)
-                rtbDeafTerritory.AppendText(Environment.NewLine)
-                rtbDeafTerritory.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
-                rtbDeafTerritory.AppendText(Environment.NewLine)
-                rtbDeafTerritory.AppendText("_____________________________________________________________________________" & Environment.NewLine)
-                rtbDeafTerritory.AppendText(Environment.NewLine)
-            End If
+            For Each Contact As DataRow In DS.Contacts.Rows
+                BuildContact(Contact)
+                If _contact.DeafTerNo IsNot Nothing And _contact.DeafTerNo = terno.Trim Then
+                    rtbDeafTerritory.AppendText(_contact.FirstName & " " & _contact.LastName & Environment.NewLine)
+                    rtbDeafTerritory.AppendText("Agent: " & _contact.Agent & Environment.NewLine)
+                    rtbDeafTerritory.AppendText("Address: " & _contact.Address & " " & _contact.City & " " & _contact.State & " " & _contact.Zip & Environment.NewLine)
+                    rtbDeafTerritory.AppendText("VP1: " & _contact.VP1 & " VP2: " & _contact.VP2 & " VP3: " & _contact.VP3 & Environment.NewLine)
+                    rtbDeafTerritory.AppendText(Environment.NewLine)
+                    rtbDeafTerritory.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
+                    rtbDeafTerritory.AppendText(Environment.NewLine)
+                    rtbDeafTerritory.AppendText("_____________________________________________________________________________" & Environment.NewLine)
+                    rtbDeafTerritory.AppendText(Environment.NewLine)
+                End If
             Next
         Catch ex As Exception
         End Try
@@ -421,48 +421,48 @@ Public Class ASLTerriroryManager
         lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
     End Sub
 
-    'Private Sub VPsearchTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPsearchTerBindingSourrce.CurrentItemChanged
-    '    Try
-    '        If dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "1-10" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "11-20" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "21-30" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "31-40" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "41-50" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "51-60" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "61-70" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "71-80" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "81-90" Or
-    '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "91-100" Then
-    '            MsgBox("Please enter only one of the following values: 1-10, 11-20 , 21-30 , 31-40, 41-50, 51-60, 61-70, 71-80, 81-90, 91-100")
-    '            dgvVPsearchTer.CurrentRow.DataBoundItem(1) = ""
-    '            Exit Sub
-    '        End If
-    '    Catch ex As Exception
+    Private Sub VPsearchTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPsearchTerBindingSourrce.CurrentItemChanged
+        'Try
+        '    If dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "1-10" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "11-20" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "21-30" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "31-40" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "41-50" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "51-60" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "61-70" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "71-80" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "81-90" Or
+        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "91-100" Then
+        '        MsgBox("Please enter only one of the following values: 1-10, 11-20 , 21-30 , 31-40, 41-50, 51-60, 61-70, 71-80, 81-90, 91-100")
+        '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) = ""
+        '        Exit Sub
+        '    End If
+        'Catch ex As Exception
 
-    '    End Try
-    '    _tavps.Update(DS.VP_Search_Territories)
-    'End Sub
+        'End Try
+        _tavps.Update(DS.VP_Search_Territories)
+    End Sub
     Private Sub dgvVPsearchTerCellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvVPsearchTer.CellEnter
         Try
             rtbVPsearchTer.Clear()
-        Dim terGroup As String = dgvVPsearchTer.CurrentRow.DataBoundItem(1)
-        Dim prefix As String = dgvVPsearchTer.CurrentRow.DataBoundItem(0)
-        Dim number As String = 0
-        Dim terno As String = prefix & " Territories: " & terGroup
-        Dim x As Double
+            Dim terGroup As String = dgvVPsearchTer.CurrentRow.DataBoundItem(1)
+            Dim prefix As String = dgvVPsearchTer.CurrentRow.DataBoundItem(0)
+            Dim number As String = 0
+            Dim terno As String = prefix & " Territories: " & terGroup
+            Dim x As Double
 
 
-        ' Build the territory
-        If Not String.IsNullOrWhiteSpace(terGroup) Then
-            Dim startCount As Integer = terGroup.Substring(0, 2)
-            If startCount = -1 Then startCount = 1
-            Dim endCount As Integer = terGroup.Substring(3)
-            If endCount = 0 Then endCount = 10
+            ' Build the territory
+            If Not String.IsNullOrWhiteSpace(terGroup) Then
+                Dim startCount As Integer = terGroup.Substring(0, 2)
+                If startCount = -1 Then startCount = 1
+                Dim endCount As Integer = terGroup.Substring(3)
+                If endCount = 0 Then endCount = 10
                 If startCount > 10 Then number = startCount * 100
 
-            rtbVPsearchTer.AppendText("Territory: " & prefix.Trim & "  Territory Group: " & terGroup & Environment.NewLine)
-            rtbVPsearchTer.AppendText(Environment.NewLine)
-            For buildIt = startCount To endCount
+                rtbVPsearchTer.AppendText("Territory: " & prefix.Trim & "  Territory Group: " & terGroup & Environment.NewLine)
+                rtbVPsearchTer.AppendText(Environment.NewLine)
+                For buildIt = startCount To endCount
 
                     For incNum = 1 To 100
                         If number < 10 Then
@@ -591,10 +591,10 @@ Public Class ASLTerriroryManager
 
 #Region "Export to CSV"
     Private Sub Export_To_File(sender As Object, e As EventArgs) Handles btnExport.Click
-        Dim headers = (From header As DataGridViewColumn In dgvContacts.Columns.Cast(Of DataGridViewColumn)() _
-            Select header.HeaderText).ToArray
-        Dim rows = From row As DataGridViewRow In dgvContacts.Rows.Cast(Of DataGridViewRow)() _
-                   Where Not row.IsNewRow _
+        Dim headers = (From header As DataGridViewColumn In dgvContacts.Columns.Cast(Of DataGridViewColumn)()
+                       Select header.HeaderText).ToArray
+        Dim rows = From row As DataGridViewRow In dgvContacts.Rows.Cast(Of DataGridViewRow)()
+                   Where Not row.IsNewRow
                    Select Array.ConvertAll(row.Cells.Cast(Of DataGridViewCell).ToArray, Function(c) If(c.Value IsNot Nothing, c.Value.ToString, ""))
         Using sw As New IO.StreamWriter("csv.txt")
             sw.WriteLine(String.Join(",", headers))
