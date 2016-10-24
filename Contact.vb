@@ -23,6 +23,8 @@
     Dim _dateFound As String
     Dim _lat As String
     Dim _long As String
+    Dim _lastVisit As String
+
 
 #End Region
 
@@ -210,12 +212,14 @@
             _long = value
         End Set
     End Property
-
-
-
-
-
-
+    Public Property LastVisit As String
+        Get
+            Return _lastVisit
+        End Get
+        Set(value As String)
+            _lastvisit = value
+        End Set
+    End Property
 
 #End Region
 

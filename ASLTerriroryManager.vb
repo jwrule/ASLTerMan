@@ -54,6 +54,7 @@ Public Class ASLTerriroryManager
         _contact.DateFound = contactRow(18)
         _contact.Latitude = contactRow(19)
         _contact.Longitude = contactRow(20)
+        _contact.LastVisit = contactRow(21)
         PopulateFields()
 
     End Sub
@@ -78,6 +79,7 @@ Public Class ASLTerriroryManager
         tbFound.Text = _contact.DateFound
         tbLat.Text = _contact.Latitude
         tbLong.Text = _contact.Longitude
+        tbLastVisit.Text = _contact.LastVisit
     End Sub
     Public Function GenerateUID()
         Dim num As New Random
@@ -133,7 +135,7 @@ Public Class ASLTerriroryManager
     Private Sub AddContact()
         _firstload = True
         Dim uid As Integer = GenerateUID()
-        DS.Contacts.AddContactsRow(uid, vbNull, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+        DS.Contacts.AddContactsRow(uid, vbNull, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
         _ta.Update(DS.Contacts)
         lblRecordsCount.Text = dgvContacts.Rows.Count
     End Sub
@@ -203,7 +205,7 @@ Public Class ASLTerriroryManager
 
 #Region "Events"
     Private Sub btnGetCoord_Click(sender As Object, e As EventArgs) Handles btnGetCoord.Click
-        Process.Start("iexplore.exe", "http:/http://mygeoposition.com/")
+        Process.Start("iexplore.exe", "http://mygeoposition.com/")
     End Sub
 #Region "Contact Events"
     Private Sub tabManageContacts_Enter(sender As Object, e As EventArgs) Handles tabManageContacts.Enter
