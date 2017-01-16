@@ -5,7 +5,10 @@
     Dim _uid As String
     Dim _agent As String
     Dim _firstName As String
+    Dim _middleName As String
     Dim _lastName As String
+    Dim _spouseFirstName As String
+    Dim _spouseMiddleName As String
     Dim _address As String
     Dim _city As String
     Dim _state As String
@@ -18,7 +21,6 @@
     Dim _doNotCall As String
     Dim _deafTerNo As String
     Dim _vpTerNo As String
-    Dim _nameTerNo As String
     Dim _dateSearched As String
     Dim _dateFound As String
     Dim _lat As String
@@ -66,13 +68,36 @@
             _firstName = value
         End Set
     End Property
-
+    Public Property MiddleName As String
+        Get
+            Return _middleName
+        End Get
+        Set(value As String)
+            _middleName = value
+        End Set
+    End Property
     Public Property LastName As String
         Get
             Return _lastName
         End Get
         Set(value As String)
             _lastName = value
+        End Set
+    End Property
+    Public Property SpouseFirstName As String
+        Get
+            Return _spouseFirstName
+        End Get
+        Set(value As String)
+            _spouseFirstName = value
+        End Set
+    End Property
+    Public Property SpouseMiddleName As String
+        Get
+            Return _spouseMiddleName
+        End Get
+        Set(value As String)
+            _spouseMiddleName = value
         End Set
     End Property
     Public Property Address As String
@@ -172,14 +197,6 @@
             _vpTerNo = value
         End Set
     End Property
-    Public Property NameTerNo As String
-        Get
-            Return _nameTerNo
-        End Get
-        Set(value As String)
-            _nameTerNo = value
-        End Set
-    End Property
     Public Property DateSearched As String
         Get
             Return _dateSearched
@@ -217,7 +234,7 @@
             Return _lastVisit
         End Get
         Set(value As String)
-            _lastvisit = value
+            _lastVisit = value
         End Set
     End Property
 

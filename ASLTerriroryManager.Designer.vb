@@ -26,10 +26,17 @@ Partial Class ASLTerriroryManager
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ASLTerriroryManager))
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.tabManageContacts = New System.Windows.Forms.TabPage()
+        Me.cbSelectColumnsToView = New System.Windows.Forms.CheckBox()
+        Me.lbSpouseMiddleName = New System.Windows.Forms.Label()
+        Me.lblSpouseFirstName = New System.Windows.Forms.Label()
+        Me.tbSpouseMiddleName = New System.Windows.Forms.TextBox()
+        Me.tbSpouseFirstName = New System.Windows.Forms.TextBox()
+        Me.lblMiddleName = New System.Windows.Forms.Label()
+        Me.tbMiddleName = New System.Windows.Forms.TextBox()
+        Me.lblLastVisit = New System.Windows.Forms.Label()
+        Me.tbLastVisit = New System.Windows.Forms.TextBox()
         Me.lblRecordsCount = New System.Windows.Forms.Label()
         Me.lblRecords = New System.Windows.Forms.Label()
-        Me.lblNameTerNo = New System.Windows.Forms.Label()
-        Me.tbNameTerNo = New System.Windows.Forms.TextBox()
         Me.gbQuickSearch = New System.Windows.Forms.GroupBox()
         Me.cbVPwithoutName = New System.Windows.Forms.CheckBox()
         Me.cbNamesNoAgent = New System.Windows.Forms.CheckBox()
@@ -238,12 +245,18 @@ Partial Class ASLTerriroryManager
         Me.Name_Search_TerritoriesTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.Name_Search_TerritoriesTableAdapter()
         Me.ContactsTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.ContactsTableAdapter()
         Me.MapsTableAdapter = New ASL_Teritory_Manager.DSTableAdapters.MapsTableAdapter()
-        Me.lblLastVisit = New System.Windows.Forms.Label()
-        Me.tbLastVisit = New System.Windows.Forms.TextBox()
         Me.UIDDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastVisitedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AgentDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstNameDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UIDDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LastVisitedDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AgentDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FirstNameDataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MiddleNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LastNameDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SpouseFirstNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SpouseMiddleNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AddressDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CityDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StateDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -256,12 +269,10 @@ Partial Class ASLTerriroryManager
         Me.DoNotCallDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DeafTerNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VPTerNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameTerNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateSearchedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateFoundDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LatDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LongDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.LastVisitedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl.SuspendLayout()
         Me.tabManageContacts.SuspendLayout()
         Me.gbQuickSearch.SuspendLayout()
@@ -297,20 +308,26 @@ Partial Class ASLTerriroryManager
         Me.TabControl.Controls.Add(Me.tabMapSearchTer)
         Me.TabControl.Controls.Add(Me.tabNameTerritories)
         Me.TabControl.Controls.Add(Me.tabDatabase)
-        Me.TabControl.Location = New System.Drawing.Point(37, 12)
+        Me.TabControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl.Location = New System.Drawing.Point(0, 0)
         Me.TabControl.Name = "TabControl"
         Me.TabControl.SelectedIndex = 0
-        Me.TabControl.Size = New System.Drawing.Size(1200, 725)
+        Me.TabControl.Size = New System.Drawing.Size(1184, 762)
         Me.TabControl.TabIndex = 0
         '
         'tabManageContacts
         '
+        Me.tabManageContacts.Controls.Add(Me.cbSelectColumnsToView)
+        Me.tabManageContacts.Controls.Add(Me.lbSpouseMiddleName)
+        Me.tabManageContacts.Controls.Add(Me.lblSpouseFirstName)
+        Me.tabManageContacts.Controls.Add(Me.tbSpouseMiddleName)
+        Me.tabManageContacts.Controls.Add(Me.tbSpouseFirstName)
+        Me.tabManageContacts.Controls.Add(Me.lblMiddleName)
+        Me.tabManageContacts.Controls.Add(Me.tbMiddleName)
         Me.tabManageContacts.Controls.Add(Me.lblLastVisit)
         Me.tabManageContacts.Controls.Add(Me.tbLastVisit)
         Me.tabManageContacts.Controls.Add(Me.lblRecordsCount)
         Me.tabManageContacts.Controls.Add(Me.lblRecords)
-        Me.tabManageContacts.Controls.Add(Me.lblNameTerNo)
-        Me.tabManageContacts.Controls.Add(Me.tbNameTerNo)
         Me.tabManageContacts.Controls.Add(Me.gbQuickSearch)
         Me.tabManageContacts.Controls.Add(Me.lblVpTerNo)
         Me.tabManageContacts.Controls.Add(Me.tbVpTerNo)
@@ -358,15 +375,89 @@ Partial Class ASLTerriroryManager
         Me.tabManageContacts.Location = New System.Drawing.Point(4, 22)
         Me.tabManageContacts.Name = "tabManageContacts"
         Me.tabManageContacts.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabManageContacts.Size = New System.Drawing.Size(1192, 699)
+        Me.tabManageContacts.Size = New System.Drawing.Size(1176, 736)
         Me.tabManageContacts.TabIndex = 0
         Me.tabManageContacts.Text = "Manage Contacts"
         Me.tabManageContacts.UseVisualStyleBackColor = True
         '
+        'cbSelectColumnsToView
+        '
+        Me.cbSelectColumnsToView.AutoSize = True
+        Me.cbSelectColumnsToView.Location = New System.Drawing.Point(980, 258)
+        Me.cbSelectColumnsToView.Name = "cbSelectColumnsToView"
+        Me.cbSelectColumnsToView.Size = New System.Drawing.Size(137, 17)
+        Me.cbSelectColumnsToView.TabIndex = 60
+        Me.cbSelectColumnsToView.Text = "Select Columns to View"
+        Me.cbSelectColumnsToView.UseVisualStyleBackColor = True
+        '
+        'lbSpouseMiddleName
+        '
+        Me.lbSpouseMiddleName.AutoSize = True
+        Me.lbSpouseMiddleName.Location = New System.Drawing.Point(121, 80)
+        Me.lbSpouseMiddleName.Name = "lbSpouseMiddleName"
+        Me.lbSpouseMiddleName.Size = New System.Drawing.Size(108, 13)
+        Me.lbSpouseMiddleName.TabIndex = 59
+        Me.lbSpouseMiddleName.Text = "Spouse Middle Name"
+        '
+        'lblSpouseFirstName
+        '
+        Me.lblSpouseFirstName.AutoSize = True
+        Me.lblSpouseFirstName.Location = New System.Drawing.Point(4, 80)
+        Me.lblSpouseFirstName.Name = "lblSpouseFirstName"
+        Me.lblSpouseFirstName.Size = New System.Drawing.Size(96, 13)
+        Me.lblSpouseFirstName.TabIndex = 58
+        Me.lblSpouseFirstName.Text = "Spouse First Name"
+        '
+        'tbSpouseMiddleName
+        '
+        Me.tbSpouseMiddleName.Location = New System.Drawing.Point(124, 96)
+        Me.tbSpouseMiddleName.Name = "tbSpouseMiddleName"
+        Me.tbSpouseMiddleName.Size = New System.Drawing.Size(100, 20)
+        Me.tbSpouseMiddleName.TabIndex = 57
+        '
+        'tbSpouseFirstName
+        '
+        Me.tbSpouseFirstName.Location = New System.Drawing.Point(7, 96)
+        Me.tbSpouseFirstName.Name = "tbSpouseFirstName"
+        Me.tbSpouseFirstName.Size = New System.Drawing.Size(100, 20)
+        Me.tbSpouseFirstName.TabIndex = 56
+        '
+        'lblMiddleName
+        '
+        Me.lblMiddleName.AutoSize = True
+        Me.lblMiddleName.Location = New System.Drawing.Point(121, 43)
+        Me.lblMiddleName.Name = "lblMiddleName"
+        Me.lblMiddleName.Size = New System.Drawing.Size(69, 13)
+        Me.lblMiddleName.TabIndex = 55
+        Me.lblMiddleName.Text = "Middle Name"
+        '
+        'tbMiddleName
+        '
+        Me.tbMiddleName.Location = New System.Drawing.Point(124, 57)
+        Me.tbMiddleName.Name = "tbMiddleName"
+        Me.tbMiddleName.Size = New System.Drawing.Size(100, 20)
+        Me.tbMiddleName.TabIndex = 54
+        '
+        'lblLastVisit
+        '
+        Me.lblLastVisit.AutoSize = True
+        Me.lblLastVisit.Location = New System.Drawing.Point(121, 6)
+        Me.lblLastVisit.Name = "lblLastVisit"
+        Me.lblLastVisit.Size = New System.Drawing.Size(87, 13)
+        Me.lblLastVisit.TabIndex = 53
+        Me.lblLastVisit.Text = "Date of Last Visit"
+        '
+        'tbLastVisit
+        '
+        Me.tbLastVisit.Location = New System.Drawing.Point(124, 20)
+        Me.tbLastVisit.Name = "tbLastVisit"
+        Me.tbLastVisit.Size = New System.Drawing.Size(100, 20)
+        Me.tbLastVisit.TabIndex = 52
+        '
         'lblRecordsCount
         '
         Me.lblRecordsCount.AutoSize = True
-        Me.lblRecordsCount.Location = New System.Drawing.Point(81, 681)
+        Me.lblRecordsCount.Location = New System.Drawing.Point(74, 711)
         Me.lblRecordsCount.Name = "lblRecordsCount"
         Me.lblRecordsCount.Size = New System.Drawing.Size(0, 13)
         Me.lblRecordsCount.TabIndex = 51
@@ -374,27 +465,11 @@ Partial Class ASLTerriroryManager
         'lblRecords
         '
         Me.lblRecords.AutoSize = True
-        Me.lblRecords.Location = New System.Drawing.Point(22, 681)
+        Me.lblRecords.Location = New System.Drawing.Point(22, 711)
         Me.lblRecords.Name = "lblRecords"
         Me.lblRecords.Size = New System.Drawing.Size(52, 13)
         Me.lblRecords.TabIndex = 1
         Me.lblRecords.Text = "Contacts:"
-        '
-        'lblNameTerNo
-        '
-        Me.lblNameTerNo.AutoSize = True
-        Me.lblNameTerNo.Location = New System.Drawing.Point(1054, 123)
-        Me.lblNameTerNo.Name = "lblNameTerNo"
-        Me.lblNameTerNo.Size = New System.Drawing.Size(71, 13)
-        Me.lblNameTerNo.TabIndex = 50
-        Me.lblNameTerNo.Text = "Name Ter No"
-        '
-        'tbNameTerNo
-        '
-        Me.tbNameTerNo.Location = New System.Drawing.Point(1057, 138)
-        Me.tbNameTerNo.Name = "tbNameTerNo"
-        Me.tbNameTerNo.Size = New System.Drawing.Size(65, 20)
-        Me.tbNameTerNo.TabIndex = 49
         '
         'gbQuickSearch
         '
@@ -407,9 +482,9 @@ Partial Class ASLTerriroryManager
         Me.gbQuickSearch.Controls.Add(Me.cbAddressesOnlywDNC)
         Me.gbQuickSearch.Controls.Add(Me.tbFind)
         Me.gbQuickSearch.Controls.Add(Me.btnFind)
-        Me.gbQuickSearch.Location = New System.Drawing.Point(11, 164)
+        Me.gbQuickSearch.Location = New System.Drawing.Point(11, 214)
         Me.gbQuickSearch.Name = "gbQuickSearch"
-        Me.gbQuickSearch.Size = New System.Drawing.Size(1111, 58)
+        Me.gbQuickSearch.Size = New System.Drawing.Size(936, 58)
         Me.gbQuickSearch.TabIndex = 48
         Me.gbQuickSearch.TabStop = False
         Me.gbQuickSearch.Text = "Quick Search"
@@ -417,7 +492,7 @@ Partial Class ASLTerriroryManager
         'cbVPwithoutName
         '
         Me.cbVPwithoutName.AutoSize = True
-        Me.cbVPwithoutName.Location = New System.Drawing.Point(893, 30)
+        Me.cbVPwithoutName.Location = New System.Drawing.Point(712, 35)
         Me.cbVPwithoutName.Name = "cbVPwithoutName"
         Me.cbVPwithoutName.Size = New System.Drawing.Size(118, 17)
         Me.cbVPwithoutName.TabIndex = 8
@@ -427,7 +502,7 @@ Partial Class ASLTerriroryManager
         'cbNamesNoAgent
         '
         Me.cbNamesNoAgent.AutoSize = True
-        Me.cbNamesNoAgent.Location = New System.Drawing.Point(729, 30)
+        Me.cbNamesNoAgent.Location = New System.Drawing.Point(548, 35)
         Me.cbNamesNoAgent.Name = "cbNamesNoAgent"
         Me.cbNamesNoAgent.Size = New System.Drawing.Size(129, 17)
         Me.cbNamesNoAgent.TabIndex = 7
@@ -437,7 +512,7 @@ Partial Class ASLTerriroryManager
         'cbDNC
         '
         Me.cbDNC.AutoSize = True
-        Me.cbDNC.Location = New System.Drawing.Point(1018, 10)
+        Me.cbDNC.Location = New System.Drawing.Point(837, 15)
         Me.cbDNC.Name = "cbDNC"
         Me.cbDNC.Size = New System.Drawing.Size(85, 17)
         Me.cbDNC.TabIndex = 6
@@ -447,7 +522,7 @@ Partial Class ASLTerriroryManager
         'cbRecordsWithVP
         '
         Me.cbRecordsWithVP.AutoSize = True
-        Me.cbRecordsWithVP.Location = New System.Drawing.Point(893, 10)
+        Me.cbRecordsWithVP.Location = New System.Drawing.Point(712, 15)
         Me.cbRecordsWithVP.Name = "cbRecordsWithVP"
         Me.cbRecordsWithVP.Size = New System.Drawing.Size(108, 17)
         Me.cbRecordsWithVP.TabIndex = 5
@@ -457,7 +532,7 @@ Partial Class ASLTerriroryManager
         'cbNamesNoAddresses
         '
         Me.cbNamesNoAddresses.AutoSize = True
-        Me.cbNamesNoAddresses.Location = New System.Drawing.Point(729, 10)
+        Me.cbNamesNoAddresses.Location = New System.Drawing.Point(548, 15)
         Me.cbNamesNoAddresses.Name = "cbNamesNoAddresses"
         Me.cbNamesNoAddresses.Size = New System.Drawing.Size(150, 17)
         Me.cbNamesNoAddresses.TabIndex = 4
@@ -467,7 +542,7 @@ Partial Class ASLTerriroryManager
         'cbAddressOnlyNoDNC
         '
         Me.cbAddressOnlyNoDNC.AutoSize = True
-        Me.cbAddressOnlyNoDNC.Location = New System.Drawing.Point(555, 31)
+        Me.cbAddressOnlyNoDNC.Location = New System.Drawing.Point(374, 36)
         Me.cbAddressOnlyNoDNC.Name = "cbAddressOnlyNoDNC"
         Me.cbAddressOnlyNoDNC.Size = New System.Drawing.Size(153, 17)
         Me.cbAddressOnlyNoDNC.TabIndex = 3
@@ -477,7 +552,7 @@ Partial Class ASLTerriroryManager
         'cbAddressesOnlywDNC
         '
         Me.cbAddressesOnlywDNC.AutoSize = True
-        Me.cbAddressesOnlywDNC.Location = New System.Drawing.Point(555, 10)
+        Me.cbAddressesOnlywDNC.Location = New System.Drawing.Point(374, 15)
         Me.cbAddressesOnlywDNC.Name = "cbAddressesOnlywDNC"
         Me.cbAddressesOnlywDNC.Size = New System.Drawing.Size(156, 17)
         Me.cbAddressesOnlywDNC.TabIndex = 2
@@ -488,7 +563,7 @@ Partial Class ASLTerriroryManager
         '
         Me.tbFind.Location = New System.Drawing.Point(101, 24)
         Me.tbFind.Name = "tbFind"
-        Me.tbFind.Size = New System.Drawing.Size(433, 20)
+        Me.tbFind.Size = New System.Drawing.Size(230, 20)
         Me.tbFind.TabIndex = 1
         '
         'btnFind
@@ -503,7 +578,7 @@ Partial Class ASLTerriroryManager
         'lblVpTerNo
         '
         Me.lblVpTerNo.AutoSize = True
-        Me.lblVpTerNo.Location = New System.Drawing.Point(975, 123)
+        Me.lblVpTerNo.Location = New System.Drawing.Point(1065, 167)
         Me.lblVpTerNo.Name = "lblVpTerNo"
         Me.lblVpTerNo.Size = New System.Drawing.Size(57, 13)
         Me.lblVpTerNo.TabIndex = 47
@@ -511,14 +586,14 @@ Partial Class ASLTerriroryManager
         '
         'tbVpTerNo
         '
-        Me.tbVpTerNo.Location = New System.Drawing.Point(978, 137)
+        Me.tbVpTerNo.Location = New System.Drawing.Point(1068, 181)
         Me.tbVpTerNo.Name = "tbVpTerNo"
         Me.tbVpTerNo.Size = New System.Drawing.Size(65, 20)
         Me.tbVpTerNo.TabIndex = 46
         '
         'btnGetCoord
         '
-        Me.btnGetCoord.Location = New System.Drawing.Point(1025, 83)
+        Me.btnGetCoord.Location = New System.Drawing.Point(1068, 83)
         Me.btnGetCoord.Name = "btnGetCoord"
         Me.btnGetCoord.Size = New System.Drawing.Size(75, 23)
         Me.btnGetCoord.TabIndex = 45
@@ -528,7 +603,7 @@ Partial Class ASLTerriroryManager
         'lblLong
         '
         Me.lblLong.AutoSize = True
-        Me.lblLong.Location = New System.Drawing.Point(1022, 43)
+        Me.lblLong.Location = New System.Drawing.Point(1068, 43)
         Me.lblLong.Name = "lblLong"
         Me.lblLong.Size = New System.Drawing.Size(54, 13)
         Me.lblLong.TabIndex = 44
@@ -537,7 +612,7 @@ Partial Class ASLTerriroryManager
         'lblLat
         '
         Me.lblLat.AutoSize = True
-        Me.lblLat.Location = New System.Drawing.Point(1022, 6)
+        Me.lblLat.Location = New System.Drawing.Point(1068, 6)
         Me.lblLat.Name = "lblLat"
         Me.lblLat.Size = New System.Drawing.Size(45, 13)
         Me.lblLat.TabIndex = 43
@@ -545,14 +620,14 @@ Partial Class ASLTerriroryManager
         '
         'tbLong
         '
-        Me.tbLong.Location = New System.Drawing.Point(1022, 57)
+        Me.tbLong.Location = New System.Drawing.Point(1068, 57)
         Me.tbLong.Name = "tbLong"
         Me.tbLong.Size = New System.Drawing.Size(100, 20)
         Me.tbLong.TabIndex = 42
         '
         'tbLat
         '
-        Me.tbLat.Location = New System.Drawing.Point(1022, 22)
+        Me.tbLat.Location = New System.Drawing.Point(1068, 22)
         Me.tbLat.Name = "tbLat"
         Me.tbLat.Size = New System.Drawing.Size(100, 20)
         Me.tbLat.TabIndex = 41
@@ -560,7 +635,7 @@ Partial Class ASLTerriroryManager
         'lblDeafTerNo
         '
         Me.lblDeafTerNo.AutoSize = True
-        Me.lblDeafTerNo.Location = New System.Drawing.Point(895, 123)
+        Me.lblDeafTerNo.Location = New System.Drawing.Point(977, 167)
         Me.lblDeafTerNo.Name = "lblDeafTerNo"
         Me.lblDeafTerNo.Size = New System.Drawing.Size(66, 13)
         Me.lblDeafTerNo.TabIndex = 40
@@ -568,7 +643,7 @@ Partial Class ASLTerriroryManager
         '
         'tbDeafTerNo
         '
-        Me.tbDeafTerNo.Location = New System.Drawing.Point(898, 137)
+        Me.tbDeafTerNo.Location = New System.Drawing.Point(980, 181)
         Me.tbDeafTerNo.Name = "tbDeafTerNo"
         Me.tbDeafTerNo.Size = New System.Drawing.Size(65, 20)
         Me.tbDeafTerNo.TabIndex = 39
@@ -578,7 +653,7 @@ Partial Class ASLTerriroryManager
         Me.gbContactManage.Controls.Add(Me.btnSave)
         Me.gbContactManage.Controls.Add(Me.btnAddContact)
         Me.gbContactManage.Controls.Add(Me.btnRemoveContact)
-        Me.gbContactManage.Location = New System.Drawing.Point(898, 6)
+        Me.gbContactManage.Location = New System.Drawing.Point(956, 6)
         Me.gbContactManage.Name = "gbContactManage"
         Me.gbContactManage.Size = New System.Drawing.Size(100, 111)
         Me.gbContactManage.TabIndex = 38
@@ -615,7 +690,7 @@ Partial Class ASLTerriroryManager
         'lblConfirmedDeaf
         '
         Me.lblConfirmedDeaf.AutoSize = True
-        Me.lblConfirmedDeaf.Location = New System.Drawing.Point(789, 83)
+        Me.lblConfirmedDeaf.Location = New System.Drawing.Point(844, 83)
         Me.lblConfirmedDeaf.Name = "lblConfirmedDeaf"
         Me.lblConfirmedDeaf.Size = New System.Drawing.Size(80, 13)
         Me.lblConfirmedDeaf.TabIndex = 37
@@ -624,7 +699,7 @@ Partial Class ASLTerriroryManager
         'lblFound
         '
         Me.lblFound.AutoSize = True
-        Me.lblFound.Location = New System.Drawing.Point(789, 43)
+        Me.lblFound.Location = New System.Drawing.Point(844, 43)
         Me.lblFound.Name = "lblFound"
         Me.lblFound.Size = New System.Drawing.Size(37, 13)
         Me.lblFound.TabIndex = 36
@@ -633,7 +708,7 @@ Partial Class ASLTerriroryManager
         'lblSearched
         '
         Me.lblSearched.AutoSize = True
-        Me.lblSearched.Location = New System.Drawing.Point(789, 6)
+        Me.lblSearched.Location = New System.Drawing.Point(844, 6)
         Me.lblSearched.Name = "lblSearched"
         Me.lblSearched.Size = New System.Drawing.Size(53, 13)
         Me.lblSearched.TabIndex = 35
@@ -642,21 +717,21 @@ Partial Class ASLTerriroryManager
         'tbConfirmedDeaf
         '
         Me.tbConfirmedDeaf.HideSelection = False
-        Me.tbConfirmedDeaf.Location = New System.Drawing.Point(792, 97)
+        Me.tbConfirmedDeaf.Location = New System.Drawing.Point(847, 97)
         Me.tbConfirmedDeaf.Name = "tbConfirmedDeaf"
         Me.tbConfirmedDeaf.Size = New System.Drawing.Size(100, 20)
         Me.tbConfirmedDeaf.TabIndex = 34
         '
         'tbFound
         '
-        Me.tbFound.Location = New System.Drawing.Point(792, 57)
+        Me.tbFound.Location = New System.Drawing.Point(847, 57)
         Me.tbFound.Name = "tbFound"
         Me.tbFound.Size = New System.Drawing.Size(100, 20)
         Me.tbFound.TabIndex = 33
         '
         'tbSearched
         '
-        Me.tbSearched.Location = New System.Drawing.Point(792, 20)
+        Me.tbSearched.Location = New System.Drawing.Point(847, 20)
         Me.tbSearched.Name = "tbSearched"
         Me.tbSearched.Size = New System.Drawing.Size(100, 20)
         Me.tbSearched.TabIndex = 32
@@ -664,7 +739,7 @@ Partial Class ASLTerriroryManager
         'lblNameFrom
         '
         Me.lblNameFrom.AutoSize = True
-        Me.lblNameFrom.Location = New System.Drawing.Point(683, 123)
+        Me.lblNameFrom.Location = New System.Drawing.Point(738, 167)
         Me.lblNameFrom.Name = "lblNameFrom"
         Me.lblNameFrom.Size = New System.Drawing.Size(61, 13)
         Me.lblNameFrom.TabIndex = 31
@@ -672,7 +747,7 @@ Partial Class ASLTerriroryManager
         '
         'tbNameFrom
         '
-        Me.tbNameFrom.Location = New System.Drawing.Point(686, 137)
+        Me.tbNameFrom.Location = New System.Drawing.Point(741, 181)
         Me.tbNameFrom.Name = "tbNameFrom"
         Me.tbNameFrom.Size = New System.Drawing.Size(206, 20)
         Me.tbNameFrom.TabIndex = 30
@@ -680,7 +755,7 @@ Partial Class ASLTerriroryManager
         'lblVP2
         '
         Me.lblVP2.AutoSize = True
-        Me.lblVP2.Location = New System.Drawing.Point(683, 43)
+        Me.lblVP2.Location = New System.Drawing.Point(738, 43)
         Me.lblVP2.Name = "lblVP2"
         Me.lblVP2.Size = New System.Drawing.Size(30, 13)
         Me.lblVP2.TabIndex = 29
@@ -689,7 +764,7 @@ Partial Class ASLTerriroryManager
         'lblVP3
         '
         Me.lblVP3.AutoSize = True
-        Me.lblVP3.Location = New System.Drawing.Point(683, 83)
+        Me.lblVP3.Location = New System.Drawing.Point(738, 83)
         Me.lblVP3.Name = "lblVP3"
         Me.lblVP3.Size = New System.Drawing.Size(30, 13)
         Me.lblVP3.TabIndex = 28
@@ -698,7 +773,7 @@ Partial Class ASLTerriroryManager
         'lblVP1
         '
         Me.lblVP1.AutoSize = True
-        Me.lblVP1.Location = New System.Drawing.Point(683, 6)
+        Me.lblVP1.Location = New System.Drawing.Point(738, 6)
         Me.lblVP1.Name = "lblVP1"
         Me.lblVP1.Size = New System.Drawing.Size(30, 13)
         Me.lblVP1.TabIndex = 27
@@ -706,37 +781,37 @@ Partial Class ASLTerriroryManager
         '
         'tbVP2
         '
-        Me.tbVP2.Location = New System.Drawing.Point(686, 57)
+        Me.tbVP2.Location = New System.Drawing.Point(741, 57)
         Me.tbVP2.Name = "tbVP2"
         Me.tbVP2.Size = New System.Drawing.Size(100, 20)
         Me.tbVP2.TabIndex = 26
         '
         'tbVP3
         '
-        Me.tbVP3.Location = New System.Drawing.Point(686, 97)
+        Me.tbVP3.Location = New System.Drawing.Point(741, 97)
         Me.tbVP3.Name = "tbVP3"
         Me.tbVP3.Size = New System.Drawing.Size(100, 20)
         Me.tbVP3.TabIndex = 25
         '
         'tbVP1
         '
-        Me.tbVP1.Location = New System.Drawing.Point(686, 20)
+        Me.tbVP1.Location = New System.Drawing.Point(741, 20)
         Me.tbVP1.Name = "tbVP1"
         Me.tbVP1.Size = New System.Drawing.Size(100, 20)
         Me.tbVP1.TabIndex = 24
         '
         'tbNotes
         '
-        Me.tbNotes.Location = New System.Drawing.Point(383, 20)
+        Me.tbNotes.Location = New System.Drawing.Point(364, 20)
         Me.tbNotes.Name = "tbNotes"
-        Me.tbNotes.Size = New System.Drawing.Size(297, 138)
+        Me.tbNotes.Size = New System.Drawing.Size(355, 167)
         Me.tbNotes.TabIndex = 22
         Me.tbNotes.Text = ""
         '
         'lblState
         '
         Me.lblState.AutoSize = True
-        Me.lblState.Location = New System.Drawing.Point(253, 123)
+        Me.lblState.Location = New System.Drawing.Point(227, 165)
         Me.lblState.Name = "lblState"
         Me.lblState.Size = New System.Drawing.Size(32, 13)
         Me.lblState.TabIndex = 21
@@ -745,7 +820,7 @@ Partial Class ASLTerriroryManager
         'lblZip
         '
         Me.lblZip.AutoSize = True
-        Me.lblZip.Location = New System.Drawing.Point(297, 123)
+        Me.lblZip.Location = New System.Drawing.Point(278, 167)
         Me.lblZip.Name = "lblZip"
         Me.lblZip.Size = New System.Drawing.Size(22, 13)
         Me.lblZip.TabIndex = 20
@@ -754,7 +829,7 @@ Partial Class ASLTerriroryManager
         'lblNotes
         '
         Me.lblNotes.AutoSize = True
-        Me.lblNotes.Location = New System.Drawing.Point(380, 6)
+        Me.lblNotes.Location = New System.Drawing.Point(361, 6)
         Me.lblNotes.Name = "lblNotes"
         Me.lblNotes.Size = New System.Drawing.Size(35, 13)
         Me.lblNotes.TabIndex = 19
@@ -763,7 +838,7 @@ Partial Class ASLTerriroryManager
         'lblCity
         '
         Me.lblCity.AutoSize = True
-        Me.lblCity.Location = New System.Drawing.Point(6, 123)
+        Me.lblCity.Location = New System.Drawing.Point(6, 167)
         Me.lblCity.Name = "lblCity"
         Me.lblCity.Size = New System.Drawing.Size(24, 13)
         Me.lblCity.TabIndex = 18
@@ -771,29 +846,29 @@ Partial Class ASLTerriroryManager
         '
         'tbState
         '
-        Me.tbState.Location = New System.Drawing.Point(256, 137)
+        Me.tbState.Location = New System.Drawing.Point(230, 181)
         Me.tbState.Name = "tbState"
         Me.tbState.Size = New System.Drawing.Size(36, 20)
         Me.tbState.TabIndex = 17
         '
         'tbZip
         '
-        Me.tbZip.Location = New System.Drawing.Point(299, 137)
+        Me.tbZip.Location = New System.Drawing.Point(278, 181)
         Me.tbZip.Name = "tbZip"
         Me.tbZip.Size = New System.Drawing.Size(64, 20)
         Me.tbZip.TabIndex = 16
         '
         'tbCity
         '
-        Me.tbCity.Location = New System.Drawing.Point(7, 137)
+        Me.tbCity.Location = New System.Drawing.Point(7, 181)
         Me.tbCity.Name = "tbCity"
-        Me.tbCity.Size = New System.Drawing.Size(242, 20)
+        Me.tbCity.Size = New System.Drawing.Size(217, 20)
         Me.tbCity.TabIndex = 14
         '
         'lblAddress
         '
         Me.lblAddress.AutoSize = True
-        Me.lblAddress.Location = New System.Drawing.Point(6, 83)
+        Me.lblAddress.Location = New System.Drawing.Point(6, 127)
         Me.lblAddress.Name = "lblAddress"
         Me.lblAddress.Size = New System.Drawing.Size(45, 13)
         Me.lblAddress.TabIndex = 13
@@ -801,15 +876,15 @@ Partial Class ASLTerriroryManager
         '
         'tbAddress
         '
-        Me.tbAddress.Location = New System.Drawing.Point(6, 97)
+        Me.tbAddress.Location = New System.Drawing.Point(6, 141)
         Me.tbAddress.Name = "tbAddress"
-        Me.tbAddress.Size = New System.Drawing.Size(357, 20)
+        Me.tbAddress.Size = New System.Drawing.Size(336, 20)
         Me.tbAddress.TabIndex = 12
         '
         'lblDoNotCall
         '
         Me.lblDoNotCall.AutoSize = True
-        Me.lblDoNotCall.Location = New System.Drawing.Point(261, 6)
+        Me.lblDoNotCall.Location = New System.Drawing.Point(239, 6)
         Me.lblDoNotCall.Name = "lblDoNotCall"
         Me.lblDoNotCall.Size = New System.Drawing.Size(61, 13)
         Me.lblDoNotCall.TabIndex = 11
@@ -817,7 +892,7 @@ Partial Class ASLTerriroryManager
         '
         'tbDoNotCall
         '
-        Me.tbDoNotCall.Location = New System.Drawing.Point(264, 20)
+        Me.tbDoNotCall.Location = New System.Drawing.Point(242, 20)
         Me.tbDoNotCall.Name = "tbDoNotCall"
         Me.tbDoNotCall.Size = New System.Drawing.Size(100, 20)
         Me.tbDoNotCall.TabIndex = 10
@@ -841,7 +916,7 @@ Partial Class ASLTerriroryManager
         'lblLastName
         '
         Me.lblLastName.AutoSize = True
-        Me.lblLastName.Location = New System.Drawing.Point(191, 43)
+        Me.lblLastName.Location = New System.Drawing.Point(242, 43)
         Me.lblLastName.Name = "lblLastName"
         Me.lblLastName.Size = New System.Drawing.Size(58, 13)
         Me.lblLastName.TabIndex = 7
@@ -859,13 +934,16 @@ Partial Class ASLTerriroryManager
         'dgvContacts
         '
         Me.dgvContacts.AutoGenerateColumns = False
+        Me.dgvContacts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvContacts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvContacts.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UIDDataGridViewTextBoxColumn1, Me.AgentDataGridViewTextBoxColumn2, Me.FirstNameDataGridViewTextBoxColumn3, Me.LastNameDataGridViewTextBoxColumn3, Me.AddressDataGridViewTextBoxColumn2, Me.CityDataGridViewTextBoxColumn2, Me.StateDataGridViewTextBoxColumn2, Me.ZipDataGridViewTextBoxColumn2, Me.VP1DataGridViewTextBoxColumn2, Me.VP2DataGridViewTextBoxColumn2, Me.VP3DataGridViewTextBoxColumn2, Me.NotesDataGridViewTextBoxColumn2, Me.NameFromDataGridViewTextBoxColumn2, Me.DoNotCallDataGridViewTextBoxColumn1, Me.DeafTerNoDataGridViewTextBoxColumn1, Me.VPTerNoDataGridViewTextBoxColumn1, Me.NameTerNoDataGridViewTextBoxColumn, Me.DateSearchedDataGridViewTextBoxColumn, Me.DateFoundDataGridViewTextBoxColumn, Me.LatDataGridViewTextBoxColumn, Me.LongDataGridViewTextBoxColumn, Me.LastVisitedDataGridViewTextBoxColumn})
+        Me.dgvContacts.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UIDDataGridViewTextBoxColumn3, Me.LastVisitedDataGridViewTextBoxColumn1, Me.AgentDataGridViewTextBoxColumn3, Me.FirstNameDataGridViewTextBoxColumn4, Me.MiddleNameDataGridViewTextBoxColumn, Me.LastNameDataGridViewTextBoxColumn3, Me.SpouseFirstNameDataGridViewTextBoxColumn, Me.SpouseMiddleNameDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn2, Me.CityDataGridViewTextBoxColumn2, Me.StateDataGridViewTextBoxColumn2, Me.ZipDataGridViewTextBoxColumn2, Me.VP1DataGridViewTextBoxColumn2, Me.VP2DataGridViewTextBoxColumn2, Me.VP3DataGridViewTextBoxColumn2, Me.NotesDataGridViewTextBoxColumn2, Me.NameFromDataGridViewTextBoxColumn2, Me.DoNotCallDataGridViewTextBoxColumn1, Me.DeafTerNoDataGridViewTextBoxColumn1, Me.VPTerNoDataGridViewTextBoxColumn1, Me.DateSearchedDataGridViewTextBoxColumn, Me.DateFoundDataGridViewTextBoxColumn, Me.LatDataGridViewTextBoxColumn, Me.LongDataGridViewTextBoxColumn})
         Me.dgvContacts.ContextMenuStrip = Me.ContextMenuStrip1
         Me.dgvContacts.DataSource = Me.ContactsBindingSource
-        Me.dgvContacts.Location = New System.Drawing.Point(1, 228)
+        Me.dgvContacts.Location = New System.Drawing.Point(1, 281)
+        Me.dgvContacts.Margin = New System.Windows.Forms.Padding(3, 3, 3, 250)
         Me.dgvContacts.Name = "dgvContacts"
-        Me.dgvContacts.Size = New System.Drawing.Size(1124, 450)
+        Me.dgvContacts.Size = New System.Drawing.Size(1167, 421)
         Me.dgvContacts.TabIndex = 5
         '
         'ContextMenuStrip1
@@ -898,16 +976,16 @@ Partial Class ASLTerriroryManager
         '
         'tbLastName
         '
-        Me.tbLastName.Location = New System.Drawing.Point(194, 57)
+        Me.tbLastName.Location = New System.Drawing.Point(242, 57)
         Me.tbLastName.Name = "tbLastName"
-        Me.tbLastName.Size = New System.Drawing.Size(170, 20)
+        Me.tbLastName.Size = New System.Drawing.Size(100, 20)
         Me.tbLastName.TabIndex = 1
         '
         'tbFirstName
         '
         Me.tbFirstName.Location = New System.Drawing.Point(7, 57)
         Me.tbFirstName.Name = "tbFirstName"
-        Me.tbFirstName.Size = New System.Drawing.Size(170, 20)
+        Me.tbFirstName.Size = New System.Drawing.Size(100, 20)
         Me.tbFirstName.TabIndex = 0
         '
         'tabDeafTeritorries
@@ -923,7 +1001,7 @@ Partial Class ASLTerriroryManager
         Me.tabDeafTeritorries.Location = New System.Drawing.Point(4, 22)
         Me.tabDeafTeritorries.Name = "tabDeafTeritorries"
         Me.tabDeafTeritorries.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabDeafTeritorries.Size = New System.Drawing.Size(1192, 699)
+        Me.tabDeafTeritorries.Size = New System.Drawing.Size(1176, 736)
         Me.tabDeafTeritorries.TabIndex = 1
         Me.tabDeafTeritorries.Text = "Manage Deaf Territories"
         Me.tabDeafTeritorries.UseVisualStyleBackColor = True
@@ -1042,7 +1120,7 @@ Partial Class ASLTerriroryManager
         Me.tabVPterritories.Location = New System.Drawing.Point(4, 22)
         Me.tabVPterritories.Name = "tabVPterritories"
         Me.tabVPterritories.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabVPterritories.Size = New System.Drawing.Size(1192, 699)
+        Me.tabVPterritories.Size = New System.Drawing.Size(1176, 736)
         Me.tabVPterritories.TabIndex = 2
         Me.tabVPterritories.Text = "Manage VP Territories"
         Me.tabVPterritories.UseVisualStyleBackColor = True
@@ -1161,7 +1239,7 @@ Partial Class ASLTerriroryManager
         Me.tabVPsearch.Location = New System.Drawing.Point(4, 22)
         Me.tabVPsearch.Name = "tabVPsearch"
         Me.tabVPsearch.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabVPsearch.Size = New System.Drawing.Size(1192, 699)
+        Me.tabVPsearch.Size = New System.Drawing.Size(1176, 736)
         Me.tabVPsearch.TabIndex = 3
         Me.tabVPsearch.Text = "Manage VP Search Territories"
         Me.tabVPsearch.UseVisualStyleBackColor = True
@@ -1287,7 +1365,7 @@ Partial Class ASLTerriroryManager
         Me.tabMapSearchTer.Location = New System.Drawing.Point(4, 22)
         Me.tabMapSearchTer.Name = "tabMapSearchTer"
         Me.tabMapSearchTer.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabMapSearchTer.Size = New System.Drawing.Size(1192, 699)
+        Me.tabMapSearchTer.Size = New System.Drawing.Size(1176, 736)
         Me.tabMapSearchTer.TabIndex = 4
         Me.tabMapSearchTer.Text = "Manage Map Search Territories"
         Me.tabMapSearchTer.UseVisualStyleBackColor = True
@@ -1432,7 +1510,7 @@ Partial Class ASLTerriroryManager
         Me.tabNameTerritories.Controls.Add(Me.dgvNameSearchTer)
         Me.tabNameTerritories.Location = New System.Drawing.Point(4, 22)
         Me.tabNameTerritories.Name = "tabNameTerritories"
-        Me.tabNameTerritories.Size = New System.Drawing.Size(1192, 699)
+        Me.tabNameTerritories.Size = New System.Drawing.Size(1176, 736)
         Me.tabNameTerritories.TabIndex = 5
         Me.tabNameTerritories.Text = "Manage Name Search Territories"
         Me.tabNameTerritories.UseVisualStyleBackColor = True
@@ -1562,7 +1640,7 @@ Partial Class ASLTerriroryManager
         Me.tabDatabase.Controls.Add(Me.btnExport)
         Me.tabDatabase.Location = New System.Drawing.Point(4, 22)
         Me.tabDatabase.Name = "tabDatabase"
-        Me.tabDatabase.Size = New System.Drawing.Size(1192, 699)
+        Me.tabDatabase.Size = New System.Drawing.Size(1176, 736)
         Me.tabDatabase.TabIndex = 6
         Me.tabDatabase.Text = "Manage Database"
         Me.tabDatabase.UseVisualStyleBackColor = True
@@ -2053,167 +2131,221 @@ Partial Class ASLTerriroryManager
         '
         Me.MapsTableAdapter.ClearBeforeFill = True
         '
-        'lblLastVisit
-        '
-        Me.lblLastVisit.AutoSize = True
-        Me.lblLastVisit.Location = New System.Drawing.Point(137, 6)
-        Me.lblLastVisit.Name = "lblLastVisit"
-        Me.lblLastVisit.Size = New System.Drawing.Size(87, 13)
-        Me.lblLastVisit.TabIndex = 53
-        Me.lblLastVisit.Text = "Date of Last Visit"
-        '
-        'tbLastVisit
-        '
-        Me.tbLastVisit.Location = New System.Drawing.Point(140, 20)
-        Me.tbLastVisit.Name = "tbLastVisit"
-        Me.tbLastVisit.Size = New System.Drawing.Size(100, 20)
-        Me.tbLastVisit.TabIndex = 52
-        '
         'UIDDataGridViewTextBoxColumn1
         '
         Me.UIDDataGridViewTextBoxColumn1.DataPropertyName = "UID"
         Me.UIDDataGridViewTextBoxColumn1.HeaderText = "UID"
         Me.UIDDataGridViewTextBoxColumn1.Name = "UIDDataGridViewTextBoxColumn1"
         Me.UIDDataGridViewTextBoxColumn1.Visible = False
-        '
-        'AgentDataGridViewTextBoxColumn2
-        '
-        Me.AgentDataGridViewTextBoxColumn2.DataPropertyName = "Agent"
-        Me.AgentDataGridViewTextBoxColumn2.HeaderText = "Agent"
-        Me.AgentDataGridViewTextBoxColumn2.Name = "AgentDataGridViewTextBoxColumn2"
-        '
-        'FirstNameDataGridViewTextBoxColumn3
-        '
-        Me.FirstNameDataGridViewTextBoxColumn3.DataPropertyName = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn3.HeaderText = "First Name"
-        Me.FirstNameDataGridViewTextBoxColumn3.Name = "FirstNameDataGridViewTextBoxColumn3"
-        '
-        'LastNameDataGridViewTextBoxColumn3
-        '
-        Me.LastNameDataGridViewTextBoxColumn3.DataPropertyName = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn3.HeaderText = "Last Name"
-        Me.LastNameDataGridViewTextBoxColumn3.Name = "LastNameDataGridViewTextBoxColumn3"
-        '
-        'AddressDataGridViewTextBoxColumn2
-        '
-        Me.AddressDataGridViewTextBoxColumn2.DataPropertyName = "Address"
-        Me.AddressDataGridViewTextBoxColumn2.HeaderText = "Address"
-        Me.AddressDataGridViewTextBoxColumn2.Name = "AddressDataGridViewTextBoxColumn2"
-        '
-        'CityDataGridViewTextBoxColumn2
-        '
-        Me.CityDataGridViewTextBoxColumn2.DataPropertyName = "City"
-        Me.CityDataGridViewTextBoxColumn2.HeaderText = "City"
-        Me.CityDataGridViewTextBoxColumn2.Name = "CityDataGridViewTextBoxColumn2"
-        '
-        'StateDataGridViewTextBoxColumn2
-        '
-        Me.StateDataGridViewTextBoxColumn2.DataPropertyName = "State"
-        Me.StateDataGridViewTextBoxColumn2.HeaderText = "State"
-        Me.StateDataGridViewTextBoxColumn2.Name = "StateDataGridViewTextBoxColumn2"
-        '
-        'ZipDataGridViewTextBoxColumn2
-        '
-        Me.ZipDataGridViewTextBoxColumn2.DataPropertyName = "Zip"
-        Me.ZipDataGridViewTextBoxColumn2.HeaderText = "Zip"
-        Me.ZipDataGridViewTextBoxColumn2.Name = "ZipDataGridViewTextBoxColumn2"
-        '
-        'VP1DataGridViewTextBoxColumn2
-        '
-        Me.VP1DataGridViewTextBoxColumn2.DataPropertyName = "VP1"
-        Me.VP1DataGridViewTextBoxColumn2.HeaderText = "VP1"
-        Me.VP1DataGridViewTextBoxColumn2.Name = "VP1DataGridViewTextBoxColumn2"
-        '
-        'VP2DataGridViewTextBoxColumn2
-        '
-        Me.VP2DataGridViewTextBoxColumn2.DataPropertyName = "VP2"
-        Me.VP2DataGridViewTextBoxColumn2.HeaderText = "VP2"
-        Me.VP2DataGridViewTextBoxColumn2.Name = "VP2DataGridViewTextBoxColumn2"
-        '
-        'VP3DataGridViewTextBoxColumn2
-        '
-        Me.VP3DataGridViewTextBoxColumn2.DataPropertyName = "VP3"
-        Me.VP3DataGridViewTextBoxColumn2.HeaderText = "VP3"
-        Me.VP3DataGridViewTextBoxColumn2.Name = "VP3DataGridViewTextBoxColumn2"
-        '
-        'NotesDataGridViewTextBoxColumn2
-        '
-        Me.NotesDataGridViewTextBoxColumn2.DataPropertyName = "Notes"
-        Me.NotesDataGridViewTextBoxColumn2.HeaderText = "Notes"
-        Me.NotesDataGridViewTextBoxColumn2.Name = "NotesDataGridViewTextBoxColumn2"
-        '
-        'NameFromDataGridViewTextBoxColumn2
-        '
-        Me.NameFromDataGridViewTextBoxColumn2.DataPropertyName = "Name From"
-        Me.NameFromDataGridViewTextBoxColumn2.HeaderText = "Name From"
-        Me.NameFromDataGridViewTextBoxColumn2.Name = "NameFromDataGridViewTextBoxColumn2"
-        '
-        'DoNotCallDataGridViewTextBoxColumn1
-        '
-        Me.DoNotCallDataGridViewTextBoxColumn1.DataPropertyName = "Do Not Call"
-        Me.DoNotCallDataGridViewTextBoxColumn1.HeaderText = "Do Not Call"
-        Me.DoNotCallDataGridViewTextBoxColumn1.Name = "DoNotCallDataGridViewTextBoxColumn1"
-        '
-        'DeafTerNoDataGridViewTextBoxColumn1
-        '
-        Me.DeafTerNoDataGridViewTextBoxColumn1.DataPropertyName = "Deaf Ter No"
-        Me.DeafTerNoDataGridViewTextBoxColumn1.HeaderText = "Deaf Ter No"
-        Me.DeafTerNoDataGridViewTextBoxColumn1.Name = "DeafTerNoDataGridViewTextBoxColumn1"
-        '
-        'VPTerNoDataGridViewTextBoxColumn1
-        '
-        Me.VPTerNoDataGridViewTextBoxColumn1.DataPropertyName = "VP Ter No"
-        Me.VPTerNoDataGridViewTextBoxColumn1.HeaderText = "VP Ter No"
-        Me.VPTerNoDataGridViewTextBoxColumn1.Name = "VPTerNoDataGridViewTextBoxColumn1"
-        '
-        'NameTerNoDataGridViewTextBoxColumn
-        '
-        Me.NameTerNoDataGridViewTextBoxColumn.DataPropertyName = "Name Ter No"
-        Me.NameTerNoDataGridViewTextBoxColumn.HeaderText = "Name Ter No"
-        Me.NameTerNoDataGridViewTextBoxColumn.Name = "NameTerNoDataGridViewTextBoxColumn"
-        '
-        'DateSearchedDataGridViewTextBoxColumn
-        '
-        Me.DateSearchedDataGridViewTextBoxColumn.DataPropertyName = "Date Searched"
-        Me.DateSearchedDataGridViewTextBoxColumn.HeaderText = "Date Searched"
-        Me.DateSearchedDataGridViewTextBoxColumn.Name = "DateSearchedDataGridViewTextBoxColumn"
-        '
-        'DateFoundDataGridViewTextBoxColumn
-        '
-        Me.DateFoundDataGridViewTextBoxColumn.DataPropertyName = "Date Found"
-        Me.DateFoundDataGridViewTextBoxColumn.HeaderText = "Date Found"
-        Me.DateFoundDataGridViewTextBoxColumn.Name = "DateFoundDataGridViewTextBoxColumn"
-        '
-        'LatDataGridViewTextBoxColumn
-        '
-        Me.LatDataGridViewTextBoxColumn.DataPropertyName = "Lat"
-        Me.LatDataGridViewTextBoxColumn.HeaderText = "Lat"
-        Me.LatDataGridViewTextBoxColumn.Name = "LatDataGridViewTextBoxColumn"
-        '
-        'LongDataGridViewTextBoxColumn
-        '
-        Me.LongDataGridViewTextBoxColumn.DataPropertyName = "Long"
-        Me.LongDataGridViewTextBoxColumn.HeaderText = "Long"
-        Me.LongDataGridViewTextBoxColumn.Name = "LongDataGridViewTextBoxColumn"
+        Me.UIDDataGridViewTextBoxColumn1.Width = 51
         '
         'LastVisitedDataGridViewTextBoxColumn
         '
         Me.LastVisitedDataGridViewTextBoxColumn.DataPropertyName = "Last Visited"
         Me.LastVisitedDataGridViewTextBoxColumn.HeaderText = "Last Visited"
         Me.LastVisitedDataGridViewTextBoxColumn.Name = "LastVisitedDataGridViewTextBoxColumn"
+        Me.LastVisitedDataGridViewTextBoxColumn.Width = 79
+        '
+        'AgentDataGridViewTextBoxColumn2
+        '
+        Me.AgentDataGridViewTextBoxColumn2.DataPropertyName = "Agent"
+        Me.AgentDataGridViewTextBoxColumn2.HeaderText = "Agent"
+        Me.AgentDataGridViewTextBoxColumn2.Name = "AgentDataGridViewTextBoxColumn2"
+        Me.AgentDataGridViewTextBoxColumn2.Width = 60
+        '
+        'FirstNameDataGridViewTextBoxColumn3
+        '
+        Me.FirstNameDataGridViewTextBoxColumn3.DataPropertyName = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn3.HeaderText = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn3.Name = "FirstNameDataGridViewTextBoxColumn3"
+        Me.FirstNameDataGridViewTextBoxColumn3.Width = 76
+        '
+        'UIDDataGridViewTextBoxColumn3
+        '
+        Me.UIDDataGridViewTextBoxColumn3.DataPropertyName = "UID"
+        Me.UIDDataGridViewTextBoxColumn3.HeaderText = "UID"
+        Me.UIDDataGridViewTextBoxColumn3.Name = "UIDDataGridViewTextBoxColumn3"
+        Me.UIDDataGridViewTextBoxColumn3.Visible = False
+        Me.UIDDataGridViewTextBoxColumn3.Width = 51
+        '
+        'LastVisitedDataGridViewTextBoxColumn1
+        '
+        Me.LastVisitedDataGridViewTextBoxColumn1.DataPropertyName = "Last Visited"
+        Me.LastVisitedDataGridViewTextBoxColumn1.HeaderText = "Last Visited"
+        Me.LastVisitedDataGridViewTextBoxColumn1.Name = "LastVisitedDataGridViewTextBoxColumn1"
+        Me.LastVisitedDataGridViewTextBoxColumn1.Width = 86
+        '
+        'AgentDataGridViewTextBoxColumn3
+        '
+        Me.AgentDataGridViewTextBoxColumn3.DataPropertyName = "Agent"
+        Me.AgentDataGridViewTextBoxColumn3.HeaderText = "Agent"
+        Me.AgentDataGridViewTextBoxColumn3.Name = "AgentDataGridViewTextBoxColumn3"
+        Me.AgentDataGridViewTextBoxColumn3.Width = 60
+        '
+        'FirstNameDataGridViewTextBoxColumn4
+        '
+        Me.FirstNameDataGridViewTextBoxColumn4.DataPropertyName = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn4.HeaderText = "First Name"
+        Me.FirstNameDataGridViewTextBoxColumn4.Name = "FirstNameDataGridViewTextBoxColumn4"
+        Me.FirstNameDataGridViewTextBoxColumn4.Width = 82
+        '
+        'MiddleNameDataGridViewTextBoxColumn
+        '
+        Me.MiddleNameDataGridViewTextBoxColumn.DataPropertyName = "Middle Name"
+        Me.MiddleNameDataGridViewTextBoxColumn.HeaderText = "Middle Name"
+        Me.MiddleNameDataGridViewTextBoxColumn.Name = "MiddleNameDataGridViewTextBoxColumn"
+        Me.MiddleNameDataGridViewTextBoxColumn.Width = 94
+        '
+        'LastNameDataGridViewTextBoxColumn3
+        '
+        Me.LastNameDataGridViewTextBoxColumn3.DataPropertyName = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn3.HeaderText = "Last Name"
+        Me.LastNameDataGridViewTextBoxColumn3.Name = "LastNameDataGridViewTextBoxColumn3"
+        Me.LastNameDataGridViewTextBoxColumn3.Width = 83
+        '
+        'SpouseFirstNameDataGridViewTextBoxColumn
+        '
+        Me.SpouseFirstNameDataGridViewTextBoxColumn.DataPropertyName = "Spouse First Name"
+        Me.SpouseFirstNameDataGridViewTextBoxColumn.HeaderText = "Spouse First Name"
+        Me.SpouseFirstNameDataGridViewTextBoxColumn.Name = "SpouseFirstNameDataGridViewTextBoxColumn"
+        Me.SpouseFirstNameDataGridViewTextBoxColumn.Width = 86
+        '
+        'SpouseMiddleNameDataGridViewTextBoxColumn
+        '
+        Me.SpouseMiddleNameDataGridViewTextBoxColumn.DataPropertyName = "Spouse Middle Name"
+        Me.SpouseMiddleNameDataGridViewTextBoxColumn.HeaderText = "Spouse Middle Name"
+        Me.SpouseMiddleNameDataGridViewTextBoxColumn.Name = "SpouseMiddleNameDataGridViewTextBoxColumn"
+        Me.SpouseMiddleNameDataGridViewTextBoxColumn.Width = 96
+        '
+        'AddressDataGridViewTextBoxColumn2
+        '
+        Me.AddressDataGridViewTextBoxColumn2.DataPropertyName = "Address"
+        Me.AddressDataGridViewTextBoxColumn2.HeaderText = "Address"
+        Me.AddressDataGridViewTextBoxColumn2.Name = "AddressDataGridViewTextBoxColumn2"
+        Me.AddressDataGridViewTextBoxColumn2.Width = 70
+        '
+        'CityDataGridViewTextBoxColumn2
+        '
+        Me.CityDataGridViewTextBoxColumn2.DataPropertyName = "City"
+        Me.CityDataGridViewTextBoxColumn2.HeaderText = "City"
+        Me.CityDataGridViewTextBoxColumn2.Name = "CityDataGridViewTextBoxColumn2"
+        Me.CityDataGridViewTextBoxColumn2.Width = 49
+        '
+        'StateDataGridViewTextBoxColumn2
+        '
+        Me.StateDataGridViewTextBoxColumn2.DataPropertyName = "State"
+        Me.StateDataGridViewTextBoxColumn2.HeaderText = "State"
+        Me.StateDataGridViewTextBoxColumn2.Name = "StateDataGridViewTextBoxColumn2"
+        Me.StateDataGridViewTextBoxColumn2.Width = 57
+        '
+        'ZipDataGridViewTextBoxColumn2
+        '
+        Me.ZipDataGridViewTextBoxColumn2.DataPropertyName = "Zip"
+        Me.ZipDataGridViewTextBoxColumn2.HeaderText = "Zip"
+        Me.ZipDataGridViewTextBoxColumn2.Name = "ZipDataGridViewTextBoxColumn2"
+        Me.ZipDataGridViewTextBoxColumn2.Width = 47
+        '
+        'VP1DataGridViewTextBoxColumn2
+        '
+        Me.VP1DataGridViewTextBoxColumn2.DataPropertyName = "VP1"
+        Me.VP1DataGridViewTextBoxColumn2.HeaderText = "VP1"
+        Me.VP1DataGridViewTextBoxColumn2.Name = "VP1DataGridViewTextBoxColumn2"
+        Me.VP1DataGridViewTextBoxColumn2.Width = 52
+        '
+        'VP2DataGridViewTextBoxColumn2
+        '
+        Me.VP2DataGridViewTextBoxColumn2.DataPropertyName = "VP2"
+        Me.VP2DataGridViewTextBoxColumn2.HeaderText = "VP2"
+        Me.VP2DataGridViewTextBoxColumn2.Name = "VP2DataGridViewTextBoxColumn2"
+        Me.VP2DataGridViewTextBoxColumn2.Visible = False
+        Me.VP2DataGridViewTextBoxColumn2.Width = 52
+        '
+        'VP3DataGridViewTextBoxColumn2
+        '
+        Me.VP3DataGridViewTextBoxColumn2.DataPropertyName = "VP3"
+        Me.VP3DataGridViewTextBoxColumn2.HeaderText = "VP3"
+        Me.VP3DataGridViewTextBoxColumn2.Name = "VP3DataGridViewTextBoxColumn2"
+        Me.VP3DataGridViewTextBoxColumn2.Visible = False
+        Me.VP3DataGridViewTextBoxColumn2.Width = 52
+        '
+        'NotesDataGridViewTextBoxColumn2
+        '
+        Me.NotesDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.NotesDataGridViewTextBoxColumn2.DataPropertyName = "Notes"
+        Me.NotesDataGridViewTextBoxColumn2.HeaderText = "Notes"
+        Me.NotesDataGridViewTextBoxColumn2.Name = "NotesDataGridViewTextBoxColumn2"
+        Me.NotesDataGridViewTextBoxColumn2.Width = 60
+        '
+        'NameFromDataGridViewTextBoxColumn2
+        '
+        Me.NameFromDataGridViewTextBoxColumn2.DataPropertyName = "Name From"
+        Me.NameFromDataGridViewTextBoxColumn2.HeaderText = "Name From"
+        Me.NameFromDataGridViewTextBoxColumn2.Name = "NameFromDataGridViewTextBoxColumn2"
+        Me.NameFromDataGridViewTextBoxColumn2.Visible = False
+        Me.NameFromDataGridViewTextBoxColumn2.Width = 79
+        '
+        'DoNotCallDataGridViewTextBoxColumn1
+        '
+        Me.DoNotCallDataGridViewTextBoxColumn1.DataPropertyName = "Do Not Call"
+        Me.DoNotCallDataGridViewTextBoxColumn1.HeaderText = "Do Not Call"
+        Me.DoNotCallDataGridViewTextBoxColumn1.Name = "DoNotCallDataGridViewTextBoxColumn1"
+        Me.DoNotCallDataGridViewTextBoxColumn1.Width = 79
+        '
+        'DeafTerNoDataGridViewTextBoxColumn1
+        '
+        Me.DeafTerNoDataGridViewTextBoxColumn1.DataPropertyName = "Deaf Ter No"
+        Me.DeafTerNoDataGridViewTextBoxColumn1.HeaderText = "Deaf Ter No"
+        Me.DeafTerNoDataGridViewTextBoxColumn1.Name = "DeafTerNoDataGridViewTextBoxColumn1"
+        Me.DeafTerNoDataGridViewTextBoxColumn1.Width = 71
+        '
+        'VPTerNoDataGridViewTextBoxColumn1
+        '
+        Me.VPTerNoDataGridViewTextBoxColumn1.DataPropertyName = "VP Ter No"
+        Me.VPTerNoDataGridViewTextBoxColumn1.HeaderText = "VP Ter No"
+        Me.VPTerNoDataGridViewTextBoxColumn1.Name = "VPTerNoDataGridViewTextBoxColumn1"
+        Me.VPTerNoDataGridViewTextBoxColumn1.Width = 76
+        '
+        'DateSearchedDataGridViewTextBoxColumn
+        '
+        Me.DateSearchedDataGridViewTextBoxColumn.DataPropertyName = "Date Searched"
+        Me.DateSearchedDataGridViewTextBoxColumn.HeaderText = "Date Searched"
+        Me.DateSearchedDataGridViewTextBoxColumn.Name = "DateSearchedDataGridViewTextBoxColumn"
+        Me.DateSearchedDataGridViewTextBoxColumn.Width = 96
+        '
+        'DateFoundDataGridViewTextBoxColumn
+        '
+        Me.DateFoundDataGridViewTextBoxColumn.DataPropertyName = "Date Found"
+        Me.DateFoundDataGridViewTextBoxColumn.HeaderText = "Date Found"
+        Me.DateFoundDataGridViewTextBoxColumn.Name = "DateFoundDataGridViewTextBoxColumn"
+        Me.DateFoundDataGridViewTextBoxColumn.Width = 81
+        '
+        'LatDataGridViewTextBoxColumn
+        '
+        Me.LatDataGridViewTextBoxColumn.DataPropertyName = "Lat"
+        Me.LatDataGridViewTextBoxColumn.HeaderText = "Lat"
+        Me.LatDataGridViewTextBoxColumn.Name = "LatDataGridViewTextBoxColumn"
+        Me.LatDataGridViewTextBoxColumn.Visible = False
+        Me.LatDataGridViewTextBoxColumn.Width = 47
+        '
+        'LongDataGridViewTextBoxColumn
+        '
+        Me.LongDataGridViewTextBoxColumn.DataPropertyName = "Long"
+        Me.LongDataGridViewTextBoxColumn.HeaderText = "Long"
+        Me.LongDataGridViewTextBoxColumn.Name = "LongDataGridViewTextBoxColumn"
+        Me.LongDataGridViewTextBoxColumn.Visible = False
+        Me.LongDataGridViewTextBoxColumn.Width = 56
         '
         'ASLTerriroryManager
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.ClientSize = New System.Drawing.Size(1184, 711)
+        Me.ClientSize = New System.Drawing.Size(1184, 762)
         Me.Controls.Add(Me.TabControl)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ASLTerriroryManager"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.Text = "ASL Territory Manager"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TabControl.ResumeLayout(False)
         Me.tabManageContacts.ResumeLayout(False)
         Me.tabManageContacts.PerformLayout()
@@ -2355,8 +2487,6 @@ Partial Class ASLTerriroryManager
     Friend WithEvents btnDelVPsearchTer As System.Windows.Forms.Button
     Friend WithEvents btnNewVPserchTer As System.Windows.Forms.Button
     Friend WithEvents rtbVPsearchTer As System.Windows.Forms.RichTextBox
-    Friend WithEvents lblNameTerNo As System.Windows.Forms.Label
-    Friend WithEvents tbNameTerNo As System.Windows.Forms.TextBox
     Friend WithEvents UIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents AgentDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FirstNameDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -2465,10 +2595,25 @@ Partial Class ASLTerriroryManager
     Friend WithEvents btnDeleteAllContacts As System.Windows.Forms.Button
     Friend WithEvents lblLastVisit As Label
     Friend WithEvents tbLastVisit As TextBox
+    Friend WithEvents lbSpouseMiddleName As Label
+    Friend WithEvents lblSpouseFirstName As Label
+    Friend WithEvents tbSpouseMiddleName As TextBox
+    Friend WithEvents tbSpouseFirstName As TextBox
+    Friend WithEvents lblMiddleName As Label
+    Friend WithEvents tbMiddleName As TextBox
+    Friend WithEvents cbSelectColumnsToView As CheckBox
     Friend WithEvents UIDDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents LastVisitedDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AgentDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents FirstNameDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents UIDDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents LastVisitedDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents AgentDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents FirstNameDataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents MiddleNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents LastNameDataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents SpouseFirstNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SpouseMiddleNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents AddressDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents CityDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents StateDataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
@@ -2481,10 +2626,8 @@ Partial Class ASLTerriroryManager
     Friend WithEvents DoNotCallDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DeafTerNoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents VPTerNoDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents NameTerNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DateSearchedDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DateFoundDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents LatDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents LongDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents LastVisitedDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

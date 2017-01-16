@@ -96,6 +96,12 @@
       <DependentUpon>ASLTerriroryManager.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ColumnViewSelect.Designer.vb">
+      <DependentUpon>ColumnViewSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnViewSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Contact.vb" />
     <Compile Include="Data.vb" />
     <Compile Include="DS.Designer.vb">
@@ -127,6 +133,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ASLTerriroryManager.resx">
       <DependentUpon>ASLTerriroryManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColumnViewSelect.resx">
+      <DependentUpon>ColumnViewSelect.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

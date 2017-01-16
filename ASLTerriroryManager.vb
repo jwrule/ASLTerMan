@@ -25,7 +25,7 @@ Public Class ASLTerriroryManager
     End Sub
 #Region "Methods"
 
-    Private Sub BuildContact(dataRow As DataRow)
+    Private Sub BuildContact(dataRow As DS.ContactsRow)
         Dim contactRow As New Generic.List(Of String)
         For Each field In dataRow.ItemArray
             If field.ToString IsNot Nothing Then
@@ -36,32 +36,37 @@ Public Class ASLTerriroryManager
         _contact.UID = contactRow(0)
         _contact.Agent = contactRow(1)
         _contact.FirstName = contactRow(2)
-        _contact.LastName = contactRow(3)
-        _contact.Address = contactRow(4)
-        _contact.City = contactRow(5)
-        _contact.State = contactRow(6)
-        _contact.Zip = contactRow(7)
-        _contact.VP1 = contactRow(8)
-        _contact.VP2 = contactRow(9)
-        _contact.VP3 = contactRow(10)
-        _contact.Notes = contactRow(11)
-        _contact.NameFrom = contactRow(12)
-        _contact.DoNotCall = contactRow(13)
-        _contact.DeafTerNo = contactRow(14)
-        _contact.VpTerNo = contactRow(15)
-        _contact.NameTerNo = contactRow(16)
-        _contact.DateSearched = contactRow(17)
-        _contact.DateFound = contactRow(18)
-        _contact.Latitude = contactRow(19)
-        _contact.Longitude = contactRow(20)
-        _contact.LastVisit = contactRow(21)
+        _contact.MiddleName = contactRow(3)
+        _contact.LastName = contactRow(4)
+        _contact.SpouseFirstName = contactRow(5)
+        _contact.SpouseMiddleName = contactRow(6)
+        _contact.Address = contactRow(7)
+        _contact.City = contactRow(8)
+        _contact.State = contactRow(9)
+        _contact.Zip = contactRow(10)
+        _contact.VP1 = contactRow(11)
+        _contact.VP2 = contactRow(12)
+        _contact.VP3 = contactRow(13)
+        _contact.Notes = contactRow(14)
+        _contact.NameFrom = contactRow(15)
+        _contact.DoNotCall = contactRow(16)
+        _contact.DeafTerNo = contactRow(17)
+        _contact.VpTerNo = contactRow(18)
+        _contact.DateSearched = contactRow(19)
+        _contact.DateFound = contactRow(20)
+        _contact.Latitude = contactRow(21)
+        _contact.Longitude = contactRow(22)
+        _contact.LastVisit = contactRow(23)
         PopulateFields()
 
     End Sub
     Private Sub PopulateFields()
         tbAgent.Text = _contact.Agent
         tbFirstName.Text = _contact.FirstName
+        tbMiddleName.Text = _contact.MiddleName
         tbLastName.Text = _contact.LastName
+        tbSpouseFirstName.Text = _contact.SpouseFirstName
+        tbSpouseMiddleName.Text = _contact.SpouseMiddleName
         tbAddress.Text = _contact.Address
         tbCity.Text = _contact.City
         tbState.Text = _contact.State
@@ -74,7 +79,6 @@ Public Class ASLTerriroryManager
         tbDoNotCall.Text = _contact.DoNotCall
         tbDeafTerNo.Text = _contact.DeafTerNo
         tbVpTerNo.Text = _contact.VpTerNo
-        tbNameTerNo.Text = _contact.NameTerNo
         tbSearched.Text = _contact.DateSearched
         tbFound.Text = _contact.DateFound
         tbLat.Text = _contact.Latitude
@@ -135,7 +139,7 @@ Public Class ASLTerriroryManager
     Private Sub AddContact()
         _firstload = True
         Dim uid As Integer = GenerateUID()
-        DS.Contacts.AddContactsRow(uid, vbNull, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+        DS.Contacts.AddContactsRow(uid, vbNull, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
         _ta.Update(DS.Contacts)
         lblRecordsCount.Text = dgvContacts.Rows.Count
     End Sub
@@ -238,9 +242,9 @@ Public Class ASLTerriroryManager
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim uid As String = dgvContacts.CurrentRow.DataBoundItem(0)
 
-        _ta.UpdateContact(tbAgent.Text, tbFirstName.Text, tbLastName.Text, tbAddress.Text, tbCity.Text, tbState.Text, tbZip.Text _
+        _ta.UpdateContact(tbAgent.Text, tbFirstName.Text, tbMiddleName.Text, tbLastName.Text, tbSpouseFirstName.Text, tbSpouseMiddleName.Text, tbAddress.Text, tbCity.Text, tbState.Text, tbZip.Text _
        , tbVP1.Text, tbVP2.Text, tbVP3.Text, tbNotes.Text, tbNameFrom.Text, tbDoNotCall.Text, tbDeafTerNo.Text, tbVpTerNo.Text _
-       , tbNameTerNo.Text, tbSearched.Text, tbFound.Text, tbLat.Text, tbLong.Text, uid)
+       , tbSearched.Text, tbFound.Text, tbLat.Text, tbLong.Text, uid)
         MsgBox("Contact information saved...")
         _ta.Fill(DS.Contacts)
         lblRecordsCount.Text = dgvContacts.Rows.Count
@@ -310,6 +314,39 @@ Public Class ASLTerriroryManager
             _ta.FillDoNotCalls(DS.Contacts)
         End If
         lblRecordsCount.Text = dgvContacts.Rows.Count
+    End Sub
+    Private Sub cbSelectColumnsToView_CheckedChanged(sender As Object, e As EventArgs) Handles cbSelectColumnsToView.CheckedChanged
+        If cbSelectColumnsToView.CheckState = CheckState.Checked Then
+
+            ' initialize the form
+            My.Forms.ColumnViewSelect.AutoSize = True
+            My.Forms.ColumnViewSelect.AutoSizeMode = AutoSizeMode.GrowOnly
+            My.Forms.ColumnViewSelect.Text = "Select Columns to View"
+            My.Forms.ColumnViewSelect.Width = 325
+            My.Forms.ColumnViewSelect.StartPosition = FormStartPosition.CenterScreen
+
+            'fill form with checboxes to select
+            Dim loc As Integer = -15
+            For Each column As DataGridViewColumn In dgvContacts.Columns
+                Dim checkColumn As CheckBox = New CheckBox
+                checkColumn.Name = column.Index
+                checkColumn.Text = column.HeaderText.ToString
+                checkColumn.CheckState = CheckState.Checked
+
+                If checkColumn.Name = "0" Or checkColumn.Name = "13" Or checkColumn.Name = "14" Or checkColumn.Name = "16" _
+                    Or checkColumn.Name = "22" Or checkColumn.Name = "23" Then
+                    checkColumn.CheckState = CheckState.Unchecked
+                End If
+                loc += 25
+                checkColumn.Location = New Point(10, loc)
+                My.Forms.ColumnViewSelect.Controls.Add(checkColumn)
+            Next
+        End If
+        'show the form
+
+        My.Forms.ColumnViewSelect.Show()
+        cbSelectColumnsToView.CheckState = CheckState.Unchecked
+
     End Sub
 
 #End Region
@@ -510,28 +547,28 @@ Public Class ASLTerriroryManager
     Private Sub NameSearchBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles NameSearchBindingSource.CurrentItemChanged
         _tans.Update(DS.Name_Search_Territories)
     End Sub
-    Private Sub dgvNameSearchTer_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvNameSearchTer.CellEnter
-        Try
-            Dim terno As String = dgvNameSearchTer.CurrentRow.DataBoundItem(0)
-            rtbNameSearchTer.Clear()
+    'Private Sub dgvNameSearchTer_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvNameSearchTer.CellEnter
+    '    Try
+    '        Dim terno As String = dgvNameSearchTer.CurrentRow.DataBoundItem(0)
+    '        rtbNameSearchTer.Clear()
 
-            rtbNameSearchTer.AppendText("Territory No: " & terno & Environment.NewLine)
-            rtbNameSearchTer.AppendText(Environment.NewLine)
+    '        rtbNameSearchTer.AppendText("Territory No: " & terno & Environment.NewLine)
+    '        rtbNameSearchTer.AppendText(Environment.NewLine)
 
-            For Each Contact As DataRow In DS.Contacts.Rows
-                BuildContact(Contact)
-                If _contact.NameTerNo IsNot Nothing And _contact.NameTerNo = terno.Trim Then
-                    rtbNameSearchTer.AppendText(_contact.FirstName & " " & _contact.LastName & Environment.NewLine)
-                    rtbNameSearchTer.AppendText(Environment.NewLine)
-                    rtbNameSearchTer.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
-                    rtbNameSearchTer.AppendText(Environment.NewLine)
-                End If
-            Next
+    '        For Each Contact As DataRow In DS.Contacts.Rows
+    '            BuildContact(Contact)
+    '            If _contact.NameTerNo IsNot Nothing And _contact.NameTerNo = terno.Trim Then
+    '                rtbNameSearchTer.AppendText(_contact.FirstName & " " & _contact.LastName & Environment.NewLine)
+    '                rtbNameSearchTer.AppendText(Environment.NewLine)
+    '                rtbNameSearchTer.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
+    '                rtbNameSearchTer.AppendText(Environment.NewLine)
+    '            End If
+    '        Next
 
-        Catch ex As Exception
+    '    Catch ex As Exception
 
-        End Try
-    End Sub
+    '    End Try
+    'End Sub
     Private Sub btnNameSearchAdd_Click(sender As Object, e As EventArgs) Handles btnNameSearchAdd.Click
         DS.Name_Search_Territories.AddName_Search_TerritoriesRow("new", "", "", "")
         _tans.Update(DS.Name_Search_Territories)
@@ -689,6 +726,13 @@ Public Class ASLTerriroryManager
         MsgBox("ASL Territory Manager has been restored from C:\Dropbox\ASl Territory Manager\ASL_Territory_Manager.bak")
     End Sub
 
+    Private Sub tabManageContacts_Click(sender As Object, e As EventArgs) Handles tabManageContacts.Click
+
+    End Sub
+
+    Private Sub PrintDialog1_Disposed(sender As Object, e As EventArgs) Handles PrintDialog1.Disposed
+
+    End Sub
 
 
 
