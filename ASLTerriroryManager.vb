@@ -10,13 +10,27 @@ Public Class ASLTerriroryManager
     Dim _tavps As DSTableAdapters.VP_Search_TerritoriesTableAdapter = New DSTableAdapters.VP_Search_TerritoriesTableAdapter
     Dim _tans As DSTableAdapters.Name_Search_TerritoriesTableAdapter = New DSTableAdapters.Name_Search_TerritoriesTableAdapter
     Dim _tams As DSTableAdapters.MapsTableAdapter = New DSTableAdapters.MapsTableAdapter
-
     Dim _firstload As Boolean = True
+    Dim _canManage As Boolean
 
 #End Region
     Private Sub ASLTerriroryManager_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Authorize()
+        _canManage = My.Forms.Authentication._canManage
 
-        ' _ta.Fill(DS.Contacts)
+        If _canManage Then
+            'do nothing and open form
+        Else
+            'remove database edit options from form
+            gbContactManage.Visible = False
+            btnGetCoord.Visible = False
+            For i = 6 To 1 Step -1
+                TabControl.TabPages.RemoveAt(i)
+            Next
+            TabControl.TabPages(0).Text = "View Contacts"
+            Me.Text = "ASL Contact Viewer"
+        End If
+
         _firstload = False
         Try
             BuildContact(DS.Contacts.Rows.Find(dgvContacts.CurrentRow.DataBoundItem(0)))
@@ -24,7 +38,10 @@ Public Class ASLTerriroryManager
         End Try
     End Sub
 #Region "Methods"
-
+    Private Sub Authorize()
+        Dim form As New Authentication
+        Authentication.ShowDialog()
+    End Sub
     Private Sub BuildContact(dataRow As DS.ContactsRow)
         Dim contactRow As New Generic.List(Of String)
         For Each field In dataRow.ItemArray
@@ -85,6 +102,7 @@ Public Class ASLTerriroryManager
         tbLong.Text = _contact.Longitude
         tbLastVisit.Text = _contact.LastVisit
     End Sub
+
     Public Function GenerateUID()
         Dim num As New Random
         Dim uid As String = num.Next(1, 1000000)
@@ -225,7 +243,9 @@ Public Class ASLTerriroryManager
     End Sub
     Private Sub ContactsBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles ContactsBindingSource.CurrentItemChanged
         'If _firstload = True Then Exit Sub
-        _ta.Update(DS.Contacts)
+        If _canManage Then
+            _ta.Update(DS.Contacts)
+        End If
     End Sub
     Private Sub btnAddContact_Click(sender As Object, e As EventArgs) Handles btnAddContact.Click
         AddContact()
@@ -737,6 +757,7 @@ Public Class ASLTerriroryManager
 
 
 #End Region
+
 #End Region
 
 
