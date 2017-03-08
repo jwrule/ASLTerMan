@@ -398,6 +398,7 @@ Public Class ASLTerriroryManager
                     rtbDeafTerritory.AppendText("Agent: " & _contact.Agent & Environment.NewLine)
                     rtbDeafTerritory.AppendText("Address: " & _contact.Address & " " & _contact.City & " " & _contact.State & " " & _contact.Zip & Environment.NewLine)
                     rtbDeafTerritory.AppendText("VP1: " & _contact.VP1 & " VP2: " & _contact.VP2 & " VP3: " & _contact.VP3 & Environment.NewLine)
+                    rtbDeafTerritory.AppendText("Last Contacted: " & _contact.LastVisit & Environment.NewLine)
                     rtbDeafTerritory.AppendText(Environment.NewLine)
                     rtbDeafTerritory.AppendText("Notes: " & _contact.Notes & Environment.NewLine)
                     rtbDeafTerritory.AppendText(Environment.NewLine)

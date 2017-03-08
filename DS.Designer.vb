@@ -6864,33 +6864,36 @@ Namespace DSTableAdapters
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No], [Do No"& _ 
-                "t Call], [First Name],[Middle Name], [Last Name],[Spouse First Name], [Spouse Mi"& _ 
-                "ddle Name], [Last Visited], Lat, Long, [Name From],  Notes, State, UID, [VP Ter "& _ 
-                "No], VP1, VP2, VP3, Zip FROM Contacts WHERE (Address IS NOT NULL) AND ([Do Not C"& _ 
-                "all] IS NULL)"
+            Me._commandCollection(3).CommandText = "SELECT        Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No]," &
+                " [Do Not Call], [First Name], [Middle Name], [Last Name], [Spouse First Name], [" &
+                "Spouse Middle Name], [Last Visited], Lat, Long, [Name From], " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " &
+                "        Notes, State, UID, [VP Ter No], VP1, VP2, VP3, Zip" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Cont" &
+                "acts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Address IS NOT NULL) AND ([Do Not Call] IS NULL) AND (Addres" &
+                "s <> ' ')"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No], [Do No"& _ 
-                "t Call], [First Name],[Middle Name], [Last Name],[Spouse First Name], [Spouse Mi"& _ 
-                "ddle Name], [Last Visited], Lat, Long, [Name From], Notes, State, UID, [VP Ter N"& _ 
-                "o], VP1, VP2, VP3, Zip FROM Contacts WHERE (Address IS NOT NULL)"
+            Me._commandCollection(4).CommandText = "SELECT        Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No]," &
+                " [Do Not Call], [First Name], [Middle Name], [Last Name], [Spouse First Name], [" &
+                "Spouse Middle Name], [Last Visited], Lat, Long, [Name From], " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " &
+                "        Notes, State, UID, [VP Ter No], VP1, VP2, VP3, Zip" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Cont" &
+                "acts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Address IS NOT NULL) AND (Address <> ' ')"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No], [Do No"& _ 
-                "t Call], [First Name],[Middle Name], [Last Name], [Spouse First Name], [Spouse M"& _ 
-                "iddle Name],[Last Visited], Lat, Long, [Name From], Notes, State, UID, [VP Ter N"& _ 
-                "o], VP1, VP2, VP3, Zip FROM Contacts WHERE (VP1 IS NOT NULL) OR (VP2 IS NOT NULL"& _ 
+            Me._commandCollection(5).CommandText = "SELECT Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No], [Do No" &
+                "t Call], [First Name],[Middle Name], [Last Name], [Spouse First Name], [Spouse M" &
+                "iddle Name],[Last Visited], Lat, Long, [Name From], Notes, State, UID, [VP Ter N" &
+                "o], VP1, VP2, VP3, Zip FROM Contacts WHERE (VP1 IS NOT NULL) OR (VP2 IS NOT NULL" &
                 ") OR (VP3 IS NOT NULL)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No], [Do No"& _ 
-                "t Call], [First Name],[Middle Name], [Last Name],[Spouse First Name], [Spouse Mi"& _ 
-                "ddle Name], [Last Visited], Lat, Long, [Name From], Notes, State, UID, [VP Ter N"& _ 
-                "o], VP1, VP2, VP3, Zip FROM Contacts WHERE ([Do Not Call] IS NOT NULL)"
+            Me._commandCollection(6).CommandText = "SELECT        Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No]," &
+                " [Do Not Call], [First Name], [Middle Name], [Last Name], [Spouse First Name], [" &
+                "Spouse Middle Name], [Last Visited], Lat, Long, [Name From], " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " &
+                "        Notes, State, UID, [VP Ter No], VP1, VP2, VP3, Zip" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Cont" &
+                "acts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        ([Do Not Call] IS NOT NULL) AND ([Do Not Call] <> ' ')"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(7).Connection = Me.Connection
