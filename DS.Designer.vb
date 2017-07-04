@@ -6868,8 +6868,8 @@ Namespace DSTableAdapters
                 " [Do Not Call], [First Name], [Middle Name], [Last Name], [Spouse First Name], [" &
                 "Spouse Middle Name], [Last Visited], Lat, Long, [Name From], " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " &
                 "        Notes, State, UID, [VP Ter No], VP1, VP2, VP3, Zip" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Cont" &
-                "acts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Address IS NOT NULL) AND ([Do Not Call] IS NULL) AND (Addres" &
-                "s <> ' ')"
+                "acts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Address IS NOT NULL) AND ([Do Not Call] IS NULL OR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " &
+                "                 [Do Not Call] = ' ') AND (Address <> ' ')"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
@@ -6893,7 +6893,8 @@ Namespace DSTableAdapters
                 " [Do Not Call], [First Name], [Middle Name], [Last Name], [Spouse First Name], [" &
                 "Spouse Middle Name], [Last Visited], Lat, Long, [Name From], " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " &
                 "        Notes, State, UID, [VP Ter No], VP1, VP2, VP3, Zip" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Cont" &
-                "acts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        ([Do Not Call] IS NOT NULL) AND ([Do Not Call] <> ' ')"
+                "acts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        ([Do Not Call] IS NOT NULL) AND ([Do Not Call] <> ' ') AND (A" &
+                "ddress <> ' ')"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(7).Connection = Me.Connection

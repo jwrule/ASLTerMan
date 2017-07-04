@@ -10,7 +10,12 @@ Public Class ASLTerriroryManager
     Dim _tavps As DSTableAdapters.VP_Search_TerritoriesTableAdapter = New DSTableAdapters.VP_Search_TerritoriesTableAdapter
     Dim _tans As DSTableAdapters.Name_Search_TerritoriesTableAdapter = New DSTableAdapters.Name_Search_TerritoriesTableAdapter
     Dim _tams As DSTableAdapters.MapsTableAdapter = New DSTableAdapters.MapsTableAdapter
-    Dim _firstload As Boolean = True
+    Dim _firstLoadContacts = True
+    Dim _firstLoadDeafTer = True
+    Dim _firstLoadVPter = True
+    Dim _firstLoadVPsearchTer = True
+    Dim _firstLoadNameSearchTer = True
+    Dim _firstLoadMapSearchTer = True
     Dim _canManage As Boolean
 
 #End Region
@@ -31,12 +36,14 @@ Public Class ASLTerriroryManager
             Me.Text = "ASL Contact Viewer"
         End If
 
-        _firstload = False
         Try
             BuildContact(DS.Contacts.Rows.Find(dgvContacts.CurrentRow.DataBoundItem(0)))
+            _ta.Connection.Close()
+
         Catch ex As Exception
         End Try
     End Sub
+
 #Region "Methods"
     Private Sub Authorize()
         Dim form As New Authentication
@@ -115,6 +122,19 @@ Public Class ASLTerriroryManager
         Next
         Return uid
     End Function
+
+    Function IsDatabaseClosed() As Boolean
+        If _ta.Connection.State = ConnectionState.Open Or
+                _tadt.Connection.State = ConnectionState.Open Or
+                _tams.Connection.State = ConnectionState.Open Or
+                _tans.Connection.State = ConnectionState.Open Or
+                _tavps.Connection.State = ConnectionState.Open Or
+                _tavpt.Connection.State = ConnectionState.Open Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
     Private Sub UncheckBoxes(ByVal boxName As String)
         For Each control In gbQuickSearch.Controls
 
@@ -147,18 +167,30 @@ Public Class ASLTerriroryManager
         If result = MsgBoxResult.No Then
             Exit Sub
         Else
-            DS.Contacts.RemoveContactsRow(DS.Contacts.Rows(row))
-            _ta.Update(DS.Contacts)
-            lblRecordsCount.Text = dgvContacts.Rows.Count
+            If IsDatabaseClosed() Then
+                DS.Contacts.RemoveContactsRow(DS.Contacts.Rows(row))
+                _ta.Update(DS.Contacts)
+                lblRecordsCount.Text = dgvContacts.Rows.Count
+            Else
+                MsgBox("Another user is currently updating the database.  Please try again.")
+            End If
         End If
 
     End Sub
 
     Private Sub AddContact()
-        _firstload = True
+        _firstLoadContacts = True
         Dim uid As Integer = GenerateUID()
         DS.Contacts.AddContactsRow(uid, vbNull, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
-        _ta.Update(DS.Contacts)
+        Try
+            If IsDatabaseClosed() Then
+                _ta.Update(DS.Contacts)
+            Else
+                MsgBox("Another user is currently updating the database.  Please try again.")
+            End If
+        Catch ex As Exception
+            MsgBox("Unable to add contact. error:" & ex.ToString & " Please try again")
+        End Try
         lblRecordsCount.Text = dgvContacts.Rows.Count
     End Sub
 
@@ -233,6 +265,10 @@ Public Class ASLTerriroryManager
     Private Sub tabManageContacts_Enter(sender As Object, e As EventArgs) Handles tabManageContacts.Enter
         _ta.Fill(DS.Contacts)
         lblRecordsCount.Text = dgvContacts.Rows.Count
+        Try
+            BuildContact(DS.Contacts.Rows.Find(dgvContacts.CurrentRow.DataBoundItem(0)))
+        Catch ex As Exception
+        End Try
     End Sub
     Private Sub dgvContacts_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvContacts.CellClick
         Try
@@ -241,10 +277,14 @@ Public Class ASLTerriroryManager
         End Try
 
     End Sub
-    Private Sub ContactsBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles ContactsBindingSource.CurrentItemChanged
-        'If _firstload = True Then Exit Sub
+    'Private Sub ContactsBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles ContactsBindingSource.ListChanged
+    Private Sub dgvContacts_RowLeave(sender As Object, e As EventArgs) Handles dgvContacts.RowLeave
         If _canManage Then
-            _ta.Update(DS.Contacts)
+            If IsDatabaseClosed() Then
+                _ta.Update(DS.Contacts)
+            Else
+                MsgBox("Another user is currently updating the database.  Please try again.")
+            End If
         End If
     End Sub
     Private Sub btnAddContact_Click(sender As Object, e As EventArgs) Handles btnAddContact.Click
@@ -261,11 +301,14 @@ Public Class ASLTerriroryManager
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim uid As String = dgvContacts.CurrentRow.DataBoundItem(0)
-
-        _ta.UpdateContact(tbAgent.Text, tbFirstName.Text, tbMiddleName.Text, tbLastName.Text, tbSpouseFirstName.Text, tbSpouseMiddleName.Text, tbAddress.Text, tbCity.Text, tbState.Text, tbZip.Text _
-       , tbVP1.Text, tbVP2.Text, tbVP3.Text, tbNotes.Text, tbNameFrom.Text, tbDoNotCall.Text, tbDeafTerNo.Text, tbVpTerNo.Text _
-       , tbSearched.Text, tbFound.Text, tbLat.Text, tbLong.Text, uid)
-        MsgBox("Contact information saved...")
+        If IsDatabaseClosed() Then
+            _ta.UpdateContact(tbAgent.Text, tbFirstName.Text, tbMiddleName.Text, tbLastName.Text, tbSpouseFirstName.Text, tbSpouseMiddleName.Text, tbAddress.Text, tbCity.Text, tbState.Text, tbZip.Text _
+  , tbVP1.Text, tbVP2.Text, tbVP3.Text, tbNotes.Text, tbNameFrom.Text, tbDoNotCall.Text, tbDeafTerNo.Text, tbVpTerNo.Text _
+  , tbSearched.Text, tbFound.Text, tbLat.Text, tbLong.Text, uid)
+            MsgBox("Contact information saved!")
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
         _ta.Fill(DS.Contacts)
         lblRecordsCount.Text = dgvContacts.Rows.Count
     End Sub
@@ -376,8 +419,13 @@ Public Class ASLTerriroryManager
         lblDeafTerCount.Text = dgvDeafTerritories.Rows.Count
     End Sub
 
-    Private Sub DeafTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles DeafTerBindingSource.CurrentItemChanged
-        _tadt.Update(DS.Deaf_Territories)
+    ' Private Sub DeafTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles DeafTerBindingSource.CurrentItemChanged
+    Private Sub dgvDeafTerritories_RowLeave(sender As Object, e As EventArgs) Handles dgvDeafTerritories.RowLeave
+        If IsDatabaseClosed() Then
+            _tadt.Update(DS.Deaf_Territories)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
     End Sub
 
     Private Sub dgvDeafTerritories_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDeafTerritories.CellEnter
@@ -412,7 +460,11 @@ Public Class ASLTerriroryManager
 
     Private Sub btnNewDeafTer_Click(sender As Object, e As EventArgs) Handles btnNewDeafTer.Click
         DS.Deaf_Territories.AddDeaf_TerritoriesRow("new", "", "", "")
-        _tadt.Update(DS.Deaf_Territories)
+        If IsDatabaseClosed() Then
+            _tadt.Update(DS.Deaf_Territories)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
         lblDeafTerCount.Text = dgvDeafTerritories.Rows.Count
     End Sub
     Private Sub btnDelDeafTer_Click(sender As Object, e As EventArgs) Handles btnDelDeafTer.Click
@@ -425,6 +477,14 @@ Public Class ASLTerriroryManager
             lblDeafTerCount.Text = dgvDeafTerritories.Rows.Count
         End If
     End Sub
+    Private Sub btnSaveDeafTer_Click(sender As Object, e As EventArgs) Handles btnSaveDeafTer.Click
+        If IsDatabaseClosed() Then
+            _tadt.Update(DS.Deaf_Territories)
+            MsgBox("Deaf Territory Saved!")
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
+    End Sub
 #End Region
 #Region "VP Territory Events"
     Private Sub tabVPterritories_Enter(sender As Object, e As EventArgs) Handles tabVPterritories.Enter
@@ -432,8 +492,13 @@ Public Class ASLTerriroryManager
         lblVpTerCount.Text = dgvVPTerritory.Rows.Count
     End Sub
 
-    Private Sub VPTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPTerBindingSource.CurrentItemChanged
-        _tavpt.Update(DS.VP_Territories)
+    ' Private Sub VPTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPTerBindingSource.CurrentItemChanged
+    Private Sub dgvVPTerritory_RowLeave(sender As Object, e As EventArgs) Handles dgvVPTerritory.RowLeave
+        If IsDatabaseClosed() Then
+            _tavpt.Update(DS.VP_Territories)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
     End Sub
 
     Private Sub dgvVPTerritoryCellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvVPTerritory.CellEnter
@@ -473,6 +538,14 @@ Public Class ASLTerriroryManager
             lblVpTerCount.Text = dgvVPTerritory.Rows.Count
         End If
     End Sub
+    Private Sub btnSaveVPter_Click(sender As Object, e As EventArgs) Handles btnSaveVPter.Click
+        If IsDatabaseClosed() Then
+            _tavpt.Update(DS.VP_Territories)
+            MsgBox("VP Territory Saved!")
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
+    End Sub
 #End Region
 #Region "VP Search Territory Events"
     Private Sub tabVPsearch_Enter(sender As Object, e As EventArgs) Handles tabVPsearch.Enter
@@ -481,7 +554,8 @@ Public Class ASLTerriroryManager
         lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
     End Sub
 
-    Private Sub VPsearchTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPsearchTerBindingSourrce.CurrentItemChanged
+    ' Private Sub VPsearchTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPsearchTerBindingSourrce.CurrentItemChanged
+    Private Sub dgvVPsearchTer_RowLeave(sender As Object, e As EventArgs) Handles dgvVPsearchTer.RowLeave
         'Try
         '    If dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "1-10" Or
         '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "11-20" Or
@@ -500,7 +574,11 @@ Public Class ASLTerriroryManager
         'Catch ex As Exception
 
         'End Try
-        _tavps.Update(DS.VP_Search_Territories)
+        If IsDatabaseClosed() Then
+            _tavps.Update(DS.VP_Search_Territories)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
     End Sub
     Private Sub dgvVPsearchTerCellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvVPsearchTer.CellEnter
         Try
@@ -546,7 +624,11 @@ Public Class ASLTerriroryManager
     End Sub
     Private Sub btnNewVPsearchTer_Click(sender As Object, e As EventArgs) Handles btnNewVPserchTer.Click
         DS.VP_Search_Territories.AddVP_Search_TerritoriesRow("New", "", "", "", "")
-        _tavps.Update(DS.VP_Search_Territories)
+        If IsDatabaseClosed() Then
+            _tavps.Update(DS.VP_Search_Territories)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
         lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
     End Sub
     Private Sub btnDelVPsearchTer_Click(sender As Object, e As EventArgs) Handles btnDelVPsearchTer.Click
@@ -559,14 +641,28 @@ Public Class ASLTerriroryManager
             lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
         End If
     End Sub
+    Private Sub btnSaveVPsearchTer_Click(sender As Object, e As EventArgs) Handles btnSaveVPsearchTer.Click
+        If IsDatabaseClosed() Then
+            _tavps.Update(DS.VP_Search_Territories)
+            MsgBox("VP Search Search Territory Saved!")
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
+    End Sub
+
 #End Region
 #Region "Name Search Territory Events"
     Private Sub tabNameTerritories_Enter(sender As Object, e As EventArgs) Handles tabNameTerritories.Enter
         _tans.Fill(DS.Name_Search_Territories)
         lblNameSearchTerCount.Text = dgvNameSearchTer.Rows.Count
     End Sub
-    Private Sub NameSearchBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles NameSearchBindingSource.CurrentItemChanged
-        _tans.Update(DS.Name_Search_Territories)
+    'Private Sub NameSearchBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles NameSearchBindingSource.CurrentItemChanged
+    Private Sub dgvNameSearchTer_RowLeave(sender As Object, e As EventArgs) Handles dgvNameSearchTer.RowLeave
+        If IsDatabaseClosed() Then
+            _tans.Update(DS.Name_Search_Territories)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
     End Sub
     'Private Sub dgvNameSearchTer_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvNameSearchTer.CellEnter
     '    Try
@@ -592,7 +688,11 @@ Public Class ASLTerriroryManager
     'End Sub
     Private Sub btnNameSearchAdd_Click(sender As Object, e As EventArgs) Handles btnNameSearchAdd.Click
         DS.Name_Search_Territories.AddName_Search_TerritoriesRow("new", "", "", "")
-        _tans.Update(DS.Name_Search_Territories)
+        If IsDatabaseClosed() Then
+            _tans.Update(DS.Name_Search_Territories)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
         lblNameSearchTerCount.Text = dgvNameSearchTer.Rows.Count
     End Sub
     Private Sub btnNameSearchDel_Click(sender As Object, e As EventArgs) Handles btnNameSearchDel.Click
@@ -605,24 +705,37 @@ Public Class ASLTerriroryManager
             lblNameSearchTerCount.Text = dgvNameSearchTer.Rows.Count
         End If
     End Sub
+    Private Sub btnSaveNameSearchTer_Click(sender As Object, e As EventArgs) Handles btnSaveNameSearchTer.Click
+        If IsDatabaseClosed() Then
+            _tans.Update(DS.Name_Search_Territories)
+            MsgBox("Name Search Territory Saved!")
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
+    End Sub
 #End Region
 #Region "Map Search Territory Events"
     Private Sub tabMapSearchTer_Enter(sender As Object, e As EventArgs) Handles tabMapSearchTer.Enter
         _tams.Fill(DS.Maps)
         lblMapTerCount.Text = dgvMapsSearchTer.Rows.Count
     End Sub
-    Private Sub MapsBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles MapsBindingSource.CurrentItemChanged
-        _tams.Update(DS.Maps)
+    'Private Sub MapsBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles MapsBindingSource.CurrentItemChanged
+    Private Sub dgvMapSearchTer_RowLeave(sender As Object, e As EventArgs) Handles dgvMapsSearchTer.RowLeave
+        If IsDatabaseClosed() Then
+            _tams.Update(DS.Maps)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
     End Sub
     Private Sub dgvMapsSearchTer_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvMapsSearchTer.CellEnter
         Try
-            _firstload = True
+            _firstLoadMapSearchTer = True
             For Each cell As DataGridViewCell In dgvMapsSearchTer.CurrentRow.Cells
                 If Not String.IsNullOrEmpty(cell.Value.ToString) Then
-                    _firstload = False
+                    _firstLoadMapSearchTer = False
                 End If
             Next
-            If _firstload = False Then
+            If _firstLoadMapSearchTer = False Then
                 Dim ter As New Territory("map")
                 CreateMap(ter.Latitude, ter.Longitude, ter.TerNo)
                 rtbNameSearchTer.Clear()
@@ -634,7 +747,11 @@ Public Class ASLTerriroryManager
     End Sub
     Private Sub btnNewMap_Click(sender As Object, e As EventArgs) Handles btnNewMap.Click
         DS.Maps.AddMapsRow("new", "", "", "", "", "", "")
-        _tams.Update(DS.Maps)
+        If IsDatabaseClosed() Then
+            _tams.Update(DS.Maps)
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
+        End If
         lblMapTerCount.Text = dgvMapsSearchTer.Rows.Count
     End Sub
     Private Sub btnDelMap_Click(sender As Object, e As EventArgs) Handles btnDelMap.Click
@@ -645,6 +762,14 @@ Public Class ASLTerriroryManager
             Dim row As Integer = dgvMapsSearchTer.CurrentRow.Index
             DS.Maps.RemoveMapsRow(DS.Maps.Rows(row))
             lblMapTerCount.Text = dgvMapsSearchTer.Rows.Count
+        End If
+    End Sub
+    Private Sub btnSaveMapSearchTer_Click(sender As Object, e As EventArgs) Handles btnSaveMapSearchTer.Click
+        If IsDatabaseClosed() Then
+            _tams.Update(DS.Maps)
+            MsgBox("Map Search Territory Saved!")
+        Else
+            MsgBox("Another user is currently updating the database.  Please try again.")
         End If
     End Sub
 #End Region
@@ -754,7 +879,6 @@ Public Class ASLTerriroryManager
     Private Sub PrintDialog1_Disposed(sender As Object, e As EventArgs) Handles PrintDialog1.Disposed
 
     End Sub
-
 
 
 #End Region

@@ -624,7 +624,8 @@ SELECT UID, Agent, [First Name], [Middle Name], [Last Name], [Spouse First Name]
                     <CommandText>SELECT        Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No], [Do Not Call], [First Name], [Middle Name], [Last Name], [Spouse First Name], [Spouse Middle Name], [Last Visited], Lat, Long, [Name From], 
                          Notes, State, UID, [VP Ter No], VP1, VP2, VP3, Zip
 FROM            Contacts
-WHERE        (Address IS NOT NULL) AND ([Do Not Call] IS NULL) AND (Address &lt;&gt; ' ')</CommandText>
+WHERE        (Address IS NOT NULL) AND ([Do Not Call] IS NULL OR
+                         [Do Not Call] = ' ') AND (Address &lt;&gt; ' ')</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -654,7 +655,7 @@ WHERE        (Address IS NOT NULL) AND (Address &lt;&gt; ' ')</CommandText>
                     <CommandText>SELECT        Address, Agent, City, [Date Found], [Date Searched], [Deaf Ter No], [Do Not Call], [First Name], [Middle Name], [Last Name], [Spouse First Name], [Spouse Middle Name], [Last Visited], Lat, Long, [Name From], 
                          Notes, State, UID, [VP Ter No], VP1, VP2, VP3, Zip
 FROM            Contacts
-WHERE        ([Do Not Call] IS NOT NULL) AND ([Do Not Call] &lt;&gt; ' ')</CommandText>
+WHERE        ([Do Not Call] IS NOT NULL) AND ([Do Not Call] &lt;&gt; ' ') AND (Address &lt;&gt; ' ')</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
