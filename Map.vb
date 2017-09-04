@@ -20,8 +20,8 @@
         Dim page As New RichTextBox
         page.AppendText("<!DOCTYPE html>" & Environment.NewLine)
         page.AppendText("<html>" & Environment.NewLine)
-        page.AppendText("<meta http-equiv='X-UA-Compatible' content='IE=8' />")
         page.AppendText("<head>" & Environment.NewLine)
+        page.AppendText("<meta http-equiv='X-UA-Compatible' content='IE=Edge' />" & Environment.NewLine)
         page.AppendText(" <style type='text/css'>" & Environment.NewLine)
         page.AppendText(" html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}" & Environment.NewLine)
         page.AppendText("  </style>" & Environment.NewLine)

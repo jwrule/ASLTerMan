@@ -169,6 +169,7 @@ Partial Class ASLTerriroryManager
         Me.PrintedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VPsearchTerBindingSourrce = New System.Windows.Forms.BindingSource(Me.components)
         Me.tabMapSearchTer = New System.Windows.Forms.TabPage()
+        Me.btnSaveMapSearchTer = New System.Windows.Forms.Button()
         Me.lblMapTerCount = New System.Windows.Forms.Label()
         Me.lblMapTer = New System.Windows.Forms.Label()
         Me.btnPrint3 = New System.Windows.Forms.Button()
@@ -187,6 +188,7 @@ Partial Class ASLTerriroryManager
         Me.MapsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.gbxTerMap = New System.Windows.Forms.GroupBox()
         Me.tabNameTerritories = New System.Windows.Forms.TabPage()
+        Me.btnSaveNameSearchTer = New System.Windows.Forms.Button()
         Me.lblNameSearchTerCount = New System.Windows.Forms.Label()
         Me.lblNameSearchTer = New System.Windows.Forms.Label()
         Me.btnPrint4 = New System.Windows.Forms.Button()
@@ -276,8 +278,6 @@ Partial Class ASLTerriroryManager
         Me.LastVisitedDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AgentDataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstNameDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnSaveMapSearchTer = New System.Windows.Forms.Button()
-        Me.btnSaveNameSearchTer = New System.Windows.Forms.Button()
         Me.TabControl.SuspendLayout()
         Me.tabManageContacts.SuspendLayout()
         Me.gbQuickSearch.SuspendLayout()
@@ -1581,6 +1581,15 @@ Partial Class ASLTerriroryManager
         Me.tabMapSearchTer.Text = "Manage Map Search Territories"
         Me.tabMapSearchTer.UseVisualStyleBackColor = True
         '
+        'btnSaveMapSearchTer
+        '
+        Me.btnSaveMapSearchTer.Location = New System.Drawing.Point(447, 180)
+        Me.btnSaveMapSearchTer.Name = "btnSaveMapSearchTer"
+        Me.btnSaveMapSearchTer.Size = New System.Drawing.Size(75, 23)
+        Me.btnSaveMapSearchTer.TabIndex = 11
+        Me.btnSaveMapSearchTer.Text = "Save All"
+        Me.btnSaveMapSearchTer.UseVisualStyleBackColor = True
+        '
         'lblMapTerCount
         '
         Me.lblMapTerCount.AutoSize = True
@@ -1726,6 +1735,15 @@ Partial Class ASLTerriroryManager
         Me.tabNameTerritories.TabIndex = 5
         Me.tabNameTerritories.Text = "Manage Name Search Territories"
         Me.tabNameTerritories.UseVisualStyleBackColor = True
+        '
+        'btnSaveNameSearchTer
+        '
+        Me.btnSaveNameSearchTer.Location = New System.Drawing.Point(485, 195)
+        Me.btnSaveNameSearchTer.Name = "btnSaveNameSearchTer"
+        Me.btnSaveNameSearchTer.Size = New System.Drawing.Size(75, 23)
+        Me.btnSaveNameSearchTer.TabIndex = 12
+        Me.btnSaveNameSearchTer.Text = "Save All"
+        Me.btnSaveNameSearchTer.UseVisualStyleBackColor = True
         '
         'lblNameSearchTerCount
         '
@@ -2371,24 +2389,6 @@ Partial Class ASLTerriroryManager
         Me.FirstNameDataGridViewTextBoxColumn3.HeaderText = "First Name"
         Me.FirstNameDataGridViewTextBoxColumn3.Name = "FirstNameDataGridViewTextBoxColumn3"
         Me.FirstNameDataGridViewTextBoxColumn3.Width = 76
-        '
-        'btnSaveMapSearchTer
-        '
-        Me.btnSaveMapSearchTer.Location = New System.Drawing.Point(447, 180)
-        Me.btnSaveMapSearchTer.Name = "btnSaveMapSearchTer"
-        Me.btnSaveMapSearchTer.Size = New System.Drawing.Size(75, 23)
-        Me.btnSaveMapSearchTer.TabIndex = 11
-        Me.btnSaveMapSearchTer.Text = "Save All"
-        Me.btnSaveMapSearchTer.UseVisualStyleBackColor = True
-        '
-        'btnSaveNameSearchTer
-        '
-        Me.btnSaveNameSearchTer.Location = New System.Drawing.Point(485, 195)
-        Me.btnSaveNameSearchTer.Name = "btnSaveNameSearchTer"
-        Me.btnSaveNameSearchTer.Size = New System.Drawing.Size(75, 23)
-        Me.btnSaveNameSearchTer.TabIndex = 12
-        Me.btnSaveNameSearchTer.Text = "Save All"
-        Me.btnSaveNameSearchTer.UseVisualStyleBackColor = True
         '
         'ASLTerriroryManager
         '

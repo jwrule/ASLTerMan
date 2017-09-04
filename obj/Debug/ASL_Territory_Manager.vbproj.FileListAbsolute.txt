@@ -12,4 +12,3 @@ C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.xml
 C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.pdb
 C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.ColumnViewSelect.resources
 C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Teritory_Manager.Authentication.resources
-C:\Users\Jason\Source\Repos\ASLTerMan\obj\Debug\ASL_Territory_Manager.vbprojResolveAssemblyReference.cache
