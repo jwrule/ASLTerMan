@@ -549,49 +549,34 @@ Public Class ASLTerriroryManager
 #End Region
 #Region "VP Search Territory Events"
     Private Sub tabVPsearch_Enter(sender As Object, e As EventArgs) Handles tabVPsearch.Enter
+        dgvVPsearchTer.Capture = False
         dgvVPsearchTer.Columns(0).Visible = False
         _tavps.Fill(DS.VP_Search_Territories)
         lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
+
     End Sub
 
-    ' Private Sub VPsearchTerBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles VPsearchTerBindingSourrce.CurrentItemChanged
     Private Sub dgvVPsearchTer_RowLeave(sender As Object, e As EventArgs) Handles dgvVPsearchTer.RowLeave
-        'Try
-        '    If dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "1-10" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "11-20" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "21-30" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "31-40" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "41-50" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "51-60" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "61-70" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "71-80" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "81-90" Or
-        '    dgvVPsearchTer.CurrentRow.DataBoundItem(1) <> "91-100" Then
-        '        MsgBox("Please enter only one of the following values: 1-10, 11-20 , 21-30 , 31-40, 41-50, 51-60, 61-70, 71-80, 81-90, 91-100")
-        '        dgvVPsearchTer.CurrentRow.DataBoundItem(1) = ""
-        '        Exit Sub
-        '    End If
-        'Catch ex As Exception
-
-        'End Try
         If IsDatabaseClosed() Then
             _tavps.Update(DS.VP_Search_Territories)
         Else
             MsgBox("Another user is currently updating the database.  Please try again.")
         End If
     End Sub
+
     Private Sub dgvVPsearchTerCellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgvVPsearchTer.CellEnter
         Try
             rtbVPsearchTer.Clear()
-            Dim terGroup As String = dgvVPsearchTer.CurrentRow.DataBoundItem(1)
-            Dim prefix As String = dgvVPsearchTer.CurrentRow.DataBoundItem(0)
+            Dim terGroup As String = dgvVPsearchTer.CurrentRow.DataBoundItem(1).ToString.Trim
+            Dim prefix As String = dgvVPsearchTer.CurrentRow.DataBoundItem(0).ToString.Trim
             Dim number As String = 0
             Dim terno As String = prefix & " Territories: " & terGroup
             Dim x As Double
-
+            Dim contactsTable As DataTable
 
             ' Build the territory
             If Not String.IsNullOrWhiteSpace(terGroup) Then
+
                 Dim startCount As Integer = terGroup.Substring(0, 2)
                 If startCount = -1 Then startCount = 1
                 Dim endCount As Integer = terGroup.Substring(3)
@@ -600,7 +585,9 @@ Public Class ASLTerriroryManager
 
                 rtbVPsearchTer.AppendText("Territory: " & prefix.Trim & "  Territory Group: " & terGroup & Environment.NewLine)
                 rtbVPsearchTer.AppendText(Environment.NewLine)
-                For buildIt = startCount To endCount
+
+                ' build the number
+                For buildNumber = startCount To endCount
 
                     For incNum = 1 To 100
                         If number < 10 Then
@@ -609,19 +596,40 @@ Public Class ASLTerriroryManager
 
                         If number > 9 AndAlso number < 100 Then number = number.Insert(0, "00")
                         If number.ToString.Length = 3 Then number = number.Insert(0, "0")
+
+                        ' is number already in DB?
+                        Dim inDatabase As Boolean = False
+                        Dim phoneNo As String = prefix.Trim & "-" & number
+                        contactsTable = _ta.GetDataIsNumberInDatabase(phoneNo)
+                        If contactsTable.Rows.Count > 0 Then
+                            inDatabase = True
+                        End If
+
+                        'determine side of page and put number in territory 
                         x = (Conversion.Int(number) / 2)
                         If x = Int(x) Then
-                            rtbVPsearchTer.AppendText(prefix.Trim & "-" & number)
-                        Else : rtbVPsearchTer.AppendText("                                                                   " & prefix.Trim & "-" & number & Environment.NewLine)
+                            If Not inDatabase Then
+                                rtbVPsearchTer.AppendText(prefix.Trim & "-" & number)
+                            Else
+                                rtbVPsearchTer.AppendText("Number in DB")
+                            End If
+                        Else
+                            If Not inDatabase Then
+                                rtbVPsearchTer.AppendText(prefix.PadLeft(67) & "-" & number & Environment.NewLine)
+                            Else
+                                rtbVPsearchTer.AppendText("Number in DB".PadLeft(72) & Environment.NewLine)
+                            End If
                         End If
                         number += 1
                     Next
                 Next
             End If
+
         Catch ex As Exception
 
         End Try
     End Sub
+
     Private Sub btnNewVPsearchTer_Click(sender As Object, e As EventArgs) Handles btnNewVPserchTer.Click
         DS.VP_Search_Territories.AddVP_Search_TerritoriesRow("New", "", "", "", "")
         If IsDatabaseClosed() Then
@@ -631,6 +639,7 @@ Public Class ASLTerriroryManager
         End If
         lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
     End Sub
+
     Private Sub btnDelVPsearchTer_Click(sender As Object, e As EventArgs) Handles btnDelVPsearchTer.Click
         Dim result = MsgBox("Are you sure you want to delete this territory?", MsgBoxStyle.YesNo, "Delete Territory?")
         If result = MsgBoxResult.No Then
@@ -641,6 +650,7 @@ Public Class ASLTerriroryManager
             lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
         End If
     End Sub
+
     Private Sub btnSaveVPsearchTer_Click(sender As Object, e As EventArgs) Handles btnSaveVPsearchTer.Click
         If IsDatabaseClosed() Then
             _tavps.Update(DS.VP_Search_Territories)
