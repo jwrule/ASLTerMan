@@ -549,7 +549,6 @@ Public Class ASLTerriroryManager
 #End Region
 #Region "VP Search Territory Events"
     Private Sub tabVPsearch_Enter(sender As Object, e As EventArgs) Handles tabVPsearch.Enter
-        dgvVPsearchTer.Capture = False
         dgvVPsearchTer.Columns(0).Visible = False
         _tavps.Fill(DS.VP_Search_Territories)
         lblVpSearchTerCount.Text = dgvVPsearchTer.Rows.Count
